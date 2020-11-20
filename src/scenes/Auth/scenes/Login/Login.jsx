@@ -1,7 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./login.scss";
 
-const Login = () => {
+const Login = (props) => {
+  console.log(props);
   return (
     <div className="login">
       <h1 className="login__title">Login</h1>
@@ -10,6 +12,13 @@ const Login = () => {
         sint libero vero vitae eos maxime a sed at nesciunt! Dolorem, doloremque
         quia cum suscipit ducimus tenetur consectetur adipisci voluptate.
       </p>
+      <Link
+        to={{
+          pathname: "/auth/register",
+        }}
+      >
+        Register
+      </Link>
     </div>
   );
 };

@@ -2,7 +2,7 @@ import AuthLayout from "../components/layouts/AuthLayout/AuthLayout";
 import Login from "../scenes/Auth/scenes/Login/Login";
 import Register from "../scenes/Auth/scenes/Register/Register";
 
-export default [
+export const PUBLICROUTERS = [
   {
     path: "/auth",
     component: AuthLayout,
@@ -11,19 +11,21 @@ export default [
       {
         path: "/auth/login",
         component: Login,
-        isPublic: true,
         exact: true,
+        isLogued: false, //redirect to - Si es true el usuario puede ingresar aún si está logueado
       },
       {
         path: "/auth/register",
         component: Register,
-        isPublic: true,
         exact: true,
+        isLogued: false, //redirect to /
       },
     ],
   },
   {},
 ];
+
+export const PrivateRouters = [{}];
 
 /*
     Example with Roles
