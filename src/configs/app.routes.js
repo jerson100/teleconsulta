@@ -2,6 +2,7 @@ import AuthLayout from "../components/layouts/AuthLayout/AuthLayout";
 import Login from "../scenes/Auth/scenes/Login/Login";
 import ForgotMyPassword from "../scenes/Auth/scenes/ForgotMyPassword/ForgotMyPassword";
 import Register from "../scenes/Auth/scenes/Register";
+import Home from "../scenes/Home/Home";
 
 export const PUBLICROUTERS = [
   {
@@ -29,7 +30,11 @@ export const PUBLICROUTERS = [
       },
     ],
   },
-  {},
+  {
+    path: "/",
+    component: Home,
+    exact: false,
+  },
 ];
 
 export const PrivateRouters = [{}];
