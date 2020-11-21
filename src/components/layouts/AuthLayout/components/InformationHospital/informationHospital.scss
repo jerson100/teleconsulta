@@ -1,0 +1,25 @@
+.information-hospital {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  &__title {
+    padding: 0.5rem;
+    width: 100%;
+  }
+  &__title,
+  &__subtitle {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 1.4rem;
+  }
+  &__section {
+    flex-basis: 400px;
+    max-width: 400px;
+    text-align: center;
+    padding: 0.5rem;
+  }
+  &__text {
+    color: rgba(191, 182, 182, 1);
+    text-align: center;
+  }
+}

@@ -1,0 +1,10 @@
+@import "../../../../scss/utilities/variables";
+.login {
+  &__content {
+    @media ($media-md) {
+    }
+  }
+  &__restart-password {
+    text-align: center;
+  }
+}

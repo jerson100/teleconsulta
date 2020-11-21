@@ -1,6 +1,7 @@
 import AuthLayout from "../components/layouts/AuthLayout/AuthLayout";
 import Login from "../scenes/Auth/scenes/Login/Login";
-import Register from "../scenes/Auth/scenes/Register/Register";
+import ForgotMyPassword from "../scenes/Auth/scenes/ForgotMyPassword/ForgotMyPassword";
+import Register from "../scenes/Auth/scenes/Register";
 
 export const PUBLICROUTERS = [
   {
@@ -13,6 +14,12 @@ export const PUBLICROUTERS = [
         component: Login,
         exact: true,
         isLogued: false, //redirect to - Si es true el usuario puede ingresar aún si está logueado
+      },
+      {
+        path: "/auth/forgoutpassword",
+        component: ForgotMyPassword,
+        exact: true,
+        isLogued: false, //redirect to /
       },
       {
         path: "/auth/register",

@@ -1,24 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { Form, Input, Button } from "antd";
 import "./login.scss";
+import AuthWrapper from "../../components/FormWrapper/FormWrapper";
 
 const Login = (props) => {
-  console.log(props);
+  const [loading, setloading] = useState(false);
+  const [form] = Form.useForm();
+  //   console.log(props);
+  const layout = {
+    labelCol: {
+      span: 8,
+    },
+    wrapperCol: {
+      span: 16,
+    },
+  };
+
+  const onFinish = (values) => {
+    console.log(values);
+    // e.preventDefault();
+    setloading(!loading);
+  };
+
   return (
     <div className="login">
-      <h1 className="login__title">Login</h1>
-      <p className="login__content">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Corrupti et
-        sint libero vero vitae eos maxime a sed at nesciunt! Dolorem, doloremque
-        quia cum suscipit ducimus tenetur consectetur adipisci voluptate.
-      </p>
-      <Link
-        to={{
-          pathname: "/auth/register",
-        }}
-      >
-        Register
-      </Link>
+      <AuthWrapper title="Ingresar">
+        <AuthWrapper.Form>
+          <Form {...layout} onFinish={onFinish} form={form}>
+            <Form.Item name="dniruc" label="Dni/Ruc">
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item name="password" label="Contraseña">
+              <Input type="password" />
+            </Form.Item>
+            <Form.Item wrapperCol={{ span: 24 }} style={{ textAlign: "right" }}>
+              <Button htmlType="submit" type="primary" loading={loading}>
+                Ingresar
+              </Button>
+            </Form.Item>
+          </Form>
+        </AuthWrapper.Form>
+        <AuthWrapper.Footer align="center">
+          <Link to="/auth/register">Crear cuenta</Link>
+          <br />
+          <Link to="/auth/forgoutpassword">Me olvidé mi contraseña</Link>
+        </AuthWrapper.Footer>
+      </AuthWrapper>
     </div>
   );
 };

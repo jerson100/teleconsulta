@@ -1,12 +1,58 @@
-import React from "react";
+import React, { useState } from "react";
+import { Button, Form, Input } from "antd";
+import AuthWrapper from "../../components/FormWrapper/FormWrapper";
 import { Link } from "react-router-dom";
 
 const Register = () => {
-  console.log("register");
+  const [loading, setloading] = useState(false);
+  const [form] = Form.useForm();
+  //   console.log(props);
+  const layout = {
+    labelCol: {
+      span: 8,
+    },
+    wrapperCol: {
+      span: 16,
+    },
+  };
+
+  const onFinish = (values) => {
+    console.log(values);
+    // e.preventDefault();
+    setloading(!loading);
+  };
+
   return (
-    <div>
-      <h1>Register</h1>
-      <Link to="/auth/login">Login</Link>
+    <div className="registrar">
+      <AuthWrapper title="Registro">
+        <AuthWrapper.Form>
+          <Form {...layout} onFinish={onFinish} form={form}>
+            <Form.Item name="dniruc" label="Dni/Ruc">
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item name="name" label="Nombres">
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item name="lastname" label="Apellidos">
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item wrapperCol={{ span: 24 }} style={{ textAlign: "right" }}>
+              <Button htmlType="submit" type="primary" loading={loading}>
+                Registrar
+              </Button>
+            </Form.Item>
+          </Form>
+        </AuthWrapper.Form>
+        <AuthWrapper.Footer align="center">
+          <Link
+            to={{
+              pathname: "/auth/login",
+            }}
+          >
+            Ya tengo una cuenta
+          </Link>
+        </AuthWrapper.Footer>
+      </AuthWrapper>
     </div>
   );
 };

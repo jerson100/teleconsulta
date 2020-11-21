@@ -1,0 +1,19 @@
+.formWrapper {
+  padding: 3rem 1.8rem;
+  &__title {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #ffff;
+  }
+  &__footer {
+    &--align-right {
+      text-align: right;
+    }
+    &--align-center {
+      text-align: center;
+    }
+  }
+  label {
+    color: #fff !important;
+  }
+}

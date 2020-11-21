@@ -1,1 +1,1 @@
-export { defult } from "./Register";
+export { default } from "./Register";

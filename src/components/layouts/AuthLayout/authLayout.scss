@@ -1,0 +1,64 @@
+@import "../../../scss/utilities/variables";
+@import "../../../scss/utilities/mixins/background";
+
+.auth-layout {
+  @media (min-width: $media-lg) {
+    display: flex;
+  }
+  &__left {
+    display: none;
+    min-height: 100vh;
+    padding: 1rem;
+    justify-content: center;
+    align-items: center;
+    @include bg-cover;
+    @media (min-width: $media-lg) {
+      display: flex;
+      background-attachment: initial;
+      flex-grow: 1;
+      align-items: flex-end;
+    }
+  }
+  &__right {
+    min-height: 100vh;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    &--cp-img {
+      height: 100%;
+      width: 100%;
+      @include bg-cover;
+      transform: scale(1.06);
+      filter: blur(5px) contrast(1.1);
+      @media (min-width: $media-lg) {
+        background-attachment: initial;
+      }
+      &-container {
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+        overflow: hidden;
+      }
+    }
+    @media (min-width: $media-lg) {
+      flex: 0 0 550px;
+    }
+  }
+  &__content {
+    flex-basis: 350px;
+    max-width: 350px;
+    z-index: 2;
+  }
+
+  .ant-layout {
+    background-color: #000000c2;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 2px rgba(0, 0, 0, 0.83);
+  }
+}
