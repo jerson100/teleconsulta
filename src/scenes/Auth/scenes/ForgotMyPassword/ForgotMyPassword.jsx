@@ -1,10 +1,12 @@
 // import { Form, Button, Input } from "antd";
 import React from "react";
 import { Link } from "react-router-dom";
+import useTitlePage from "../../../../hooks/useTitlePage";
 import AuthWrapper from "../../components/FormWrapper/FormWrapper";
 import "./forgotMyPassword.scss";
 
 const ForgotMyPassword = () => {
+  useTitlePage("Olvidé mi contraseña");
   //   const [loading, setloading] = useState(false);
   //   const [form] = Form.useForm();
   //   //   console.log(props);

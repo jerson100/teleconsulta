@@ -3,10 +3,13 @@ import { Link } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import "./login.scss";
 import AuthWrapper from "../../components/FormWrapper/FormWrapper";
+import useTitlePage from "../../../../hooks/useTitlePage";
 
 const Login = (props) => {
   const [loading, setloading] = useState(false);
   const [form] = Form.useForm();
+  useTitlePage("Login de acceso");
+
   //   console.log(props);
   const layout = {
     labelCol: {

@@ -2,10 +2,14 @@ import React, { useState } from "react";
 import { Button, Form, Input } from "antd";
 import AuthWrapper from "../../components/FormWrapper/FormWrapper";
 import { Link } from "react-router-dom";
+import useTitlePage from "../../../../hooks/useTitlePage";
 
 const Register = () => {
   const [loading, setloading] = useState(false);
   const [form] = Form.useForm();
+
+  useTitlePage("Registro");
+
   //   console.log(props);
   const layout = {
     labelCol: {

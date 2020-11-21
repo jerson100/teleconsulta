@@ -24,7 +24,7 @@ const FormFooter = ({ children, align }) => {
 };
 
 FormFooter.propTypes = {
-  align: PropTypes.oneOfType(["right", "left", "center"]),
+  align: PropTypes.oneOf(["right", "left", "center"]),
 };
 
 FormFooter.defaultProps = {
