@@ -6,7 +6,12 @@ import Home from "../scenes/DashBoard/DashBoard";
 import DashboardUserLayout from "../components/layouts/DashboardUserLayout";
 import DatingHistory from "../scenes/DatingHistory/DatingHistory";
 import HomePage from "../scenes/HomePage/HomePage";
-import { HomeOutlined, HistoryOutlined } from "@ant-design/icons";
+import {
+  HomeOutlined,
+  HistoryOutlined,
+  ScheduleOutlined,
+} from "@ant-design/icons";
+import RequestMedicalAppointment from "../scenes/RequestMedicalAppointment";
 
 export const AUTHROUTERS = [
   {
@@ -72,6 +77,14 @@ export const PRIVATEROUTERS = [
         isLogues: true,
         title: "Historial de citas",
         icon: <HistoryOutlined />,
+      },
+      {
+        path: "/dashboard/medicalappointment",
+        component: RequestMedicalAppointment,
+        exact: true,
+        isLogues: true,
+        title: "Solicitar Cita Médica",
+        icon: <ScheduleOutlined />,
       },
     ],
   },

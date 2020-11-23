@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { Layout, Menu, Avatar, Image } from "antd";
+import { Layout, Menu } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UserOutlined,
+  //   UserOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 
@@ -11,13 +11,13 @@ import "./dashboardUserLayout.scss";
 import AvatarUser from "./components/AvatarUser";
 import RouteWithSubRoutes from "../../routers/RouteWithSubRoutes";
 
-import { PrivateRouters } from "../../../configs/app.routes";
+// import { PrivateRouters } from "../../../configs/app.routes";
 import { Link } from "react-router-dom";
 
 const { Header, Sider, Content } = Layout;
 
 const DashboardUserLayout = ({ routes }) => {
-  console.log(routes);
+  //   console.log(routes);
   const [collapsed, setcollapsed] = useState(false);
 
   const toggle = () => {
@@ -46,7 +46,12 @@ const DashboardUserLayout = ({ routes }) => {
               size={collapsed ? 32 : 100}
             />
           </div>
-          <Menu theme="dark" mode="inline" defaultSelectedKeys={["0"]}>
+          <Menu
+            theme="dark"
+            mode="inline"
+            defaultSelectedKeys={["0"]}
+            style={{ width: "100%" }}
+          >
             {routes.map((r, i) => (
               <Menu.Item key={i} icon={r.icon}>
                 <Link to={r.path}>{r.title}</Link>

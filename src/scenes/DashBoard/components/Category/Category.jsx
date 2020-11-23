@@ -1,5 +1,5 @@
 import React from "react";
-import { Typography } from "antd";
+import { Skeleton, Typography } from "antd";
 import "./category.scss";
 
 const { Title } = Typography;
@@ -12,7 +12,9 @@ const Category = ({ title }) => {
           {title}
         </Title>
       </header>
-      <div className="category__body"></div>
+      <div className="category__body">
+        <Skeleton active paragraph={{ rows: 10 }} />
+      </div>
     </article>
   );
 };
