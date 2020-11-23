@@ -9,6 +9,9 @@ import "./authLayout.scss";
 import InformationHospital from "./components/InformationHospital/InformationHospital";
 
 const AuthLayout = ({ routes }) => {
+  console.log("------");
+  console.log(routes);
+  console.log("------");
   return (
     <div className="auth-layout">
       <div

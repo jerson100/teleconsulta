@@ -2,7 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 
 const RouteWithSubRoutes = (route) => {
-  console.log(route);
+  //   console.log(route);
   return (
     <Route
       path={route.path}

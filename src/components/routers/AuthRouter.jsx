@@ -1,18 +1,17 @@
 import React from "react";
-import { Switch } from "react-router-dom";
-import { PUBLICROUTERS } from "../../configs/app.routes";
+import { AUTHROUTERS } from "../../configs/app.routes";
 import RouteWithSubRoutes from "./RouteWithSubRoutes";
 
-const PublicRouter = () => {
+const AuthRouter = () => {
   //   console.log("public router");
   //   const isLogued = false;
   return (
-    <Switch>
-      {PUBLICROUTERS.map((r, index) => (
+    <>
+      {AUTHROUTERS.map((r, index) => (
         <RouteWithSubRoutes key={index} {...r} />
       ))}
-    </Switch>
+    </>
   );
 };
 
-export default PublicRouter;
+export default AuthRouter;

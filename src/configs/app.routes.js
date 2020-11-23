@@ -2,9 +2,12 @@ import AuthLayout from "../components/layouts/AuthLayout/AuthLayout";
 import Login from "../scenes/Auth/scenes/Login/Login";
 import ForgotMyPassword from "../scenes/Auth/scenes/ForgotMyPassword/ForgotMyPassword";
 import Register from "../scenes/Auth/scenes/Register";
-import Home from "../scenes/Home/Home";
+import Home from "../scenes/DashBoard/DashBoard";
+import DashboardUserLayout from "../components/layouts/DashboardUserLayout";
+import DatingHistory from "../scenes/DatingHistory/DatingHistory";
+import HomePage from "../scenes/HomePage/HomePage";
 
-export const PUBLICROUTERS = [
+export const AUTHROUTERS = [
   {
     path: "/auth",
     component: AuthLayout,
@@ -30,14 +33,46 @@ export const PUBLICROUTERS = [
       },
     ],
   },
+];
+
+export const PUBLICROUTERS = [
+  {
+    path: "/home",
+    component: HomePage,
+    exact: true,
+    isLogued: false,
+  },
   {
     path: "/",
-    component: Home,
-    exact: false,
+    component: HomePage,
+    exact: true,
+    isLogued: false,
   },
 ];
 
-export const PrivateRouters = [{}];
+export const PRIVATEROUTERS = [
+  {
+    path: "/dashboard",
+    component: DashboardUserLayout,
+    exact: false,
+    routes: [
+      {
+        path: "/dashboard",
+        component: Home,
+        exact: true,
+        isLogues: true,
+        title: "Inicio",
+      },
+      {
+        path: "/dashboard/datinghistory",
+        component: DatingHistory,
+        exact: true,
+        isLogues: true,
+        title: "Historial de citas",
+      },
+    ],
+  },
+];
 
 /*
     Example with Roles

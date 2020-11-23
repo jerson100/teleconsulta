@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { Form, Input, Button } from "antd";
 import "./login.scss";
 import AuthWrapper from "../../components/FormWrapper/FormWrapper";
@@ -9,6 +9,7 @@ const Login = (props) => {
   const [loading, setloading] = useState(false);
   const [form] = Form.useForm();
   useTitlePage("Login de acceso");
+  const { replace } = useHistory();
 
   //   console.log(props);
   const layout = {
@@ -21,9 +22,11 @@ const Login = (props) => {
   };
 
   const onFinish = (values) => {
-    console.log(values);
+    // console.log(values);
+    // console.log("entrar");
+    replace("/dashboard");
     // e.preventDefault();
-    setloading(!loading);
+    // setloading(!loading);
   };
 
   return (
