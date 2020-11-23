@@ -6,6 +6,7 @@ import Home from "../scenes/DashBoard/DashBoard";
 import DashboardUserLayout from "../components/layouts/DashboardUserLayout";
 import DatingHistory from "../scenes/DatingHistory/DatingHistory";
 import HomePage from "../scenes/HomePage/HomePage";
+import { HomeOutlined, HistoryOutlined } from "@ant-design/icons";
 
 export const AUTHROUTERS = [
   {
@@ -62,6 +63,7 @@ export const PRIVATEROUTERS = [
         exact: true,
         isLogues: true,
         title: "Inicio",
+        icon: <HomeOutlined />,
       },
       {
         path: "/dashboard/datinghistory",
@@ -69,6 +71,7 @@ export const PRIVATEROUTERS = [
         exact: true,
         isLogues: true,
         title: "Historial de citas",
+        icon: <HistoryOutlined />,
       },
     ],
   },

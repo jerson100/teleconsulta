@@ -1,11 +1,20 @@
+import { Typography } from "antd";
 import React from "react";
-import { Layout } from "antd";
-import { Content, Footer, Header } from "antd/lib/layout/layout";
-import Sider from "antd/lib/layout/Sider";
+import ListCategory from "./components/ListCategory/ListCategory";
+// import Sider from "antd/lib/layout/Sider";
+import "./dashboard.scss";
+
+const { Title } = Typography;
 
 const Home = () => {
-  console.log("home");
-  return <div>Home</div>;
+  return (
+    <div className="dashboard-scene">
+      <Title className="dashboard-scene__title">Últimas Novedades</Title>
+      <div className="dashboard-scene__list-categories">
+        <ListCategory />
+      </div>
+    </div>
+  );
 };
 
 export default Home;

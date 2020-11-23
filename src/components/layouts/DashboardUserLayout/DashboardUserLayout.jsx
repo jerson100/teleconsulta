@@ -4,8 +4,7 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
 
 import "./dashboardUserLayout.scss";
@@ -32,6 +31,8 @@ const DashboardUserLayout = ({ routes }) => {
           style={{
             height: "100vh",
             overflow: "auto",
+            position: "sticky",
+            top: "0",
           }}
           trigger={null}
           collapsible
@@ -47,22 +48,13 @@ const DashboardUserLayout = ({ routes }) => {
           </div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={["0"]}>
             {routes.map((r, i) => (
-              <Menu.Item key={i} icon={<UserOutlined />}>
+              <Menu.Item key={i} icon={r.icon}>
                 <Link to={r.path}>{r.title}</Link>
               </Menu.Item>
             ))}
-            <Menu.Item key="logout" icon={<UserOutlined />}>
-              <Link to="/auth/login">Logout</Link>
+            <Menu.Item key="logout" icon={<LogoutOutlined />}>
+              <Link to="/auth/login">Salir</Link>
             </Menu.Item>
-            {/* <Menu.Item key="1" icon={<UserOutlined />}>
-              nav 1
-            </Menu.Item>
-            <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              nav 2
-            </Menu.Item>
-            <Menu.Item key="3" icon={<UploadOutlined />}>
-              nav 3
-            </Menu.Item> */}
           </Menu>
         </Sider>
         <Layout className="site-layout">

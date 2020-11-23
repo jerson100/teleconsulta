@@ -1,0 +1,5 @@
+@import "../../../../scss/utilities/mixins/_list";
+
+.list-category {
+  @include defaultList;
+}

@@ -1,0 +1,11 @@
+@import "../../../../scss/utilities/mixins/border";
+.category {
+  @include borderdefault;
+  padding: 2rem 1.8rem;
+  border-radius: 5px;
+  height: 100%;
+  min-height: 500px;
+  &__title {
+    text-align: center;
+  }
+}
