@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { PUBLICROUTERS } from "../../configs/app.routes";
 import NotFoundPage from "../../scenes/NotFoundPage/NotFoundPage";
+import FullScreen from "../common/FullScreen/FullScreen";
 // import { PUBLICROUTERS } from "../../configs/app.routes";
 import AuthRouter from "./AuthRouter";
 import PrivateRouter from "./PrivateRouter";
@@ -30,7 +31,13 @@ const AppRouter = () => {
         {PUBLICROUTERS.map((r, index) => (
           <RouteWithSubRoutes key={index} {...r} />
         ))}
-        <Route component={NotFoundPage} />
+        <Route
+          render={() => (
+            <FullScreen>
+              <NotFoundPage title="Regresar" url="/" />
+            </FullScreen>
+          )}
+        />
       </Switch>
     </Router>
   );

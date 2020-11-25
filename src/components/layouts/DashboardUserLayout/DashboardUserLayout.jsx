@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
+import { Switch } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import {
   MenuUnfoldOutlined,
@@ -10,12 +11,13 @@ import "./dashboardUserLayout.scss";
 import AvatarUser from "./components/AvatarUser";
 import RouteWithSubRoutes from "../../routers/RouteWithSubRoutes";
 
-import { Link } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import useMatchMedia from "../../../hooks/useMatchMedia";
+import NotFoundPage from "../../../scenes/NotFoundPage/NotFoundPage";
 
 const { Header, Sider, Content } = Layout;
 
-const DashboardUserLayout = ({ routes }) => {
+const DashboardUserLayout = ({ routes, location }) => {
   const [collapsed, setcollapsed] = useState(true);
 
   const match1200px = useMatchMedia("(min-width: 1200px)");
@@ -36,6 +38,11 @@ const DashboardUserLayout = ({ routes }) => {
     setcollapsed(true);
   };
 
+  const selectedMenu = useMemo(() => {
+    const index = routes.findIndex((r) => r.path === location.pathname);
+    return "" + (index >= 0 ? index : 0);
+  }, [location]);
+
   return (
     <div className="dashboard-user-layout">
       <div
@@ -47,7 +54,7 @@ const DashboardUserLayout = ({ routes }) => {
         onClick={handleDesktop}
       ></div>
 
-      <Layout>
+      <Layout style={{ minHeight: "100vh" }}>
         <Sider
           style={{
             overflowY: "auto",
@@ -76,7 +83,7 @@ const DashboardUserLayout = ({ routes }) => {
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={["0"]}
+            defaultSelectedKeys={[selectedMenu]}
             style={{ width: "100%" }}
           >
             {routes.map((r, i) => (
@@ -91,8 +98,6 @@ const DashboardUserLayout = ({ routes }) => {
         </Sider>
         <Layout
           className="site-layout"
-          //   margin-left: 200px;
-          //   min-width: 100%;
           style={{
             transition: "margin-left 200ms",
             minWidth: match1200px ? "initial" : "100%",
@@ -118,9 +123,19 @@ const DashboardUserLayout = ({ routes }) => {
             className="site-layout-background"
             style={{ margin: "24px 16px 0", overflow: "initial", padding: 24 }}
           >
-            {routes.map((r, i) => (
-              <RouteWithSubRoutes key={i} {...r} />
-            ))}
+            <Switch>
+              {routes.map((r, i) => (
+                <RouteWithSubRoutes key={i} {...r} />
+              ))}
+              <Route
+                render={() => (
+                  <NotFoundPage
+                    url="/dashboard"
+                    title="Regresar al dashboard"
+                  />
+                )}
+              />
+            </Switch>
           </Content>
         </Layout>
       </Layout>
