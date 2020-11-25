@@ -1,28 +1,34 @@
 .dashboard-user-layout {
+  overflow: hidden;
   &__avatar {
     text-align: center;
     padding: 1.8rem 1rem;
   }
-
-  > section.ant-layout {
-    min-height: 100vh;
+  &__desktop {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    &--open {
+      top: 0;
+      left: 0;
+      height: 100%;
+      z-index: 10000;
+      opacity: 1;
+      pointer-events: auto;
+    }
   }
+
+  //   > section.ant-layout {
+  //     min-height: 100vh;
+  //   }
   .trigger {
     font-size: 18px;
     line-height: 64px;
     padding: 0 24px;
     cursor: pointer;
     transition: color 0.3s;
-  }
-
-  .trigger:hover {
-    color: #1890ff;
-  }
-
-  .logo {
-    height: 32px;
-    background: rgba(255, 255, 255, 0.3);
-    margin: 16px;
   }
 
   .site-layout .site-layout-background {

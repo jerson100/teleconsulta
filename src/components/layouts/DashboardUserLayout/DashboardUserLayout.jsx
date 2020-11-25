@@ -1,9 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Layout, Menu } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  //   UserOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
 
@@ -11,39 +10,67 @@ import "./dashboardUserLayout.scss";
 import AvatarUser from "./components/AvatarUser";
 import RouteWithSubRoutes from "../../routers/RouteWithSubRoutes";
 
-// import { PrivateRouters } from "../../../configs/app.routes";
 import { Link } from "react-router-dom";
+import useMatchMedia from "../../../hooks/useMatchMedia";
 
 const { Header, Sider, Content } = Layout;
 
 const DashboardUserLayout = ({ routes }) => {
-  //   console.log(routes);
-  const [collapsed, setcollapsed] = useState(false);
+  const [collapsed, setcollapsed] = useState(true);
+
+  const match1200px = useMatchMedia("(min-width: 1200px)");
+
+  useEffect(() => {
+    const body = document.querySelector("body");
+    body.style.overflow = !collapsed && !match1200px ? "hidden" : "";
+    return () => {
+      body.style = "";
+    };
+  }, [collapsed, match1200px]);
 
   const toggle = () => {
     setcollapsed(!collapsed);
   };
 
+  const handleDesktop = () => {
+    setcollapsed(true);
+  };
+
   return (
     <div className="dashboard-user-layout">
+      <div
+        className={`dashboard-user-layout__desktop ${
+          !collapsed && !match1200px
+            ? "dashboard-user-layout__desktop--open"
+            : ""
+        }`}
+        onClick={handleDesktop}
+      ></div>
+
       <Layout>
         <Sider
           style={{
+            overflowY: "auto",
+            overflowX: "hidden",
             height: "100vh",
-            overflow: "auto",
-            position: "sticky",
-            top: "0",
+            position: "fixed",
+            left: 0,
+            top: 0,
+            zIndex: "10000",
+            minWidth: "200px",
+            transform: match1200px
+              ? ""
+              : `translateX(${collapsed ? "-100%" : "0%"})`,
           }}
           trigger={null}
-          collapsible
-          collapsed={collapsed}
-          collapsedWidth={97}
-          width={300}
+          width={match1200px ? 300 : 200}
+          collapsed={match1200px && collapsed}
+          collapsedWidth={98}
         >
           <div className="dashboard-user-layout__avatar">
             <AvatarUser
               name="Jerson Ramírez Ortiz"
-              size={collapsed ? 32 : 100}
+              size={match1200px && collapsed ? 30 : 100}
             />
           </div>
           <Menu
@@ -62,7 +89,22 @@ const DashboardUserLayout = ({ routes }) => {
             </Menu.Item>
           </Menu>
         </Sider>
-        <Layout className="site-layout">
+        <Layout
+          className="site-layout"
+          //   margin-left: 200px;
+          //   min-width: 100%;
+          style={{
+            transition: "margin-left 200ms",
+            minWidth: match1200px ? "initial" : "100%",
+            marginLeft: match1200px
+              ? collapsed
+                ? 97
+                : 300
+              : collapsed
+              ? 0
+              : 200,
+          }}
+        >
           <Header className="site-layout-background" style={{ padding: 0 }}>
             {React.createElement(
               collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
@@ -74,11 +116,7 @@ const DashboardUserLayout = ({ routes }) => {
           </Header>
           <Content
             className="site-layout-background"
-            style={{
-              margin: "24px 16px",
-              padding: 24,
-              minHeight: 280,
-            }}
+            style={{ margin: "24px 16px 0", overflow: "initial", padding: 24 }}
           >
             {routes.map((r, i) => (
               <RouteWithSubRoutes key={i} {...r} />
