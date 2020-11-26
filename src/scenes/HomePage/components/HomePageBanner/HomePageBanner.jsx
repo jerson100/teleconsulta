@@ -20,7 +20,7 @@ const HomePageBanner = () => {
           <Col sm={{ span: 24 }} lg={{ span: 9 }}>
             <div className="home-page-banner__content">
               <Title className="home-page-banner__title">
-                Making Health Care Better Together
+                ♥ Aquí va un título ♥
               </Title>
               <p className="home-page-banner__description">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero
@@ -34,14 +34,14 @@ const HomePageBanner = () => {
                   type="primary"
                   className="home-page-banner__buttons-btn"
                 >
-                  <Link to="/auth/register">Register</Link>
+                  <Link to="/auth/register">Registrarme</Link>
                 </Button>
                 <Button
                   size="large"
                   type="primary"
                   className="home-page-banner__buttons-btn"
                 >
-                  <Link to="/auth/login">Login</Link>
+                  <Link to="/auth/login">Ingresar</Link>
                 </Button>
               </div>
             </div>

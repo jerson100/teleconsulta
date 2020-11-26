@@ -62,7 +62,7 @@ export const PUBLICROUTERS = [
         path: "/contact",
         component: ContactPage,
         exact: true,
-        title: "Contact",
+        title: "Contacto",
         icon: <ContactsOutlined />,
       },
     ],
