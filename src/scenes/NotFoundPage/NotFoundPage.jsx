@@ -19,7 +19,7 @@ const NotFoundPage = ({ title, url }) => {
   };
   return (
     <div className="not-found-page">
-      <Row align="middle" style={{ height: "100%" }} justify="center">
+      <Row align="middle" style={{ flex: "auto" }} justify="center">
         <Col>
           <Title>404</Title>
           <p className="not-found-page__description">La página no existe</p>
