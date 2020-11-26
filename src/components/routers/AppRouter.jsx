@@ -11,6 +11,7 @@ import FullScreen from "../common/FullScreen/FullScreen";
 // import { PUBLICROUTERS } from "../../configs/app.routes";
 import AuthRouter from "./AuthRouter";
 import PrivateRouter from "./PrivateRouter";
+import PublicRouter from "./PublicRouter";
 // import { PUBLICROUTERS } from "../../configs/app.routes";
 // import PublicRouter from "./PublicRouter";
 import RouteWithSubRoutes from "./RouteWithSubRoutes";
@@ -28,16 +29,9 @@ const AppRouter = () => {
         <Route path="/dashboard">
           <PrivateRouter />
         </Route>
-        {PUBLICROUTERS.map((r, index) => (
-          <RouteWithSubRoutes key={index} {...r} />
-        ))}
-        <Route
-          render={() => (
-            <FullScreen>
-              <NotFoundPage title="Regresar" url="/" />
-            </FullScreen>
-          )}
-        />
+        <Route path="/">
+          <PublicRouter />
+        </Route>
       </Switch>
     </Router>
   );
