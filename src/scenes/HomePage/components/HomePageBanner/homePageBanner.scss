@@ -1,0 +1,43 @@
+@import "../../../../scss/utilities/variables";
+@import "../../../../scss/utilities/mixins/background";
+@import "../../../../scss/utilities/mixins/center";
+
+.home-page-banner {
+  //   margin-top: 64px;
+  @include bg-cover;
+  //cuando el width  del viewport es mayot que el alto del viewport
+  @media all and (orientation: portrait) {
+    background-position: 70%;
+  }
+  //lo contrario al anterior width > height
+  @media all and (orientation: landscape) {
+    background-position: center center;
+  }
+  &__content {
+    @include dc-xy-center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    min-height: calc(100vh - 64px);
+    text-align: center;
+    @media (min-width: $media-lg) {
+      min-height: calc(100vh - (64px + 8rem));
+      text-align: left;
+    }
+  }
+  &__title {
+    @media (min-width: $media-lg) {
+      font-size: 50px !important;
+    }
+  }
+  &__description {
+    margin-bottom: 2rem;
+  }
+  &__buttons {
+    @media (min-width: $media-lg) {
+      align-self: flex-start;
+    }
+    &-btn:first-child {
+      margin-right: 0.8rem;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+@import "../../../scss/utilities/variables";
+@import "../../../scss/utilities/animations/opacity";
+
+.full-desktop-bg {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: $z-menu - 1;
+  animation: opacity 200ms;
+  &--color-semidark {
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+}

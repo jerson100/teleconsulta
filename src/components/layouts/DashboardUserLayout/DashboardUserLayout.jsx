@@ -14,6 +14,7 @@ import RouteWithSubRoutes from "../../routers/RouteWithSubRoutes";
 import { Link, Route } from "react-router-dom";
 import useMatchMedia from "../../../hooks/useMatchMedia";
 import NotFoundPage from "../../../scenes/NotFoundPage/NotFoundPage";
+import FullDesktopBg from "../../common/FullDesktopBg/FullDesktopBg";
 
 const { Header, Sider, Content } = Layout;
 
@@ -45,14 +46,13 @@ const DashboardUserLayout = ({ routes, location }) => {
 
   return (
     <div className="dashboard-user-layout">
-      <div
-        className={`dashboard-user-layout__desktop ${
-          !collapsed && !match1200px
-            ? "dashboard-user-layout__desktop--open"
-            : ""
-        }`}
-        onClick={handleDesktop}
-      ></div>
+      {!match1200px && (
+        <FullDesktopBg
+          addOverFlowBody
+          handleClick={handleDesktop}
+          show={!collapsed}
+        />
+      )}
 
       <Layout style={{ minHeight: "100vh" }}>
         <Sider
@@ -85,6 +85,7 @@ const DashboardUserLayout = ({ routes, location }) => {
             mode="inline"
             defaultSelectedKeys={[selectedMenu]}
             style={{ width: "100%" }}
+            onSelect={handleDesktop}
           >
             {routes.map((r, i) => (
               <Menu.Item key={i} icon={r.icon}>

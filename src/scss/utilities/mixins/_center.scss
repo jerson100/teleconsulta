@@ -1,0 +1,10 @@
+@mixin dr-xy-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin dc-xy-center {
+  @include dr-xy-center;
+  flex-direction: column;
+}

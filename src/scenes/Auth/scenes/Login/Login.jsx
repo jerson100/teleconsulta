@@ -11,7 +11,6 @@ const Login = (props) => {
   useTitlePage("Login de acceso");
   const { replace } = useHistory();
 
-  //   console.log(props);
   const layout = {
     labelCol: {
       span: 8,
@@ -22,11 +21,7 @@ const Login = (props) => {
   };
 
   const onFinish = (values) => {
-    // console.log(values);
-    // console.log("entrar");
     replace("/dashboard");
-    // e.preventDefault();
-    // setloading(!loading);
   };
 
   return (
@@ -51,6 +46,8 @@ const Login = (props) => {
           <Link to="/auth/register">Crear cuenta</Link>
           <br />
           <Link to="/auth/forgoutpassword">Me olvidé mi contraseña</Link>
+          <br />
+          <Link to="/">Página Principal</Link>
         </AuthWrapper.Footer>
       </AuthWrapper>
     </div>

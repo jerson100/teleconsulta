@@ -1,0 +1,19 @@
+@import "../../../scss/theme/colors";
+.home-page-layout {
+  overflow: hidden;
+  &__section {
+    min-height: 100vh !important;
+  }
+  &__content {
+    display: flex;
+    flex-direction: column;
+    & > * {
+      flex-grow: 1;
+    }
+  }
+  &__footer {
+    background-color: #001529 !important;
+    color: $white !important;
+    text-align: center;
+  }
+}

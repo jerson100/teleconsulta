@@ -10,8 +10,11 @@ import {
   HomeOutlined,
   HistoryOutlined,
   ScheduleOutlined,
+  ContactsOutlined,
 } from "@ant-design/icons";
 import RequestMedicalAppointment from "../scenes/RequestMedicalAppointment";
+import HomePageLayout from "../components/layouts/HomePageLayout/HomePageLayout";
+import ContactPage from "../scenes/ContactPage/ContactPage";
 
 export const AUTHROUTERS = [
   {
@@ -43,16 +46,26 @@ export const AUTHROUTERS = [
 
 export const PUBLICROUTERS = [
   {
-    path: "/home",
-    component: HomePage,
-    exact: true,
-    isLogued: false,
-  },
-  {
     path: "/",
-    component: HomePage,
-    exact: true,
+    component: HomePageLayout,
+    exact: false,
     isLogued: false,
+    routes: [
+      {
+        path: "/",
+        component: HomePage,
+        exact: true,
+        title: "Inicio",
+        icon: <HomeOutlined />,
+      },
+      {
+        path: "/contact",
+        component: ContactPage,
+        exact: true,
+        title: "Contact",
+        icon: <ContactsOutlined />,
+      },
+    ],
   },
 ];
 
