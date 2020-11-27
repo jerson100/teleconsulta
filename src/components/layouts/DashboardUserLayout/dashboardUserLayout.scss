@@ -43,6 +43,7 @@
   }
 
   &__main {
-    margin-top: 64px !important;
+    margin-top: calc(64px + 1rem) !important;
+    margin-bottom: 1rem !important;
   }
 }

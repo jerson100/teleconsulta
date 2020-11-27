@@ -9,7 +9,6 @@ const useMatchMedia = (mediaQuery) => {
     }
     const callback = (e) => {
       setIsMatchMedia(e.matches);
-      console.log(`${mediaQuery} =>  ${e.matches}`);
     };
     mediaQueryList.addEventListener("change", callback);
     return () => {

@@ -1,22 +1,22 @@
 import React from "react";
-import { Button, Typography } from "antd";
-import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import "./homePage.scss";
 import HomePageBanner from "./components/HomePageBanner/HomePageBanner";
 
-const { Title } = Typography;
-
 const HomePage = () => {
   return (
-    <div className="home-page">
-      <HomePageBanner />
-    </div>
-    // <div>
-    //   <h1>Aquí irá la página principal del app</h1>
-    //   <Button type="primary">
-    //     <Link to="/auth/login">Ir al login por ahora</Link>
-    //   </Button>
-    // </div>
+    <>
+      <Helmet>
+        <title>Inicio | teleconsulta</title>
+        <meta
+          name="description"
+          content="Bienvenido a la página principal de teleconsulta, en la que contamos con los mejores profesionales de la salud. Pueden solicitar una cita con un doctor por problemas médicos."
+        ></meta>
+      </Helmet>
+      <div className="home-page">
+        <HomePageBanner />
+      </div>
+    </>
   );
 };
 

@@ -20,6 +20,7 @@ const { Header, Sider, Content } = Layout;
 
 const DashboardUserLayout = ({ routes, location }) => {
   const [collapsed, setcollapsed] = useState(true);
+  const [selectedIndexMenuItem, setSelectedIndexMenuItem] = useState(0);
 
   const match1200px = useMatchMedia("(min-width: 1200px)");
 
@@ -31,6 +32,11 @@ const DashboardUserLayout = ({ routes, location }) => {
     };
   }, [collapsed, match1200px]);
 
+  useEffect(() => {
+    const index = routes.findIndex((r) => r.path === location.pathname);
+    setSelectedIndexMenuItem(index >= 0 ? index : 0);
+  }, [routes, location.pathname]);
+
   const toggle = () => {
     setcollapsed(!collapsed);
   };
@@ -38,11 +44,6 @@ const DashboardUserLayout = ({ routes, location }) => {
   const handleDesktop = () => {
     setcollapsed(true);
   };
-
-  const selectedMenu = useMemo(() => {
-    const index = routes.findIndex((r) => r.path === location.pathname);
-    return "" + (index >= 0 ? index : 0);
-  }, [location]);
 
   return (
     <div className="dashboard-user-layout">
@@ -83,9 +84,10 @@ const DashboardUserLayout = ({ routes, location }) => {
           <Menu
             theme="dark"
             mode="inline"
-            defaultSelectedKeys={[selectedMenu]}
+            defaultSelectedKeys={["0"]}
+            selectedKeys={[`${selectedIndexMenuItem}`]}
             style={{ width: "100%" }}
-            onSelect={handleDesktop}
+            onSelect={match1200px ? () => {} : handleDesktop}
           >
             {routes.map((r, i) => (
               <Menu.Item key={i} icon={r.icon}>

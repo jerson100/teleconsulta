@@ -1,20 +1,31 @@
-import { Typography } from "antd";
 import React from "react";
+import { Typography } from "antd";
+import { Helmet } from "react-helmet";
 import ListCategory from "./components/ListCategory/ListCategory";
-// import Sider from "antd/lib/layout/Sider";
 import "./dashboard.scss";
 
 const { Title } = Typography;
 
-const Home = () => {
+const Home = (props) => {
+  //   console.log("home");
+  //   console.log(props);
   return (
-    <div className="dashboard-scene">
-      <Title className="dashboard-scene__title">Últimas Novedades</Title>
-      <div className="dashboard-scene__list-categories">
-        <ListCategory />
+    <>
+      <Helmet>
+        <title>Dashboard | teleconsulta</title>
+        <meta
+          name="description"
+          content="Página principal de la aplicación - Teleconsulta"
+        ></meta>
+      </Helmet>
+      <div className="dashboard-scene">
+        <Title className="dashboard-scene__title">Últimas Novedades</Title>
+        <div className="dashboard-scene__list-categories">
+          <ListCategory />
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
-export default Home;
+export default React.memo(Home);

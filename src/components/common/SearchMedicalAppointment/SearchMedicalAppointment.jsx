@@ -7,35 +7,45 @@ import "./searchMedicalAppointment.scss";
 /*
     xl, xs: 8, sm: 16, md: 24, lg: 32 
  */
+
+const color = { color: "rgba(0,0,0,.45)" };
+
+const formLabeLCol = { span: 8 };
+const formWrapperCol = { span: 16 };
+
+const sm = { span: 24 };
+const lg = { span: 11 };
+const xxl = { span: 7 };
+
 const SearchMedicalAppointment = () => {
-  const layout = {
-    labelCol: { span: 8 },
-    wrapperCol: { span: 16 },
-  };
   return (
     <div className="search-medical-appointment">
       <Divider orientation="right">Buscar: </Divider>
-      <Form {...layout} labelAlign="left">
+      <Form
+        labelCol={formLabeLCol}
+        wrapperCol={formWrapperCol}
+        labelAlign="left"
+      >
         <Row justify={"space-between"}>
-          <Col sm={{ span: 24 }} lg={{ span: 11 }} xxl={{ span: 7 }}>
+          <Col sm={sm} lg={lg} xxl={xxl}>
             <Form.Item label="Doctor" name="doctor">
               <Input
                 prefix={<SearchOutlined className="site-form-item-icon" />}
                 suffix={
                   <Tooltip title="Extra information">
-                    <InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />
+                    <InfoCircleOutlined style={color} />
                   </Tooltip>
                 }
               />
             </Form.Item>
           </Col>
-          <Col sm={{ span: 24 }} lg={{ span: 11 }} xxl={{ span: 7 }}>
+          <Col sm={sm} lg={lg} xxl={xxl}>
             <Form.Item label="Especialidad" name="especialidad">
               <Input
                 prefix={<SearchOutlined className="site-form-item-icon" />}
                 suffix={
                   <Tooltip title="Extra information">
-                    <InfoCircleOutlined style={{ color: "rgba(0,0,0,.45)" }} />
+                    <InfoCircleOutlined style={color} />
                   </Tooltip>
                 }
               />
@@ -47,4 +57,4 @@ const SearchMedicalAppointment = () => {
   );
 };
 
-export default SearchMedicalAppointment;
+export default React.memo(SearchMedicalAppointment);

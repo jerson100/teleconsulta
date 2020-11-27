@@ -8,51 +8,61 @@ import {
   Button,
   InputNumber,
 } from "antd";
-
+import { Helmet } from "react-helmet";
 import "./requestMedicalAppointment.scss";
 import SearchMedicalAppointment from "../../components/common/SearchMedicalAppointment/SearchMedicalAppointment";
 
 const RequestMedicalAppointment = () => {
   return (
-    <div className="request-medical-appointment">
-      <div className="request-medical-appointment__search">
-        <SearchMedicalAppointment />
-      </div>
-      <Divider orientation="right">Calendario</Divider>
-      <div className="request-medical-appointment__calendar">
-        <div className="request-medical-appointment__calendar-content">
-          <Calendar
-            fullscreen
-            dateCellRender={dateCellRender}
-            monthCellRender={monthCellRender}
-          />
+    <>
+      <Helmet>
+        <title>Solicitar Cita Médica | teleconsulta</title>
+        <meta
+          name="description"
+          content="Solicita una cita médica con uno de nuestros médicos, que son altamente calificados."
+        ></meta>
+      </Helmet>
+
+      <div className="request-medical-appointment">
+        <div className="request-medical-appointment__search">
+          <SearchMedicalAppointment />
+        </div>
+        <Divider orientation="right">Calendario</Divider>
+        <div className="request-medical-appointment__calendar">
+          <div className="request-medical-appointment__calendar-content">
+            <Calendar
+              fullscreen
+              dateCellRender={dateCellRender}
+              monthCellRender={monthCellRender}
+            />
+          </div>
+        </div>
+        <Divider orientation="right">Registro de Cita</Divider>
+        <div className="request-medical-appointment__register">
+          <Form
+            layout="horizontal"
+            labelCol={{ sm: 12, lg: 12 }}
+            wrapperCol={{ sm: 12, lg: 4 }}
+          >
+            <Form.Item label="Costo">
+              <InputNumber style={{ width: "100%" }} />
+            </Form.Item>
+            <Form.Item label="Código Pago">
+              <Input type="text" />
+            </Form.Item>
+            <Form.Item
+              wrapperCol={{
+                sm: { span: 24 },
+                lg: { span: 5, offset: 11 },
+              }}
+              style={{ textAlign: "right" }}
+            >
+              <Button type="primary">Registrar Cita</Button>
+            </Form.Item>
+          </Form>
         </div>
       </div>
-      <Divider orientation="right">Registro de Cita</Divider>
-      <div className="request-medical-appointment__register">
-        <Form
-          layout="horizontal"
-          labelCol={{ sm: 12, lg: 12 }}
-          wrapperCol={{ sm: 12, lg: 4 }}
-        >
-          <Form.Item label="Costo">
-            <InputNumber style={{ width: "100%" }} />
-          </Form.Item>
-          <Form.Item label="Código Pago">
-            <Input type="text" />
-          </Form.Item>
-          <Form.Item
-            wrapperCol={{
-              sm: { span: 24 },
-              lg: { span: 5, offset: 11 },
-            }}
-            style={{ textAlign: "right" }}
-          >
-            <Button type="primary">Registrar Cita</Button>
-          </Form.Item>
-        </Form>
-      </div>
-    </div>
+    </>
   );
 };
 

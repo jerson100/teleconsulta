@@ -3,6 +3,16 @@ import React from "react";
 import Category from "../Category";
 import "./listCategory.scss";
 
+const xxl = {
+  span: 7,
+};
+const xs = {
+  span: 24,
+};
+const md = {
+  span: 12,
+};
+
 const ListCategory = ({ items }) => {
   return (
     <ul className="list-category">
@@ -13,22 +23,22 @@ const ListCategory = ({ items }) => {
         ]}
         justify="center"
       >
-        <Col xxl={{ span: 7 }} xs={{ span: 24 }} md={{ span: 12 }}>
+        <Col xxl={xxl} xs={xs} md={md}>
           <Category title="Especialidades" />
         </Col>
-        <Col xxl={{ span: 7 }} xs={{ span: 24 }} md={{ span: 12 }}>
+        <Col xxl={xxl} xs={xs} md={md}>
           <Category title="Noticias" />
         </Col>
-        <Col xxl={{ span: 7 }} xs={{ span: 24 }} md={{ span: 12 }}>
+        <Col xxl={xxl} xs={xs} md={md}>
           <Category title="Nuestros Médicos" />
         </Col>
-        <Col xxl={{ span: 7 }} xs={{ span: 24 }} md={{ span: 12 }}>
+        <Col xxl={xxl} xs={xs} md={md}>
           <Category title="Especialidades" />
         </Col>
-        <Col xxl={{ span: 7 }} xs={{ span: 24 }} md={{ span: 12 }}>
+        <Col xxl={xxl} xs={xs} md={md}>
           <Category title="Noticias" />
         </Col>
-        <Col xxl={{ span: 7 }} xs={{ span: 24 }} md={{ span: 12 }}>
+        <Col xxl={xxl} xs={xs} md={md}>
           <Category title="Nuestros Médicos" />
         </Col>
       </Row>
@@ -36,4 +46,4 @@ const ListCategory = ({ items }) => {
   );
 };
 
-export default ListCategory;
+export default React.memo(ListCategory);

@@ -19,4 +19,4 @@ const Category = ({ title }) => {
   );
 };
 
-export default Category;
+export default React.memo(Category);
