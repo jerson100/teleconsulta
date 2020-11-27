@@ -1,3 +1,6 @@
+@import "../../../scss/theme/colors";
+@import "../../../scss/utilities/variables";
+
 .dashboard-user-layout {
   overflow: hidden;
   &__avatar {
@@ -29,5 +32,17 @@
 
   .site-layout .site-layout-background {
     background: #fff;
+  }
+
+  &__header {
+    position: fixed;
+    background-color: $primary !important;
+    color: $white !important;
+    width: 100%;
+    z-index: $z-fixed;
+  }
+
+  &__main {
+    margin-top: 64px !important;
   }
 }

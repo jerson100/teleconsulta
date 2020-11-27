@@ -111,7 +111,10 @@ const DashboardUserLayout = ({ routes, location }) => {
               : 200,
           }}
         >
-          <Header className="site-layout-background" style={{ padding: 0 }}>
+          <Header
+            className="dashboard-user-layout__header site-layout-background"
+            style={{ padding: 0 }}
+          >
             {React.createElement(
               collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
               {
@@ -121,7 +124,7 @@ const DashboardUserLayout = ({ routes, location }) => {
             )}
           </Header>
           <Content
-            className="site-layout-background"
+            className="site-layout-background dashboard-user-layout__main"
             style={{ margin: "24px 16px 0", overflow: "initial", padding: 24 }}
           >
             <Switch>
