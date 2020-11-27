@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Switch } from "react-router-dom";
 import { Layout, Menu } from "antd";
 import {
@@ -15,14 +15,18 @@ import { Link, Route } from "react-router-dom";
 import useMatchMedia from "../../../hooks/useMatchMedia";
 import NotFoundPage from "../../../scenes/NotFoundPage/NotFoundPage";
 import FullDesktopBg from "../../common/FullDesktopBg/FullDesktopBg";
+import useIndexMenuItemLocation from "../../../hooks/useIndexMenuItemLocation";
 
 const { Header, Sider, Content } = Layout;
 
 const DashboardUserLayout = ({ routes, location }) => {
   const [collapsed, setcollapsed] = useState(true);
-  const [selectedIndexMenuItem, setSelectedIndexMenuItem] = useState(0);
-
   const match1200px = useMatchMedia("(min-width: 1200px)");
+  const selectedIndexMenuItem = useIndexMenuItemLocation(
+    routes,
+    location.pathname,
+    0
+  );
 
   useEffect(() => {
     const body = document.querySelector("body");
@@ -31,11 +35,6 @@ const DashboardUserLayout = ({ routes, location }) => {
       body.style = "";
     };
   }, [collapsed, match1200px]);
-
-  useEffect(() => {
-    const index = routes.findIndex((r) => r.path === location.pathname);
-    setSelectedIndexMenuItem(index >= 0 ? index : 0);
-  }, [routes, location.pathname]);
 
   const toggle = () => {
     setcollapsed(!collapsed);

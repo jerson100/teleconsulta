@@ -9,11 +9,11 @@ import "./homePageLayout.scss";
 
 const { Footer, Content } = Layout;
 
-const HomePageLayout = ({ routes }) => {
+const HomePageLayout = ({ routes, location }) => {
   return (
     <div className="home-page-layout">
       <Layout className="home-page-layout__section">
-        <HomePageLayoutHeader routes={routes} />
+        <HomePageLayoutHeader routes={routes} location={location} />
         <Content
           style={{ marginTop: "64px" }}
           className="home-page-layout__content"

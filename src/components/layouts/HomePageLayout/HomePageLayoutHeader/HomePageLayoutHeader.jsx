@@ -5,11 +5,17 @@ import { MenuFoldOutlined } from "@ant-design/icons";
 import "./homePageLayoutHeader.scss";
 import FullDesktopBg from "../../../common/FullDesktopBg/FullDesktopBg";
 import { Link } from "react-router-dom";
+import useIndexMenuItemLocation from "../../../../hooks/useIndexMenuItemLocation";
 
 const { Header } = Layout;
 
-const HomePageLayoutHeader = ({ routes }) => {
+const HomePageLayoutHeader = ({ routes, location }) => {
   const [showMenu, setshowMenu] = useState(false);
+  const selectedIndexMenuItem = useIndexMenuItemLocation(
+    routes,
+    location.pathname,
+    0
+  );
   const handleShowMenu = () => {
     setshowMenu(!showMenu);
   };
@@ -36,7 +42,8 @@ const HomePageLayoutHeader = ({ routes }) => {
               <Menu
                 theme="dark"
                 mode="vertical"
-                defaultSelectedKeys={["2"]}
+                defaultSelectedKeys={["0"]}
+                selectedKeys={[`${selectedIndexMenuItem}`]}
                 className={`home-page-layout-header__menu ${
                   showMenu ? "home-page-layout-header__menu--active" : ""
                 }`}
