@@ -1,103 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useState } from "react";
 import { Switch } from "react-router-dom";
-import { Layout, Menu } from "antd";
-import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
-  LogoutOutlined,
-} from "@ant-design/icons";
+import { Layout } from "antd";
+import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 
 import "./dashboardUserLayout.scss";
-import AvatarUser from "./components/AvatarUser";
 import RouteWithSubRoutes from "../../routers/RouteWithSubRoutes";
 
-import { Link, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 import useMatchMedia from "../../../hooks/useMatchMedia";
 import NotFoundPage from "../../../scenes/NotFoundPage/NotFoundPage";
-import FullDesktopBg from "../../common/FullDesktopBg/FullDesktopBg";
-import useIndexMenuItemLocation from "../../../hooks/useIndexMenuItemLocation";
+import SiderDashBoardLayout from "./components/SiderDashBoardLayout/SiderDashBoardLayout";
 
-const { Header, Sider, Content } = Layout;
+const { Header, Content } = Layout;
 
 const DashboardUserLayout = ({ routes, location }) => {
   const [collapsed, setcollapsed] = useState(true);
   const match1200px = useMatchMedia("(min-width: 1200px)");
-  const selectedIndexMenuItem = useIndexMenuItemLocation(
-    routes,
-    location.pathname,
-    0
-  );
 
-  useEffect(() => {
-    const body = document.querySelector("body");
-    body.style.overflow = !collapsed && !match1200px ? "hidden" : "";
-    return () => {
-      body.style = "";
-    };
-  }, [collapsed, match1200px]);
+  const toggle = useCallback(() => {
+    setcollapsed((c) => !c);
+  }, [setcollapsed]);
 
-  const toggle = () => {
-    setcollapsed(!collapsed);
-  };
-
-  const handleDesktop = () => {
+  const handleDesktop = useCallback(() => {
     setcollapsed(true);
-  };
+  }, [setcollapsed]);
 
   return (
     <div className="dashboard-user-layout">
-      {!match1200px && (
-        <FullDesktopBg
-          addOverFlowBody
-          handleClick={handleDesktop}
-          show={!collapsed}
-        />
-      )}
-
       <Layout style={{ minHeight: "100vh" }}>
-        <Sider
-          style={{
-            overflowY: "auto",
-            overflowX: "hidden",
-            height: "100vh",
-            position: "fixed",
-            left: 0,
-            top: 0,
-            zIndex: "10000",
-            minWidth: "200px",
-            transform: match1200px
-              ? ""
-              : `translateX(${collapsed ? "-100%" : "0%"})`,
-          }}
-          trigger={null}
-          width={match1200px ? 300 : 200}
-          collapsed={match1200px && collapsed}
-          collapsedWidth={98}
-        >
-          <div className="dashboard-user-layout__avatar">
-            <AvatarUser
-              name="Jerson Ramírez Ortiz"
-              size={match1200px && collapsed ? 30 : 100}
-            />
-          </div>
-          <Menu
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={["0"]}
-            selectedKeys={[`${selectedIndexMenuItem}`]}
-            style={{ width: "100%" }}
-            onSelect={match1200px ? () => {} : handleDesktop}
-          >
-            {routes.map((r, i) => (
-              <Menu.Item key={i} icon={r.icon}>
-                <Link to={r.path}>{r.title}</Link>
-              </Menu.Item>
-            ))}
-            <Menu.Item key="logout" icon={<LogoutOutlined />}>
-              <Link to="/auth/login">Salir</Link>
-            </Menu.Item>
-          </Menu>
-        </Sider>
+        <SiderDashBoardLayout
+          match1200px={match1200px}
+          pathname={location.pathname}
+          collapsed={collapsed}
+          handleDesktop={handleDesktop}
+          routes={routes}
+        />
         <Layout
           className="site-layout"
           style={{

@@ -1,8 +1,8 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { Avatar, Image } from "antd";
 import { UserOutlined } from "@ant-design/icons";
-import { generateColorRgb } from "../../../../utils/colors";
+import { generateColorRgb } from "../../../../../utils/colors";
 
 import "./avatarUser.scss";
 

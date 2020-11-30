@@ -126,4 +126,6 @@ function monthCellRender(value) {
   ) : null;
 }
 
-export default RequestMedicalAppointment;
+export default React.memo(RequestMedicalAppointment, (prevProps, nextProps) => {
+  return prevProps.match.path === nextProps.match.path;
+});

@@ -6,7 +6,7 @@ import "./dashboard.scss";
 
 const { Title } = Typography;
 
-const Home = (props) => {
+const Home = () => {
   //   console.log("home");
   //   console.log(props);
   return (
@@ -28,4 +28,8 @@ const Home = (props) => {
   );
 };
 
-export default React.memo(Home);
+export default React.memo(Home, (prevProps, nextProps) => {
+  //   console.log(prevProps);
+  //   console.log(nextProps);
+  return prevProps.match.path === nextProps.match.path;
+});

@@ -1,17 +1,13 @@
 import Layout from "antd/lib/layout/layout";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Redirect, Switch } from "react-router-dom";
 import RouteWithSubRoutes from "../../routers/RouteWithSubRoutes";
 import bg1 from "../../../scenes/Auth/services/img/bg1.jpg";
 import bg2 from "../../../scenes/Auth/services/img/bg2.jpg";
-import bg3 from "../../../scenes/Auth/services/img/bg3.jpg";
 import "./authLayout.scss";
 import InformationHospital from "./components/InformationHospital/InformationHospital";
 
 const AuthLayout = ({ routes }) => {
-  console.log("------");
-  console.log(routes);
-  console.log("------");
   return (
     <div className="auth-layout">
       <div

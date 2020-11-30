@@ -38,4 +38,8 @@ const DatingHistory = () => {
   );
 };
 
-export default DatingHistory;
+export default React.memo(DatingHistory, (prevProps, nextProps) => {
+  //   console.log(prevProps);
+  //   console.log(nextProps);
+  return prevProps.match.path === nextProps.match.path;
+});

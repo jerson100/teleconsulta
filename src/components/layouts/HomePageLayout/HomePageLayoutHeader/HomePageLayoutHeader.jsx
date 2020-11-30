@@ -13,8 +13,7 @@ const HomePageLayoutHeader = ({ routes, location }) => {
   const [showMenu, setshowMenu] = useState(false);
   const selectedIndexMenuItem = useIndexMenuItemLocation(
     routes,
-    location.pathname,
-    0
+    location.pathname
   );
   const handleShowMenu = () => {
     setshowMenu(!showMenu);
@@ -43,7 +42,7 @@ const HomePageLayoutHeader = ({ routes, location }) => {
                 theme="dark"
                 mode="vertical"
                 defaultSelectedKeys={["0"]}
-                selectedKeys={[`${selectedIndexMenuItem}`]}
+                selectedKeys={selectedIndexMenuItem}
                 className={`home-page-layout-header__menu ${
                   showMenu ? "home-page-layout-header__menu--active" : ""
                 }`}
