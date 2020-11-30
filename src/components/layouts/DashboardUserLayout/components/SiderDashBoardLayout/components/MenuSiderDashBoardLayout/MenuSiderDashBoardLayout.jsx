@@ -18,6 +18,7 @@ const MenuSiderDashBoardLayout = ({
         selectedKeys={selectedIndexMenuItem}
         //   style={{ width: "100%" }}
         onSelect={match1200px ? () => {} : handleDesktop}
+        style={{ width: "100%" }}
       >
         {routes.map((r, i) => (
           <Menu.Item key={i} icon={r.icon}>
