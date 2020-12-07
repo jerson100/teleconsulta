@@ -16,7 +16,6 @@ import RequestMedicalAppointment from "../scenes/RequestMedicalAppointment";
 import HomePageLayout from "../components/layouts/HomePageLayout/HomePageLayout";
 import ContactPage from "../scenes/ContactPage/ContactPage";
 import MedicalStaff from "../scenes/MedicalStaff/MedicalStaff";
-import DoctorsSpecialty from "../scenes/DoctorsSpecialty/DoctorsSpecialty";
 
 export const AUTHROUTERS = [
   {
@@ -74,14 +73,6 @@ export const PUBLICROUTERS = [
         component: MedicalStaff,
         exact: true,
         title: "Staff de Médicos",
-        viewTitle: true,
-        icon: <ContactsOutlined />,
-      },
-      {
-        path: "/especialidades",
-        component: DoctorsSpecialty,
-        exact: true,
-        title: "Especialidades",
         viewTitle: true,
         icon: <ContactsOutlined />,
       },
