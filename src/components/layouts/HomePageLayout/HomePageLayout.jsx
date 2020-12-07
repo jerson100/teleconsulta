@@ -5,6 +5,7 @@ import { HeartTwoTone } from "@ant-design/icons";
 import RouteWithSubRoutes from "../../routers/RouteWithSubRoutes";
 import NotFoundPage from "../../../scenes/NotFoundPage/NotFoundPage";
 import HomePageLayoutHeader from "./HomePageLayoutHeader/HomePageLayoutHeader";
+import HomePageLayoutWrapper from "./HomePageLayoutWrapper/HomePageLayoutWrapper";
 import "./homePageLayout.scss";
 
 const { Footer, Content } = Layout;
@@ -20,7 +21,11 @@ const HomePageLayout = ({ routes, location }) => {
         >
           <Switch>
             {routes.map((r, i) => (
-              <RouteWithSubRoutes {...r} key={i} />
+              <RouteWithSubRoutes
+                {...r}
+                key={i}
+                wrapper={HomePageLayoutWrapper}
+              />
             ))}
             <Route
               render={() => (

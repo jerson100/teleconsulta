@@ -1,0 +1,16 @@
+.description {
+  //   border: solid 1px red;
+  font-size: 1rem;
+  &__label {
+    font-weight: bold;
+    font-size: 1em;
+    margin-bottom: 0.2rem;
+  }
+  &__icon {
+    margin-right: 0.5rem;
+    display: inline-block;
+  }
+  &__description {
+    font-size: 0.8em;
+  }
+}

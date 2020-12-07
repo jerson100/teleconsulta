@@ -1,0 +1,19 @@
+@import "../../../../scss/utilities/mixins/center";
+.home-page-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  &__title {
+    @include dc-xy-center;
+    height: 160px;
+    // border: solid 1px tomato;
+    margin-bottom: 3.5rem;
+  }
+  &__title-page {
+    // font-size: 40px;
+    text-align: center;
+  }
+  &__content {
+    flex-grow: 1;
+  }
+}

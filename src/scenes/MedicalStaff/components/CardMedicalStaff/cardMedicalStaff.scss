@@ -1,0 +1,112 @@
+@import "../../../../scss/utilities/mixins/center";
+@import "../../../../scss/theme/colors";
+.card-medical-staff {
+  perspective: 1200px;
+  //   max-width: 300px;
+  //   width: 300px;
+  width: 100%;
+  display: inline-block;
+  height: 450px;
+  cursor: pointer;
+  transition: box-shadow 500ms ease;
+  color: $white;
+  &__header {
+    margin-bottom: 1rem;
+  }
+  &__content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: all 1s ease;
+    transform-style: preserve-3d;
+    box-shadow: 0 0 10px 1px $primary;
+    border-radius: 25px;
+    &--rotate {
+      transform: rotateY(-180deg);
+    }
+  }
+  &__data {
+    border-radius: inherit;
+    position: absolute;
+    top: 0;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    padding: 3rem 2rem;
+  }
+
+  &__front {
+    text-align: center;
+    background-image: url("../../services/img/bg6.png"),
+      url("../../services/img/bg7.png");
+    background-color: $primary;
+    background-position: 0 0, 0 0;
+    background-size: cover, cover;
+    background-repeat: no-repeat, no-repeat;
+    .card-medical-staff__depth {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+    .card-medical-staff__body {
+      flex-grow: 1;
+    }
+  }
+  &__body {
+    @include dc-xy-center;
+  }
+  &__title,
+  &__code {
+    color: inherit;
+  }
+  &__title {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  &__title {
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  &__depth {
+    transform: translateZ(100px) scale(0.98);
+    perspective: inherit;
+  }
+  &__img {
+    max-width: 100%;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    object-position: top;
+    clip-path: polygon(
+      50% 0%,
+      80% 10%,
+      100% 35%,
+      100% 70%,
+      80% 90%,
+      50% 100%,
+      20% 90%,
+      0% 70%,
+      0% 35%,
+      20% 10%
+    );
+  }
+  &__back {
+    transform: rotateY(180deg);
+    background-image: url("../../services/img/bg6.png");
+    background-color: $primary;
+    background-position: 0 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  &__nav {
+    position: absolute;
+    right: 0.5rem;
+    bottom: 0.5rem;
+    font-size: 25px;
+  }
+}
