@@ -13,12 +13,20 @@
   &__nav {
     position: relative;
     height: 100%;
+    @media (min-width: $media-lg) {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
   }
   &__toogle {
     display: flex;
     justify-content: flex-end;
     height: 100%;
     align-items: center;
+    @media (min-width: $media-lg) {
+      display: none;
+    }
   }
   &__menu {
     position: fixed;
@@ -27,7 +35,11 @@
     width: 200px;
     transition: transform 300ms !important;
     @media (min-width: $media-lg) {
-      width: 300px;
+      display: flex;
+      flex-direction: row !important;
+      width: auto;
+      position: static;
+      height: auto;
     }
   }
   &__menu--active {

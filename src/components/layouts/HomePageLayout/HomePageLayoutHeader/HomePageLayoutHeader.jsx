@@ -58,11 +58,15 @@ const HomePageLayoutHeader = ({ routes, location }) => {
                     )
                 )}
                 <Menu.Item key="5">
-                  <Link to="/auth/login">Ingresar</Link>
+                  <Button type="danger">
+                    <Link to="/auth/login">Ingresar</Link>
+                  </Button>
                 </Menu.Item>
-                <Menu.Item key="6">
-                  <Link to="/auth/register">Registrarme</Link>
-                </Menu.Item>
+                {/* <Menu.Item key="6">
+                  <Button type="danger">
+                    <Link to="/auth/register">Registrarme</Link>
+                  </Button>
+                </Menu.Item> */}
               </Menu>
             </div>
           </Col>
