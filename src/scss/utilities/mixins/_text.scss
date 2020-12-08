@@ -1,0 +1,12 @@
+@import "./align";
+@mixin align($tag) {
+  .#{$tag}-left {
+    @include text-left;
+  }
+  .#{$tag}-right {
+    @include text-right;
+  }
+  .#{$tag}-center {
+    @include text-center;
+  }
+}

@@ -1,14 +1,14 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Layout } from "antd";
-import { HeartTwoTone } from "@ant-design/icons";
 import RouteWithSubRoutes from "../../routers/RouteWithSubRoutes";
 import NotFoundPage from "../../../scenes/NotFoundPage/NotFoundPage";
 import HomePageLayoutHeader from "./HomePageLayoutHeader/HomePageLayoutHeader";
 import HomePageLayoutWrapper from "./HomePageLayoutWrapper/HomePageLayoutWrapper";
 import "./homePageLayout.scss";
+import FooterHomePageLayout from "./FooterHomePageLayout/FooterHomePageLayout";
 
-const { Footer, Content } = Layout;
+const { Content } = Layout;
 
 const HomePageLayout = ({ routes, location }) => {
   return (
@@ -34,11 +34,7 @@ const HomePageLayout = ({ routes, location }) => {
             />
           </Switch>
         </Content>
-        <Footer className="home-page-layout__footer">
-          Copyright ©2020 All rights reserved | This page is made with by{" "}
-          <HeartTwoTone twoToneColor="#eb2f96" />
-          Jerson Ramírez Ortiz <HeartTwoTone twoToneColor="#eb2f96" />
-        </Footer>
+        <FooterHomePageLayout />
       </Layout>
     </div>
   );

@@ -1,0 +1,20 @@
+@import "../../../scss/utilities/mixins/list";
+.simple-list {
+  @include defaultList;
+  &--block {
+    display: block;
+  }
+  &--inline {
+    display: inline-block;
+  }
+  &--dir-horizontal {
+    .simple-list__item {
+      display: inline-block;
+    }
+  }
+  &--dir-vertical {
+    .simple-list__item {
+      display: block;
+    }
+  }
+}

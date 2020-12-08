@@ -1,0 +1,11 @@
+@mixin text-left {
+  text-align: left;
+}
+
+@mixin text-right {
+  text-align: right;
+}
+
+@mixin text-center {
+  text-align: center;
+}
