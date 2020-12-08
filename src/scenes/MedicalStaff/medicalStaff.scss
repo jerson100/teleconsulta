@@ -1,0 +1,7 @@
+@import "../../scss/theme/colors";
+.medical-staff {
+  &__section {
+    margin-bottom: 2rem;
+    background-color: $white !important;
+  }
+}

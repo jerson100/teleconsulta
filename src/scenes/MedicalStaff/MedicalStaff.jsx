@@ -1,8 +1,13 @@
 import React from "react";
+import { Space, Typography } from "antd";
 import Container from "../../components/common/Container";
 import { Helmet } from "react-helmet";
 import CardMedicalStaffList from "./components/CardMedicalStaffList/CardMedicalStaffList";
 import "./medicalStaff.scss";
+import SearchMedicalStaff from "./components/SearchMedicalStaff/SearchMedicalStaff";
+import Layout from "antd/lib/layout/layout";
+
+const { Title } = Typography;
 
 const MedicalStaff = () => {
   return (
@@ -16,9 +21,15 @@ const MedicalStaff = () => {
       </Helmet>
       <div className="medical-staff">
         <div className="medical-staff__content">
-          <Container>
-            <CardMedicalStaffList />
-          </Container>
+          <Layout className="medical-staff__section  medical-staff__medical-search">
+            <Container>
+              <Space direction="vertical" style={{ width: "100%" }} size={25}>
+                <Title level={2}>Buscar Médico</Title>
+                <SearchMedicalStaff />
+                <CardMedicalStaffList />
+              </Space>
+            </Container>
+          </Layout>
         </div>
       </div>
     </>
