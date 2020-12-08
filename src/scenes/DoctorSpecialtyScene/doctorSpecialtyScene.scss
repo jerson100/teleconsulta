@@ -1,0 +1,26 @@
+.doctor-specialty-scene {
+  overflow: none;
+  &__left {
+    height: 100%;
+  }
+  &__right {
+    padding: 1rem 0;
+  }
+  &__img-container {
+    // position: sticky;
+    // top: 5px;
+    // border: solid 1px red;
+    // height: 200px;
+  }
+  &__img {
+    // max-height: 450px;
+  }
+  &__title {
+    font-size: 38px;
+    text-align: center;
+  }
+
+  &__navigation {
+    margin-bottom: 2rem;
+  }
+}

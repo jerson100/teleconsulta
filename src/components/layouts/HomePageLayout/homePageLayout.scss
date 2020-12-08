@@ -2,6 +2,7 @@
 .home-page-layout {
   overflow: hidden;
   &__section {
+    background-color: $white !important;
     min-height: 100vh !important;
   }
   &__content {
