@@ -44,7 +44,7 @@ const DoctorsSpecialty = () => {
           ]}
         >
           {especialidades.map((e, i) => (
-            <Col sm={{ span: 24 }} md={{ span: 12 }} xl={{ span: 8 }} key={i}>
+            <Col xs={{ span: 24 }} md={{ span: 12 }} xl={{ span: 8 }} key={i}>
               <DoctorSpecialty especialty={e.especialty} image={e.image} />
             </Col>
           ))}
