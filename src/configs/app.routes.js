@@ -16,6 +16,8 @@ import RequestMedicalAppointment from "../scenes/RequestMedicalAppointment";
 import HomePageLayout from "../components/layouts/HomePageLayout/HomePageLayout";
 import ContactPage from "../scenes/ContactPage/ContactPage";
 import MedicalStaff from "../scenes/MedicalStaff/MedicalStaff";
+import DoctorsSpecialty from "../scenes/DoctorsSpecialty/DoctorsSpecialty";
+import DoctorSpecialtyScene from "../scenes/DoctorSpecialtyScene/DoctorSpecialtyScene";
 
 export const AUTHROUTERS = [
   {
@@ -58,6 +60,7 @@ export const PUBLICROUTERS = [
         exact: true,
         title: "Inicio",
         viewTitle: false,
+        filter: true,
         icon: <HomeOutlined />,
       },
       {
@@ -66,6 +69,7 @@ export const PUBLICROUTERS = [
         exact: true,
         title: "Contacto",
         viewTitle: true,
+        filter: true,
         icon: <ContactsOutlined />,
       },
       {
@@ -74,6 +78,25 @@ export const PUBLICROUTERS = [
         exact: true,
         title: "Staff de Médicos",
         viewTitle: true,
+        filter: true,
+        icon: <ContactsOutlined />,
+      },
+      {
+        path: "/especialidades",
+        component: DoctorsSpecialty,
+        exact: true,
+        title: "Especialidades",
+        viewTitle: true,
+        filter: true,
+        icon: <ContactsOutlined />,
+      },
+      {
+        path: "/especialidades/:especialty",
+        component: DoctorSpecialtyScene,
+        exact: true,
+        title: "Especialidades",
+        viewTitle: false,
+        filter: false,
         icon: <ContactsOutlined />,
       },
     ],

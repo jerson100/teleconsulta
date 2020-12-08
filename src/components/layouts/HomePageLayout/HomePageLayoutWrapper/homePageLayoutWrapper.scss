@@ -1,16 +1,23 @@
 @import "../../../../scss/utilities/mixins/center";
+@import "../../../../scss/theme/colors";
+@import "../../../../scss/utilities/variables";
 .home-page-layout-wrapper {
   display: flex;
   flex-direction: column;
-  background-color: #fff;
+  //   background-color: #fff;
   &__title {
+    background-color: lighten($color: $primary, $amount: 1);
     @include dc-xy-center;
-    height: 160px;
+    height: 200px;
     // border: solid 1px tomato;
-    margin-bottom: 3.5rem;
+    margin-bottom: 2rem;
+    @media (min-width: $media-xl) {
+      height: 400px;
+    }
   }
   &__title-page {
     // font-size: 40px;
+    color: $white !important;
     text-align: center;
   }
   &__content {

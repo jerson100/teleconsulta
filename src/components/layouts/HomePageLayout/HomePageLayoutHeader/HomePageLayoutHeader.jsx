@@ -13,7 +13,8 @@ const HomePageLayoutHeader = ({ routes, location }) => {
   const [showMenu, setshowMenu] = useState(false);
   const selectedIndexMenuItem = useIndexMenuItemLocation(
     routes,
-    location.pathname
+    location.pathname,
+    ""
   );
   const handleShowMenu = () => {
     setshowMenu(!showMenu);
@@ -41,18 +42,21 @@ const HomePageLayoutHeader = ({ routes, location }) => {
               <Menu
                 theme="dark"
                 mode="vertical"
-                defaultSelectedKeys={["0"]}
+                // defaultSelectedKeys={["0"]}
                 selectedKeys={selectedIndexMenuItem}
                 className={`home-page-layout-header__menu ${
                   showMenu ? "home-page-layout-header__menu--active" : ""
                 }`}
                 onSelect={handleSelectMenuItem}
               >
-                {routes.map((r, i) => (
-                  <Menu.Item key={i}>
-                    <Link to={r.path}>{r.title}</Link>
-                  </Menu.Item>
-                ))}
+                {routes.map(
+                  (r, i) =>
+                    r.filter && (
+                      <Menu.Item key={i}>
+                        <Link to={r.path}>{r.title}</Link>
+                      </Menu.Item>
+                    )
+                )}
                 <Menu.Item key="5">
                   <Link to="/auth/login">Ingresar</Link>
                 </Menu.Item>
