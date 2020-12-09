@@ -7,6 +7,7 @@ import HomePageLayoutHeader from "./HomePageLayoutHeader/HomePageLayoutHeader";
 import HomePageLayoutWrapper from "./HomePageLayoutWrapper/HomePageLayoutWrapper";
 import "./homePageLayout.scss";
 import FooterHomePageLayout from "./FooterHomePageLayout/FooterHomePageLayout";
+import HomePageLayoutMessage from "./components/HomePageLayoutMessage";
 
 const { Content } = Layout;
 
@@ -34,6 +35,7 @@ const HomePageLayout = ({ routes, location }) => {
             />
           </Switch>
         </Content>
+        <HomePageLayoutMessage />
         <FooterHomePageLayout />
       </Layout>
     </div>

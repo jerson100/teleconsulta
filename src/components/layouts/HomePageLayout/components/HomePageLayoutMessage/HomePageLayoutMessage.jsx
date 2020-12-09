@@ -1,23 +1,23 @@
 import React from "react";
 import { Col, Row, Typography } from "antd";
-import JeSection from "../../../../components/common/JeSection/JeSection";
-import Container from "../../../../components/common/Container";
-import "./doctorSpecialtyMessage.scss";
+import JeSection from "../../../../common/JeSection/JeSection";
+import Container from "../../../../common/Container";
+import "./homePageLayoutMessage.scss";
 const { Title } = Typography;
 
-const DoctorSpecialtyMessage = () => {
+const HomePageLayoutMessage = () => {
   return (
     <JeSection isMargin={false}>
-      <div className="doctors-specialty-message">
+      <div className="home-page-layout-message">
         <Container>
           <Row justify="space-between" align="middle">
             <Col flex="0 1 650px">
-              <Title level={2} className="doctors-specialty-message__title">
+              <Title level={2} className="home-page-layout-message__title">
                 Porque tu salud nos interesa{" "}
               </Title>
             </Col>
             <Col>
-              <Title level={2} className="doctors-specialty-message__logo">
+              <Title level={2} className="home-page-layout-message__logo">
                 Teleconsulta
               </Title>
             </Col>
@@ -28,4 +28,4 @@ const DoctorSpecialtyMessage = () => {
   );
 };
 
-export default DoctorSpecialtyMessage;
+export default HomePageLayoutMessage;

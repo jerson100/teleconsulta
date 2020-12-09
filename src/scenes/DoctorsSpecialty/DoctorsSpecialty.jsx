@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 import Container from "../../components/common/Container";
 import JeSection from "../../components/common/JeSection/JeSection";
 import DoctorSpecialty from "./components/DoctorSpecialty";
-import DoctorSpecialtyMessage from "./components/DoctorSpecialtyMessage/DoctorSpecialtyMessage";
 import DoctorsSpecialtySearch from "./components/DoctorsSpecialtySearch";
 const { Title } = Typography;
 
@@ -89,7 +88,6 @@ const DoctorsSpecialty = () => {
             </Row>
           </Container>
         </JeSection>
-        <DoctorSpecialtyMessage />
       </div>
     </>
   );
