@@ -13,6 +13,7 @@ import d1 from "../../components/common/CardMedicalStaffList/services/img/d1.jpg
 import d2 from "../../components/common/CardMedicalStaffList/services/img/d2.jpg";
 import d3 from "../../components/common/CardMedicalStaffList/services/img/d3.jpg";
 import d4 from "../../components/common/CardMedicalStaffList/services/img/d4.jpg";
+import JeSection from "../../components/common/JeSection/JeSection";
 
 const doctors = [
   {
@@ -95,7 +96,7 @@ const DoctorSpecialtyScene = ({
             </Breadcrumb>
           </div>
         </Container>
-        <section className="doctor-specialty-scene__section ">
+        <JeSection>
           <Container>
             <Row gutter={[{ md: 32 }, { md: 32 }]}>
               <Col
@@ -111,18 +112,6 @@ const DoctorSpecialtyScene = ({
                   </Typography.Title>
                   {/* <p className="doctor-specialty-scene__title">
                 </p> */}
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Molestias optio quis possimus, perferendis tempore libero
-                    deleniti nihil natus cumque cum ipsum officiis, accusantium
-                    quo nisi quas! Ea aspernatur recusandae cumque.
-                  </p>
-                  <p>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Molestias optio quis possimus, perferendis tempore libero
-                    deleniti nihil natus cumque cum ipsum officiis, accusantium
-                    quo nisi quas! Ea aspernatur recusandae cumque.
-                  </p>
                   <p>
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Molestias optio quis possimus, perferendis tempore libero
@@ -210,40 +199,42 @@ const DoctorSpecialtyScene = ({
               </Col>
             </Row>
           </Container>
-        </section>
-        <section className="doctor-specialty-scene__section doctor-specialty-scene__staff">
-          <Container>
-            <Typography.Title level={2} style={{ color: "#fff" }}>
-              Staff
-            </Typography.Title>
-            {/* <CardMedicalStaffList /> */}
-            <Carousel dotPosition={"left"} autoplay>
-              {doctors.map((d, i) => (
-                <div key={i}>
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      padding: "2rem 0",
-                    }}
-                  >
-                    <CardMedicalStaff
-                      name={d.name}
-                      codeSchool={d.codeSchool}
-                      image={d.image}
-                      qrCode={d.qrCode}
-                      correo={d.correo}
-                      descripcion={d.descripcion}
-                      domicilio={d.domicilio}
-                      especialidad={d.especialidad}
-                      maxWidth="350px"
-                    />
+        </JeSection>
+        <JeSection>
+          <div className="doctor-specialty-scene__staff">
+            <Container>
+              <Typography.Title level={2} style={{ color: "#fff" }}>
+                Staff
+              </Typography.Title>
+              {/* <CardMedicalStaffList /> */}
+              <Carousel dotPosition={"left"} autoplay>
+                {doctors.map((d, i) => (
+                  <div key={i}>
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        padding: "2rem 0",
+                      }}
+                    >
+                      <CardMedicalStaff
+                        name={d.name}
+                        codeSchool={d.codeSchool}
+                        image={d.image}
+                        qrCode={d.qrCode}
+                        correo={d.correo}
+                        descripcion={d.descripcion}
+                        domicilio={d.domicilio}
+                        especialidad={d.especialidad}
+                        maxWidth="350px"
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </Carousel>
-          </Container>
-        </section>
+                ))}
+              </Carousel>
+            </Container>
+          </div>
+        </JeSection>
       </div>
     </>
   );
