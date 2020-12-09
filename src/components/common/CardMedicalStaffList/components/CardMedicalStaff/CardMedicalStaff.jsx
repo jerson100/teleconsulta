@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import PropTypes from "prop-types";
 import QRCode from "qrcode.react";
 import Description from "../../../Description";
 import {
@@ -22,7 +23,7 @@ const CardMedicalStaff = ({
   correo,
   domicilio,
   descripcion,
-  maxWidth = "350px",
+  maxWidth,
 }) => {
   const [isFront, setisFront] = useState(false);
   const handleHover = (e) => {
@@ -104,6 +105,30 @@ const CardMedicalStaff = ({
       </div>
     </div>
   );
+};
+
+CardMedicalStaff.propTypes = {
+  image: PropTypes.string,
+  name: PropTypes.string,
+  codeSchool: PropTypes.string,
+  qrCode: PropTypes.string,
+  especialidad: PropTypes.string,
+  correo: PropTypes.string,
+  domicilio: PropTypes.string,
+  descripcion: PropTypes.string,
+  maxWidth: PropTypes.string,
+};
+
+CardMedicalStaff.defaultProps = {
+  image: "",
+  name: "...",
+  codeSchool: "...",
+  qrCode: "",
+  especialidad: "...",
+  correo: "...",
+  domicilio: "...",
+  descripcion: "...",
+  maxWidth: "350px",
 };
 
 export default CardMedicalStaff;

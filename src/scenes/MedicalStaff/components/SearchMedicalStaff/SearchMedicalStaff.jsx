@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Col, Form, Input, Row, Select } from "antd";
+import { Button, Col, Form, Input, Row, Select, Tooltip } from "antd";
+import { SearchOutlined } from "@ant-design/icons";
 import "./searchMedicalStaff.scss";
 
 const layout = {
@@ -11,17 +12,19 @@ const layout = {
   },
 };
 
+const gutter = [
+  { xs: 0, lg: 16 },
+  { xs: 0, lg: 16 },
+];
+
+const colSpan = { xs: { span: 24 }, sm: { span: 12 }, md: { span: 8 } };
+
 const SearchMedicalStaff = () => {
   return (
     <div className="search-medical-staff">
-      <Form {...layout}>
-        <Row
-          gutter={[
-            { xs: 0, lg: 16 },
-            { xs: 0, lg: 16 },
-          ]}
-        >
-          <Col xs={{ span: 24 }} lg={{ span: 9 }}>
+      <Form {...layout} gutter={gutter}>
+        <Row gutter={gutter} justify="center">
+          <Col xs={colSpan.xs} sm={colSpan.sm} md={colSpan.md}>
             <Form.Item label="Especialidad">
               <Select placeholder="Especialidad" size="large">
                 <Select.Option key="0">Todos</Select.Option>
@@ -31,16 +34,21 @@ const SearchMedicalStaff = () => {
               </Select>
             </Form.Item>
           </Col>
-          <Col xs={{ span: 24 }} lg={{ span: 9 }}>
+          <Col xs={colSpan.xs} sm={colSpan.sm} md={colSpan.md}>
             <Form.Item label="Médico" name="medico">
               <Input size="large" placeholder="Ingresa un nombre" />
             </Form.Item>
           </Col>
-          <Col xs={{ span: 24 }} lg={{ span: 6 }}>
-            <Form.Item wrapperCol={{ span: 24 }} style={{ textAlign: "right" }}>
-              <Button type="primary" size="large">
-                Buscar
-              </Button>
+          <Col>
+            <Form.Item>
+              <Tooltip title="search">
+                <Button
+                  type="primary"
+                  shape="circle"
+                  icon={<SearchOutlined />}
+                  size="large"
+                />
+              </Tooltip>
             </Form.Item>
           </Col>
         </Row>

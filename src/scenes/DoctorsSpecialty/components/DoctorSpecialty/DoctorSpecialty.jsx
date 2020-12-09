@@ -34,12 +34,6 @@ const DoctorSpecialty = ({ especialty, image }) => {
           }
         />
       </Card>
-      {/* , */}
-      {/* <div className="doctor-specialty__header">
-        <img />
-      </div>
-      <div className="doctor-specialty__body">
-      </div> */}
     </article>
   );
 };

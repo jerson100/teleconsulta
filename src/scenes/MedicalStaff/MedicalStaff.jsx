@@ -1,15 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Space, Typography } from "antd";
-import Container from "../../components/common/Container";
 import { Helmet } from "react-helmet";
-import "./medicalStaff.scss";
 import SearchMedicalStaff from "./components/SearchMedicalStaff/SearchMedicalStaff";
-import Layout from "antd/lib/layout/layout";
 import CardMedicalStaffList from "../../components/common/CardMedicalStaffList";
+import JeSection from "../../components/common/JeSection/JeSection";
+import Container from "../../components/common/Container/Container";
+import { getDoctors } from "../../services/api/doctor";
+import "./medicalStaff.scss";
 
 const { Title } = Typography;
 
 const MedicalStaff = () => {
+  const [doctors, setdoctors] = useState([]);
+
+  useEffect(() => {
+    setdoctors(getDoctors());
+  }, []);
+
   return (
     <>
       <Helmet>
@@ -21,15 +28,15 @@ const MedicalStaff = () => {
       </Helmet>
       <div className="medical-staff">
         <div className="medical-staff__content">
-          <Layout className="medical-staff__section  medical-staff__medical-search">
+          <JeSection>
             <Container>
               <Space direction="vertical" style={{ width: "100%" }} size={25}>
                 <Title level={2}>Buscar Médico</Title>
                 <SearchMedicalStaff />
-                <CardMedicalStaffList />
+                <CardMedicalStaffList doctors={doctors} />
               </Space>
             </Container>
-          </Layout>
+          </JeSection>
         </div>
       </div>
     </>

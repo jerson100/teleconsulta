@@ -1,0 +1,13 @@
+@import "../../../../scss/theme/colors";
+.doctor-specialty-scene-staff {
+  padding: 3rem 0;
+  background-color: #00182e;
+  &__title {
+    color: $white;
+  }
+  &__doctors {
+    display: flex;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+}

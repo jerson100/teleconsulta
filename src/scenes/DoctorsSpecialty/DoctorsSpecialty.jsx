@@ -1,59 +1,40 @@
 import { Col, Row, Typography } from "antd";
 import React, { useEffect, useMemo, useState } from "react";
+import { parse } from "query-string";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import Container from "../../components/common/Container";
 import JeSection from "../../components/common/JeSection/JeSection";
+import { getEspecialty } from "../../services/api/doctorsSpecialty";
 import DoctorSpecialty from "./components/DoctorSpecialty";
 import DoctorsSpecialtySearch from "./components/DoctorsSpecialtySearch";
 const { Title } = Typography;
 
-const especialidades = [
-  {
-    especialty: "Cardiologia",
-    image:
-      "https://www.clinicainternacional.com.pe/uploads/especialidade/img-portadas/esp-cardiologia.jpg",
-  },
-  {
-    especialty: "Oftalmogía",
-    image:
-      "https://www.clinicainternacional.com.pe/uploads/especialidade/img-portadas/esp-oftalmologia.jpg",
-  },
-  {
-    especialty: "Oncología",
-    image:
-      "https://www.clinicainternacional.com.pe/uploads/clinica-internacional-servicio-anciana-doctor.jpg",
-  },
-  {
-    especialty: "Odontología",
-    image:
-      "https://www.clinicainternacional.com.pe/uploads/especialidade/img-portadas/esp-odontologi-a.jpg",
-  },
-  {
-    especialty: "Traumatología",
-    image:
-      "https://www.clinicainternacional.com.pe/uploads/especialidade/img-portadas/esp-traumatologia.jpg",
-  },
+const gutter = [
+  { md: 16, xl: 32 },
+  { xs: 16, md: 16, xl: 32 },
 ];
 
 const DoctorsSpecialty = () => {
   const { search } = useLocation();
   const [specialties, setSpecialties] = useState([]);
-  //   console.log(search);
 
   useEffect(() => {
     //llamada a la api
-    setSpecialties(especialidades);
+    setSpecialties(getEspecialty());
   }, []);
 
+  const specialtySearch = useMemo(() => {
+    const pars = parse(search).q;
+    return pars === undefined ? "" : pars;
+  }, [search]);
+
   const daatSearch = useMemo(() => {
-    const s = search.replace("?q=", "")?.toLowerCase();
-    // console.log(s);
-    if (s === "") return specialties;
+    if (specialtySearch === "") return specialties;
     return specialties.filter(
-      (ss) => ss.especialty.toLowerCase().indexOf(s) >= 0
+      (ss) => ss.especialty.toLowerCase().indexOf(specialtySearch) >= 0
     );
-  }, [search, specialties]);
+  }, [specialtySearch, specialties]);
 
   return (
     <>
@@ -68,13 +49,8 @@ const DoctorsSpecialty = () => {
         <JeSection>
           <Container>
             <Title level={2}>Buscar: </Title>
-            <DoctorsSpecialtySearch search={search} />
-            <Row
-              gutter={[
-                { md: 16, xl: 32 },
-                { xs: 16, md: 16, xl: 32 },
-              ]}
-            >
+            <DoctorsSpecialtySearch search={specialtySearch} />
+            <Row gutter={gutter}>
               {daatSearch.map((e, i) => (
                 <Col
                   xs={{ span: 24 }}
