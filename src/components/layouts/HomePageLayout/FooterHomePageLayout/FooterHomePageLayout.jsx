@@ -141,11 +141,11 @@ const FooterHomePageLayout = () => {
                   </SimpleList.Item>
                 </SimpleList>
                 <p style={{ color: "#fff" }}>
-                  Todos los precios están en dólares estadounidenses y excluyen
-                  el impuesto a las ventas.
+                  Todos los precios están en Soles peruanos y excluyen el
+                  impuesto a las ventas.
                 </p>
                 <p style={{ color: "#fff" }}>
-                  © 2020 Envato Pty Ltd. Las marcas registradas y las marcas son
+                  © 2020 teleconsulta . Las marcas registradas y las marcas son
                   propiedad de sus respectivos dueños.
                 </p>
               </Col>
