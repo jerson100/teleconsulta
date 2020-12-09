@@ -1,26 +1,61 @@
+@import "../../scss/utilities/variables";
+@import "../../scss/theme/colors";
 .doctor-specialty-scene {
   overflow: none;
+  &__col-left {
+    order: 2;
+    @media (min-width: $media-lg) {
+      order: 1;
+    }
+  }
+
+  &__col-right {
+    order: 1;
+    @media (min-width: $media-lg) {
+      order: 2;
+    }
+  }
+
   &__left {
-    height: 100%;
+    @media (min-width: $media-lg) {
+      height: calc(100% + 15rem);
+    }
   }
   &__right {
     padding: 1rem 0;
   }
   &__img-container {
-    // position: sticky;
-    // top: 5px;
-    // border: solid 1px red;
-    // height: 200px;
+    @media (min-width: $media-lg) {
+      margin-top: -15rem;
+      position: relative;
+    }
   }
-  &__img {
-    // max-height: 450px;
+  &__img-container {
+    @media (min-width: $media-lg) {
+      position: sticky;
+      top: 80px;
+    }
   }
-  &__title {
-    font-size: 38px;
-    text-align: center;
+  //   &__img {
+  //     // max-height: 450px;
+  //     // max-width: 350px;
+  //   }
+  .home-page-layout-wrapper__title-page {
+    @media (min-width: $media-lg) {
+      text-align: left !important;
+    }
   }
 
   &__navigation {
     margin-bottom: 2rem;
+  }
+
+  &__section {
+    margin-bottom: 4rem;
+  }
+
+  &__staff {
+    padding: 3rem 0;
+    background-color: #00182e;
   }
 }

@@ -1,9 +1,7 @@
-@import "../../../../scss/utilities/mixins/center";
-@import "../../../../scss/theme/colors";
+@import "../../../../../scss/utilities/mixins/center";
+@import "../../../../../scss/theme/colors";
 .card-medical-staff {
   perspective: 1200px;
-  //   max-width: 300px;
-  //   width: 300px;
   width: 100%;
   display: inline-block;
   height: 450px;
@@ -80,6 +78,7 @@
     border-radius: 50%;
     width: 200px;
     height: 200px;
+    display: inline-block !important;
     object-fit: cover;
     object-position: top;
     clip-path: polygon(

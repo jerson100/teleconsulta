@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import QRCode from "qrcode.react";
-import Description from "../../../../components/common/Description";
+import Description from "../../../Description";
 import {
   MailOutlined,
   HomeOutlined,
@@ -10,8 +10,8 @@ import {
   CaretLeftOutlined,
 } from "@ant-design/icons";
 
-import "./cardMedicalStaff.scss";
 import { Button } from "antd";
+import "./cardMedicalStaff.scss";
 
 const CardMedicalStaff = ({
   image,
@@ -22,13 +22,18 @@ const CardMedicalStaff = ({
   correo,
   domicilio,
   descripcion,
+  maxWidth = "350px",
 }) => {
   const [isFront, setisFront] = useState(false);
   const handleHover = (e) => {
     setisFront((f) => !f);
   };
   return (
-    <div className="card-medical-staff" onClick={handleHover}>
+    <div
+      className="card-medical-staff"
+      style={{ maxWidth: maxWidth }}
+      onClick={handleHover}
+    >
       <div
         className={`card-medical-staff__content ${
           isFront ? "card-medical-staff__content--rotate" : ""

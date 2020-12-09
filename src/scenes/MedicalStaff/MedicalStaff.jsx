@@ -2,10 +2,10 @@ import React from "react";
 import { Space, Typography } from "antd";
 import Container from "../../components/common/Container";
 import { Helmet } from "react-helmet";
-import CardMedicalStaffList from "./components/CardMedicalStaffList/CardMedicalStaffList";
 import "./medicalStaff.scss";
 import SearchMedicalStaff from "./components/SearchMedicalStaff/SearchMedicalStaff";
 import Layout from "antd/lib/layout/layout";
+import CardMedicalStaffList from "../../components/common/CardMedicalStaffList";
 
 const { Title } = Typography;
 

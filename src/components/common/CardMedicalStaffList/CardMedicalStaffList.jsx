@@ -1,10 +1,10 @@
 import { Col, Row } from "antd";
 import React from "react";
-import CardMedicalStaff from "../CardMedicalStaff/CardMedicalStaff";
-import d1 from "../../services/img/d1.jpg";
-import d2 from "../../services/img/d2.jpg";
-import d3 from "../../services/img/d3.jpg";
-import d4 from "../../services/img/d4.jpg";
+import CardMedicalStaff from "./components/CardMedicalStaff";
+import d1 from "./services/img/d1.jpg";
+import d2 from "./services/img/d2.jpg";
+import d3 from "./services/img/d3.jpg";
+import d4 from "./services/img/d4.jpg";
 
 const doctors = [
   {
@@ -72,10 +72,11 @@ const CardMedicalStaffList = () => {
       <Row justify="center" gutter={RowGutter}>
         {doctors.map((d) => (
           <Col
-            xs={colSpan.xs}
-            sm={colSpan.sm}
-            md={colSpan.md}
-            lg={colSpan.lg}
+            flex="0 0 350px"
+            // xs={colSpan.xs}
+            // sm={colSpan.sm}
+            // md={colSpan.md}
+            // lg={colSpan.lg}
             key={d.id}
           >
             <CardMedicalStaff
@@ -87,6 +88,7 @@ const CardMedicalStaffList = () => {
               descripcion={d.descripcion}
               domicilio={d.domicilio}
               especialidad={d.especialidad}
+              maxWidth="350px"
             />
           </Col>
         ))}
