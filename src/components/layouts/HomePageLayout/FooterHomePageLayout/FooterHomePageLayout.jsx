@@ -160,7 +160,7 @@ const FooterHomePageLayout = () => {
                   This page is created by{" "}
                   <HeartTwoTone twoToneColor="#eb2f96" />{" "}
                   <a
-                    href="https://www.facebook.com/jersonramirez"
+                    href="https://www.facebook.com/jersonomar.ramirezortiz/"
                     target="_blank"
                   >
                     Jerson Ramírez Ortiz
