@@ -1,10 +1,13 @@
-import { Col, Row } from "antd";
+import { Col, Row, Typography } from "antd";
 import React, { useEffect, useMemo, useState } from "react";
 import { Helmet } from "react-helmet";
 import { useLocation } from "react-router-dom";
 import Container from "../../components/common/Container";
+import JeSection from "../../components/common/JeSection/JeSection";
 import DoctorSpecialty from "./components/DoctorSpecialty";
+import DoctorSpecialtyMessage from "./components/DoctorSpecialtyMessage/DoctorSpecialtyMessage";
 import DoctorsSpecialtySearch from "./components/DoctorsSpecialtySearch";
+const { Title } = Typography;
 
 const especialidades = [
   {
@@ -63,21 +66,30 @@ const DoctorsSpecialty = () => {
         <title>Especialidades | teleconsulta</title>
       </Helmet>
       <div className="doctors-specialty">
-        <Container>
-          <DoctorsSpecialtySearch search={search} />
-          <Row
-            gutter={[
-              { md: 16, xl: 32 },
-              { xs: 16, md: 16, xl: 32 },
-            ]}
-          >
-            {daatSearch.map((e, i) => (
-              <Col xs={{ span: 24 }} md={{ span: 12 }} xl={{ span: 8 }} key={i}>
-                <DoctorSpecialty especialty={e.especialty} image={e.image} />
-              </Col>
-            ))}
-          </Row>
-        </Container>
+        <JeSection>
+          <Container>
+            <Title level={2}>Buscar: </Title>
+            <DoctorsSpecialtySearch search={search} />
+            <Row
+              gutter={[
+                { md: 16, xl: 32 },
+                { xs: 16, md: 16, xl: 32 },
+              ]}
+            >
+              {daatSearch.map((e, i) => (
+                <Col
+                  xs={{ span: 24 }}
+                  md={{ span: 12 }}
+                  xl={{ span: 8 }}
+                  key={i}
+                >
+                  <DoctorSpecialty especialty={e.especialty} image={e.image} />
+                </Col>
+              ))}
+            </Row>
+          </Container>
+        </JeSection>
+        <DoctorSpecialtyMessage />
       </div>
     </>
   );

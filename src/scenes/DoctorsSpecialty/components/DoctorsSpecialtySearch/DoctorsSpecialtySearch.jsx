@@ -1,8 +1,7 @@
 import React from "react";
-import { Form, Input, Typography } from "antd";
+import { Form, Input } from "antd";
 import "./doctorsSpecialtySearch.scss";
 import { useHistory } from "react-router-dom";
-const { Title } = Typography;
 
 const DoctorsSpecialtySearch = ({ search }) => {
   const { push } = useHistory();
@@ -13,7 +12,6 @@ const DoctorsSpecialtySearch = ({ search }) => {
   //   console.log(search);
   return (
     <div className="doctors-specialty__search">
-      <Title level={2}>Buscar: </Title>
       <Form onFinish={handleSubmit}>
         <Form.Item name="specialty" initialValue={search.replace("?q=", "")}>
           <Input />

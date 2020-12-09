@@ -15,7 +15,6 @@ const DoctorSpecialty = ({ especialty, image }) => {
     <article className="doctor-specialty">
       <Card
         hoverable
-        // style={{ width: 240 }}
         cover={
           <div className="doctor-specialty__header">
             <img
