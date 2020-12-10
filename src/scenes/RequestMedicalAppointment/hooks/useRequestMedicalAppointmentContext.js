@@ -1,4 +1,4 @@
-const { useContext } = require("react");
+import { useContext } from "react";
 
 import { RequestMedicalAppointmentContext } from "../providers/RequestMedicalAppointmentProvider";
 
