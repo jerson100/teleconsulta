@@ -12,7 +12,7 @@ const JeStepsGroup = ({ children }) => {
   const steps = useMemo(() => {
     console.log(React.Children.toArray(children));
     return React.Children.toArray(children).map((component) => {
-      if (component.type.name !== "JeStepsItem")
+      if (component.type.name !== JeStepsItem.name)
         throw new Error(
           "Solo se admite como hijo directo un componente de tipo JeStepsItem"
         );
