@@ -2,6 +2,11 @@ import React from "react";
 import "./requestMedicalAppointmentSteps.scss";
 import RequestVirtualMedical from "../RequestVirtualMedical/RequestVirtualMedical";
 import JeSteps from "../../../../components/common/JeSteps";
+import RequestMedicalAppointmentSelectCategory from "../RequestMedicalAppointmentSelectCategory";
+import useRequestMedicalAppointmentContext from "../../hooks/useRequestMedicalAppointmentContext";
+import RequestMedicalAppointmentSpecialties from "../RequestMedicalAppointmentSpecialties/RequestMedicalAppointmentSpecialties";
+import RequestMedicalAppointmentMedic from "../RequestMedicalAppointmentMedic/RequestMedicalAppointmentMedic";
+import RequestMedicalAppointmentTypeOfService from "../RequestMedicalAppointmentTypeOfService/RequestMedicalAppointmentTypeOfService";
 
 // const steps = [
 //   {
@@ -34,21 +39,49 @@ import JeSteps from "../../../../components/common/JeSteps";
 //   },
 // ];
 const RequestMedicalAppointmentSteps = () => {
+  const { category } = useRequestMedicalAppointmentContext();
+  console.log(category);
   return (
     <JeSteps>
       <JeSteps.JeStepsGroup>
         <JeSteps.JeStepsGroup.JeStepsItem>
-          Step1
+          Solicitud
         </JeSteps.JeStepsGroup.JeStepsItem>
         <JeSteps.JeStepsGroup.JeStepsItem>
-          Step2
+          Categoría
         </JeSteps.JeStepsGroup.JeStepsItem>
         <JeSteps.JeStepsGroup.JeStepsItem>
-          Step3
+          {category
+            ? category.id === 1
+              ? "Especialidades"
+              : "Médicos"
+            : "..."}
+        </JeSteps.JeStepsGroup.JeStepsItem>
+        <JeSteps.JeStepsGroup.JeStepsItem>
+          {category
+            ? category.id === 1
+              ? "Médicos"
+              : "Especialidades"
+            : "..."}
+        </JeSteps.JeStepsGroup.JeStepsItem>
+        <JeSteps.JeStepsGroup.JeStepsItem>
+          Tipos de Servicio
         </JeSteps.JeStepsGroup.JeStepsItem>
       </JeSteps.JeStepsGroup>
       <JeSteps.JeStepsContent>
         <RequestVirtualMedical />
+        <RequestMedicalAppointmentSelectCategory />
+        {category && category.id === 1 ? (
+          <RequestMedicalAppointmentSpecialties />
+        ) : (
+          <RequestMedicalAppointmentMedic />
+        )}
+        {category && category.id === 1 ? (
+          <RequestMedicalAppointmentMedic />
+        ) : (
+          <RequestMedicalAppointmentSpecialties />
+        )}
+        <RequestMedicalAppointmentTypeOfService />
       </JeSteps.JeStepsContent>
     </JeSteps>
   );

@@ -1,0 +1,7 @@
+@import "../../../../../scss/utilities/mixins/list";
+.je-select-card__list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  @include defaultList;
+}

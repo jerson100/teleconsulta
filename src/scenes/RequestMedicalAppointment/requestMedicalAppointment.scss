@@ -1,27 +1,14 @@
+@import "../../scss/utilities/variables";
 .request-medical-appointment {
-  &__calendar {
-    overflow: auto;
-    &-content {
-      min-width: 800px;
-    }
-  }
-  .events {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-  }
-  .events .ant-badge-status {
-    overflow: hidden;
-    white-space: nowrap;
-    width: 100%;
-    text-overflow: ellipsis;
-    font-size: 12px;
-  }
-  .notes-month {
-    text-align: center;
-    font-size: 28px;
-  }
-  .notes-month section {
-    font-size: 28px;
-  }
+  //   display: flex;
+  //   &__steps {
+  //     @media (min-width: $media-lg) {
+  //       flex: 1 0 0;
+  //     }
+  //   }
+  //   &__summary {
+  //     @media (min-width: $media-lg) {
+  //       flex: 0 0 400px;
+  //     }
+  //   }
 }

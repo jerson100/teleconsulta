@@ -1,17 +1,10 @@
 import React from "react";
-// import {
-//   Calendar,
-//   Badge,
-//   Divider,
-//   Form,
-//   Input,
-//   Button,
-//   InputNumber,
-// } from "antd";
 import { Helmet } from "react-helmet";
 import "./requestMedicalAppointment.scss";
-// import SearchMedicalAppointment from "../../components/common/SearchMedicalAppointment/SearchMedicalAppointment";
 import RequestMedicalAppointmentSteps from "./components/RequestMedicalAppointmentSteps";
+import RequestMedicalAppointmentSummary from "./components/RequestMedicalAppointmentSummary/RequestMedicalAppointmentSummary";
+import { Col, Row } from "antd";
+import RequestMedicalAppointmentProvider from "./providers/RequestMedicalAppointmentProvider";
 
 const RequestMedicalAppointment = () => {
   return (
@@ -25,108 +18,29 @@ const RequestMedicalAppointment = () => {
       </Helmet>
 
       <div className="request-medical-appointment">
-        <RequestMedicalAppointmentSteps />
-        {/* <div className="request-medical-appointment__search">
-          <SearchMedicalAppointment />
-        </div>
-        <Divider orientation="right">Calendario</Divider>
-        <div className="request-medical-appointment__calendar">
-          <div className="request-medical-appointment__calendar-content">
-            <Calendar
-              fullscreen
-              dateCellRender={dateCellRender}
-              monthCellRender={monthCellRender}
-            />
-          </div>
-        </div>
-        <Divider orientation="right">Registro de Cita</Divider>
-        <div className="request-medical-appointment__register">
-          <Form
-            layout="horizontal"
-            labelCol={{ sm: 12, lg: 12 }}
-            wrapperCol={{ sm: 12, lg: 4 }}
+        <RequestMedicalAppointmentProvider>
+          <Row
+            gutter={[
+              { xs: 16, lg: 32 },
+              { xs: 16, lg: 32 },
+            ]}
           >
-            <Form.Item label="Costo">
-              <InputNumber style={{ width: "100%" }} />
-            </Form.Item>
-            <Form.Item label="Código Pago">
-              <Input type="text" />
-            </Form.Item>
-            <Form.Item
-              wrapperCol={{
-                sm: { span: 24 },
-                lg: { span: 5, offset: 11 },
-              }}
-              style={{ textAlign: "right" }}
-            >
-              <Button type="primary">Registrar Cita</Button>
-            </Form.Item>
-          </Form>
-        </div> */}
+            <Col xs={{ span: 24 }} xl={{ span: 18 }}>
+              <div className="request-medical-appointment__steps">
+                <RequestMedicalAppointmentSteps />
+              </div>
+            </Col>
+            <Col xs={{ span: 24 }} xl={{ span: 6 }}>
+              <div className="request-medical-appointment__summary">
+                <RequestMedicalAppointmentSummary />
+              </div>
+            </Col>
+          </Row>
+        </RequestMedicalAppointmentProvider>
       </div>
     </>
   );
 };
-
-// function getListData(value) {
-//   let listData;
-//   switch (value.date()) {
-//     case 8:
-//       listData = [
-//         { type: "warning", content: "This is warning event." },
-//         { type: "success", content: "This is usual event." },
-//       ];
-//       break;
-//     case 10:
-//       listData = [
-//         { type: "warning", content: "This is warning event." },
-//         { type: "success", content: "This is usual event." },
-//         { type: "error", content: "This is error event." },
-//       ];
-//       break;
-//     case 15:
-//       listData = [
-//         { type: "warning", content: "This is warning event" },
-//         { type: "success", content: "This is very long usual event。。...." },
-//         { type: "error", content: "This is error event 1." },
-//         { type: "error", content: "This is error event 2." },
-//         { type: "error", content: "This is error event 3." },
-//         { type: "error", content: "This is error event 4." },
-//       ];
-//       break;
-//     default:
-//   }
-//   return listData || [];
-// }
-
-// function dateCellRender(value) {
-//   const listData = getListData(value);
-//   return (
-//     <ul className="events">
-//       {listData.map((item) => (
-//         <li key={item.content}>
-//           <Badge status={item.type} text={item.content} />
-//         </li>
-//       ))}
-//     </ul>
-//   );
-// }
-
-// function getMonthData(value) {
-//   if (value.month() === 8) {
-//     return 1394;
-//   }
-// }
-
-// function monthCellRender(value) {
-//   const num = getMonthData(value);
-//   return num ? (
-//     <div className="notes-month">
-//       <section>{num}</section>
-//       <span>Backlog number</span>
-//     </div>
-//   ) : null;
-// }
 
 export default React.memo(RequestMedicalAppointment, (prevProps, nextProps) => {
   return prevProps.match.path === nextProps.match.path;

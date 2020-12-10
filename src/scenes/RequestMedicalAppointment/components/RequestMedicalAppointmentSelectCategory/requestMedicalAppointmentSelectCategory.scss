@@ -1,0 +1,16 @@
+@import "../../../../scss/utilities/mixins/align";
+.request-medical-appointment-select-category {
+  &__title {
+    text-align: center;
+    margin-bottom: 2rem !important;
+  }
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: column;
+  }
+  &__buttons {
+    @include text-center;
+  }
+}
