@@ -32,8 +32,6 @@ const RequestVirtualMedical = () => {
     setrequestVirtualMedicalOptionLocal,
   ] = useState(0);
 
-  const [api, contextHolder] = notification.useNotification();
-
   const {
     setRequestVirtualMedicalOption,
     resetMedicalOptionLocal,
@@ -49,7 +47,7 @@ const RequestVirtualMedical = () => {
 
   const handleNext = (current, next) => {
     if (requestVirtualMedicalOptionLocal === 0) {
-      api.warning({
+      notification.warning({
         placement: "topRight",
         bottom: 50,
         duration: 3,
@@ -65,7 +63,6 @@ const RequestVirtualMedical = () => {
 
   return (
     <JeSection isMargin={false}>
-      {contextHolder}
       <div className="request-virtual-medical">
         <Typography.Title level={2}>Seleccione una opción</Typography.Title>
         <div className="request-virtual-medical__radio">

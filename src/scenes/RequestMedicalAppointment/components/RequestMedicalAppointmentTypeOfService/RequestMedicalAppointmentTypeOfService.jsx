@@ -31,7 +31,6 @@ const radioStyle = {
 
 const RequestMedicalAppointmentTypeOfService = () => {
   const [typeOfService, settypeOfService] = useState(0);
-  const [api, contextHolder] = notification.useNotification();
   //   const { setMedic, resetMedic } = useRequestMedicalAppointmentContext();
 
   // const handleNext = (current, next) => {
@@ -57,7 +56,6 @@ const RequestMedicalAppointmentTypeOfService = () => {
   };
   return (
     <div className="request-medical-appointment-specialties">
-      {contextHolder}
       <Typography.Title level={2}>
         Seleccione un Tipo de servicio:{" "}
       </Typography.Title>

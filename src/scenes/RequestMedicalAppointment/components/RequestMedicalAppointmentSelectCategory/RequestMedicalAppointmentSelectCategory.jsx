@@ -5,11 +5,8 @@ import RequestMedicalAppointmentSelectCategoryAction from "./components/RequestM
 import "./requestMedicalAppointmentSelectCategory.scss";
 
 const RequestMedicalAppointmentSelectCategory = () => {
-  const [api, contextHolder] = notification.useNotification();
-
   return (
     <JeSection isMargin={false}>
-      {contextHolder}
       <div className="request-medical-appointment-select-category">
         <Typography.Title
           level={2}

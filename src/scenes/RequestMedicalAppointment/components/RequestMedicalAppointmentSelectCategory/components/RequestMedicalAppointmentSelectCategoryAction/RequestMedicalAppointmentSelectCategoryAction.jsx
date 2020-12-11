@@ -20,8 +20,6 @@ const RequestMedicalAppointmentSelectCategoryAction = () => {
   const [selectedIndex, setselectedIndex] = useState("indiceDesconocido");
   const { setCategory, resetCategory } = useRequestMedicalAppointmentContext();
 
-  const [api, contextHolder] = notification.useNotification();
-  console.log("---");
   const handleOnchange = useCallback((key) => {
     setselectedIndex(key);
   }, []);
@@ -35,7 +33,7 @@ const RequestMedicalAppointmentSelectCategoryAction = () => {
       setCategory(categories.find((c) => c.id === selectedIndex));
       next();
     } else {
-      api.warning({
+      notification.warning({
         placement: "topRight",
         bottom: 50,
         duration: 3,

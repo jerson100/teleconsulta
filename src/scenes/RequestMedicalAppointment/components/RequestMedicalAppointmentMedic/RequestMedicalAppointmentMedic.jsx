@@ -34,13 +34,21 @@ const radioStyle = {
 };
 
 const RequestMedicalAppointmentMedic = () => {
+  return (
+    <div className="request-medical-appointment-specialties">
+      <Typography.Title level={2}>Seleccione un médico: </Typography.Title>
+      <RequestMedicalAppointmentMedicActions />
+    </div>
+  );
+};
+
+const RequestMedicalAppointmentMedicActions = () => {
   const [specialtiesLocal, setspecialtiesLocal] = useState(0);
-  const [api, contextHolder] = notification.useNotification();
   const { setMedic, resetMedic } = useRequestMedicalAppointmentContext();
 
   const handleNext = (current, next) => {
     if (specialtiesLocal === 0) {
-      api.warning({
+      notification.warning({
         placement: "topRight",
         bottom: 50,
         duration: 3,
@@ -60,9 +68,7 @@ const RequestMedicalAppointmentMedic = () => {
     setspecialtiesLocal(e.target.value);
   };
   return (
-    <div className="request-medical-appointment-specialties">
-      {contextHolder}
-      <Typography.Title level={2}>Seleccione un médico: </Typography.Title>
+    <>
       <div className="request-medical-appointment-specialties__radio">
         <Radio.Group onChange={onChange} value={specialtiesLocal}>
           {medics.map((r) => (
@@ -79,7 +85,7 @@ const RequestMedicalAppointmentMedic = () => {
           Siguiente
         </JeStepsButtonNext>
       </div>
-    </div>
+    </>
   );
 };
 
