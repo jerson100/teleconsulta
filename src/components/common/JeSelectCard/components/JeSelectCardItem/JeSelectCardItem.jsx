@@ -12,7 +12,7 @@ const JeSelectCardItem = ({ title, selectKey }) => {
       className={`je-select-card__item ${
         current === selectKey ? "je-select-card__item--selected" : ""
       }`}
-      onClick={() => select(selectKey)}
+      onClick={() => current !== selectKey && select(selectKey)}
     >
       <img
         src="https://jersonramirez.netlify.app/static/media/d2.6a3bdcfa.jpg"

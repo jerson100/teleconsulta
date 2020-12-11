@@ -4,7 +4,7 @@ import JeSelectCardList from "./components/JeSelectCardList/JeSelectCardList";
 import "./jeSelectCard.scss";
 import JeSelectCardProvider from "./provider/JeSelectCardProvider";
 
-const JeSelectCard = ({ children, onChange }) => {
+const JeSelectCard = React.memo(({ children, onChange }) => {
   return (
     <div className="je-select-card">
       <JeSelectCardProvider onChange={onChange}>
@@ -12,7 +12,7 @@ const JeSelectCard = ({ children, onChange }) => {
       </JeSelectCardProvider>
     </div>
   );
-};
+});
 
 JeSelectCard.JeSelectCardItem = JeSelectCardItem;
 
