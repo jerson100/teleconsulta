@@ -7,6 +7,7 @@ import useRequestMedicalAppointmentContext from "../../hooks/useRequestMedicalAp
 import RequestMedicalAppointmentSpecialties from "../RequestMedicalAppointmentSpecialties/RequestMedicalAppointmentSpecialties";
 import RequestMedicalAppointmentMedic from "../RequestMedicalAppointmentMedic/RequestMedicalAppointmentMedic";
 import RequestMedicalAppointmentTypeOfService from "../RequestMedicalAppointmentTypeOfService/RequestMedicalAppointmentTypeOfService";
+import RequestMedicalAppointmentSelectDay from "../RequestMedicalAppointmentSelectDay/RequestMedicalAppointmentSelectDay";
 
 // const steps = [
 //   {
@@ -66,6 +67,9 @@ const RequestMedicalAppointmentSteps = () => {
         <JeSteps.JeStepsGroup.JeStepsItem>
           Tipos de Servicio
         </JeSteps.JeStepsGroup.JeStepsItem>
+        <JeSteps.JeStepsGroup.JeStepsItem>
+          Calendario
+        </JeSteps.JeStepsGroup.JeStepsItem>
       </JeSteps.JeStepsGroup>
       <JeSteps.JeStepsContent>
         <RequestVirtualMedical />
@@ -81,6 +85,7 @@ const RequestMedicalAppointmentSteps = () => {
           <RequestMedicalAppointmentSpecialties />
         )}
         <RequestMedicalAppointmentTypeOfService />
+        <RequestMedicalAppointmentSelectDay />
       </JeSteps.JeStepsContent>
     </JeSteps>
   );
