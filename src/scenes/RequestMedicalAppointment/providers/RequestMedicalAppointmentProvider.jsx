@@ -80,6 +80,7 @@ const RequestMedicalAppointmentProvider = ({ children }) => {
         category: state.category,
         specialties: state.specialties,
         medic: state.medic,
+        summary: state.summary,
       }}
     >
       {children}

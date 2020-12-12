@@ -1,18 +1,34 @@
 import { List } from "antd";
 import React from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import useRequestMedicalAppointmentContext from "../../../../hooks/useRequestMedicalAppointmentContext";
 
 const RequestMedicalAppointmentSummaryList = () => {
   const {
-    requestVirtualMedicalOption,
-    category,
-    medic,
-    specialties,
+    summary,
+    // requestVirtualMedicalOption,
+    // category,
+    // medic,
+    // specialties,
   } = useRequestMedicalAppointmentContext();
   return (
     <>
       <List>
-        {requestVirtualMedicalOption && (
+        <AnimatePresence>
+          {summary.map((s) => (
+            // <motion.div
+            //   key={s.label}
+            //   initial={{ y: "100%", scale: 0 }}
+            //   animate={{ scale: 1, y: 0 }}
+            //   transition={{ type: "spring", stiffness: 500 }}
+            //   exit={{ scale: 5 }}
+            // >
+            //   {s.label}: <b> {s.name} </b>
+            // </motion.div>
+            <ItemSummary key={s.label} title={s.label} description={s.name} />
+          ))}
+        </AnimatePresence>
+        {/* {requestVirtualMedicalOption && (
           <ItemSummary
             title="Solicitud"
             description={requestVirtualMedicalOption.name}
@@ -43,7 +59,7 @@ const RequestMedicalAppointmentSummaryList = () => {
           ) : specialties ? (
             <ItemSummary title="Especialidad" description={specialties.name} />
           ) : null
-        ) : null}
+        ) : null} */}
       </List>
     </>
   );
@@ -52,7 +68,23 @@ const RequestMedicalAppointmentSummaryList = () => {
 const ItemSummary = React.memo(({ title, description }) => {
   return (
     <List.Item>
-      {title}: <b> {description} </b>
+      <motion.div
+        initial={{ y: "100%", scale: 0 }}
+        animate={{ scale: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 500 }}
+        exit={{
+          //   scale: 0,
+          x: "150px",
+          opacity: 0,
+          transition: {
+            duration: 0.5,
+            // type: "spring",
+            // stiffness: 100,
+          },
+        }}
+      >
+        {title}: <b> {description} </b>
+      </motion.div>
     </List.Item>
   );
 });

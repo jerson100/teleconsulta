@@ -10,7 +10,6 @@ export const JeStepsContext = React.createContext();
 const JeStepsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(JeStepsReducer, defaultValuesJeSteps);
   const next = useCallback(() => {
-    console.log("next");
     dispatch({
       type: ACTIONJESTEPS.NEXT,
     });

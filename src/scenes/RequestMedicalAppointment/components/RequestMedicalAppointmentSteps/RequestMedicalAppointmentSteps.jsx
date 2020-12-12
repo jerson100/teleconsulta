@@ -40,7 +40,6 @@ import RequestMedicalAppointmentTypeOfService from "../RequestMedicalAppointment
 // ];
 const RequestMedicalAppointmentSteps = () => {
   const { category } = useRequestMedicalAppointmentContext();
-  console.log(category);
   return (
     <JeSteps>
       <JeSteps.JeStepsGroup>

@@ -1,9 +1,11 @@
 import { notification } from "antd";
+import { motion } from "framer-motion";
 import React, { useCallback, useEffect, useMemo, useState } from "react";
 import JeSelectCard from "../../../../../../components/common/JeSelectCard/JeSelectCard";
 import JeStepsButtonNext from "../../../../../../components/common/JeSteps/components/JeStepsButtonNext";
 import JeStepsButtonPrevious from "../../../../../../components/common/JeSteps/components/JeStepsButtonPrevious";
 import useRequestMedicalAppointmentContext from "../../../../hooks/useRequestMedicalAppointmentContext";
+import { buttonsStepVariants } from "../../../../variants/stepVariants";
 
 const categories = [
   {
@@ -56,12 +58,15 @@ const RequestMedicalAppointmentSelectCategoryAction = () => {
       <div className="request-medical-appointment-select-category__selectCard">
         <JeSelectCard onChange={handleOnchange}>{cards}</JeSelectCard>
       </div>
-      <div className="request-medical-appointment-select-category__buttons">
+      <motion.div
+        variants={buttonsStepVariants}
+        className="request-medical-appointment-select-category__buttons"
+      >
         <JeStepsButtonPrevious>Anterior</JeStepsButtonPrevious>
         <JeStepsButtonNext handleClick={handleNext}>
           Siguiente
         </JeStepsButtonNext>
-      </div>
+      </motion.div>
     </>
   );
 };

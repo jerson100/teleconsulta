@@ -10,7 +10,6 @@ const JeStepsGroup = ({ children }) => {
   const { setSteps, current } = useJeSteps();
 
   const steps = useMemo(() => {
-    console.log(React.Children.toArray(children));
     return React.Children.toArray(children).map((component) => {
       if (component.type.name !== JeStepsItem.name)
         throw new Error(

@@ -3,6 +3,7 @@ export const REQUEST_MEDICAL_APPOINTMENT_TYPES = {
   ADD_SPECIALTIES: "ADD[SPECIALTIES]",
   ADD_MEDIC: "ADD[MEDIC]",
   ADD_CATEGORY: "ADD[CATEGORY]",
+  ADD_SUMMARY: "ADD[SUMMARY]",
   RESET_REQUEST_VIRTUAL_MEDICAL_OPTION: "RESET[VIRTUAL_MEDICAL_OPTION]",
   RESET_CATEGORY: "RESET[CATEGORY]",
   RESET_MEDIC: "RESET[MEDIC]",
@@ -10,6 +11,12 @@ export const REQUEST_MEDICAL_APPOINTMENT_TYPES = {
 };
 
 export const RequestMedicalAppointmentDefaultValues = {
+  summary: [
+    //   1 : {
+    //       value: "Juan Manuel de la  ---",
+    //       label: "Doctor"
+    //   }
+  ], //view data
   requestVirtualMedicalOption:
     //   {
     //     id: 0,
@@ -38,21 +45,56 @@ export const RequestMedicalAppointmentDefaultValues = {
 const RequestMedicalAppointmentReducer = (state, action) => {
   switch (action.type) {
     case REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_REQUEST_VIRTUAL_MEDICAL_OPTION:
-      return { ...state, requestVirtualMedicalOption: action.payload };
+      return {
+        ...state,
+        requestVirtualMedicalOption: action.payload,
+        summary: [...state.summary, { ...action.payload, label: "Consulta" }],
+      };
     case REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_SPECIALTIES:
-      return { ...state, specialties: action.payload };
+      return {
+        ...state,
+        specialties: action.payload,
+        summary: [
+          ...state.summary,
+          { ...action.payload, label: "Especialidad" },
+        ],
+      };
     case REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_MEDIC:
-      return { ...state, medic: action.payload };
+      return {
+        ...state,
+        medic: action.payload,
+        summary: [...state.summary, { ...action.payload, label: "Médico" }],
+      };
     case REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_CATEGORY:
-      return { ...state, category: action.payload };
+      return {
+        ...state,
+        category: action.payload,
+        summary: [...state.summary, { ...action.payload, label: "Categoría" }],
+      };
     case REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_REQUEST_VIRTUAL_MEDICAL_OPTION:
-      return { ...state, requestVirtualMedicalOption: null };
+      return {
+        ...state,
+        requestVirtualMedicalOption: null,
+        summary: state.summary.filter((s) => s.label !== "Consulta"),
+      };
     case REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_CATEGORY:
-      return { ...state, category: null };
+      return {
+        ...state,
+        category: null,
+        summary: state.summary.filter((s) => s.label !== "Categoría"),
+      };
     case REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_MEDIC:
-      return { ...state, medic: null };
+      return {
+        ...state,
+        medic: null,
+        summary: state.summary.filter((s) => s.label !== "Médico"),
+      };
     case REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_SPECIALTIES:
-      return { ...state, specialties: null };
+      return {
+        ...state,
+        specialties: null,
+        summary: state.summary.filter((s) => s.label !== "Especialidad"),
+      };
     default:
       return state;
   }

@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import React, { useState } from "react";
 import useJeSelectCardContext from "../../hooks/useJeSelectCard";
 import "./jeSelectCardItem.scss";
@@ -8,7 +9,11 @@ const JeSelectCardItem = ({ title, selectKey }) => {
   }
   const { select, current } = useJeSelectCardContext();
   return (
-    <li
+    <motion.li
+      transition={{ type: "spring", duration: 0.1 }}
+      whileHover={{
+        scale: 1.1,
+      }}
       className={`je-select-card__item ${
         current === selectKey ? "je-select-card__item--selected" : ""
       }`}
@@ -20,7 +25,7 @@ const JeSelectCardItem = ({ title, selectKey }) => {
         className="je-select-card__img"
       />
       <p className="je-select-card__title">{title}</p>
-    </li>
+    </motion.li>
   );
 };
 
