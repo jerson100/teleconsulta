@@ -1,11 +1,17 @@
+@import "../../../../../scss/utilities/variables";
 .je-steps-content {
-  min-height: 630px;
-  border-left: solid 1px rgba(205, 134, 63, 0.486);
-  border-bottom: solid 1px rgba(205, 134, 63, 0.486);
-  border-right: solid 1px rgba(205, 134, 63, 0.486);
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  //   min-height: 630px;
+  padding-top: 2rem;
+  @media (min-width: $media-xl) {
+    padding-top: 4rem;
+  }
+  //   padding-bottom: 2rem;
+  //   border-left: solid 1px rgba(205, 134, 63, 0.486);
+  //   border-bottom: solid 1px rgba(205, 134, 63, 0.486);
+  //   border-right: solid 1px rgba(205, 134, 63, 0.486);
+  //   padding-top: 1rem;
+  //   padding-bottom: 1rem;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
 }

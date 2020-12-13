@@ -1,14 +1,9 @@
 @import "../../scss/utilities/variables";
 .request-medical-appointment {
-  //   display: flex;
-  //   &__steps {
-  //     @media (min-width: $media-lg) {
-  //       flex: 1 0 0;
-  //     }
-  //   }
-  //   &__summary {
-  //     @media (min-width: $media-lg) {
-  //       flex: 0 0 400px;
-  //     }
-  //   }
+  //   padding: 0 1rem;
+  &__title {
+    margin-bottom: calc(2.5rem + 24px) !important;
+    margin-top: 2.5rem !important;
+    text-align: center;
+  }
 }

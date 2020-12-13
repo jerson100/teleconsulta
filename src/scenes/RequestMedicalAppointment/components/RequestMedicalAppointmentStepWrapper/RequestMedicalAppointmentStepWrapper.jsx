@@ -7,6 +7,8 @@ import {
   WrapperContentStepVariants,
 } from "../../variants/stepVariants";
 
+import "./requestMedicalAppointmentStepWrapper.scss";
+
 const RequestMedicalAppointmentStepWrapper = ({ title, children }) => {
   return (
     <JeSection isMargin={false}>

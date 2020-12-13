@@ -1,7 +1,13 @@
 .request-medical-appointment-select-day-calendar {
+  &__content {
+    margin-bottom: 1rem;
+  }
   &--active-day {
-    background-color: red;
-    color: white;
-    border-radius: 999px;
+    &::before {
+      opacity: 1;
+      background-color: red;
+      //   color: green;
+      //   border-radius: 999px;
+    }
   }
 }

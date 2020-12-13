@@ -1,2 +1,11 @@
+@import "../../../../scss/theme/colors";
+@import "../../../../scss/utilities/mixins/border";
 .request-medical-appointment-summary {
+  background-color: $white !important;
+  padding: 2rem;
+  min-height: 500px;
+  @include borderCard;
+  &__title {
+    text-align: center;
+  }
 }

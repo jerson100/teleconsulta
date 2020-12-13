@@ -8,7 +8,12 @@ const RequestMedicalAppointmentSummary = () => {
   return (
     <JeSection isMargin={false}>
       <div className="request-medical-appointment-summary">
-        <Typography.Title level={2}>Resumen</Typography.Title>
+        <Typography.Title
+          level={2}
+          className="request-medical-appointment-summary__title"
+        >
+          Resumen
+        </Typography.Title>
         <div className="request-medical-appointment-summary__list">
           <RequestMedicalAppointmentSummaryList />
         </div>

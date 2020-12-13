@@ -1,9 +1,11 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 // import { getDay, getDate } from "date-fns";
 import { enGB } from "date-fns/locale";
 import { DatePickerCalendar } from "react-nice-dates";
 import "react-nice-dates/build/style.css";
 import "./requestMedicalAppointmentSelectDayCalendar.scss";
+import { Tag, Typography } from "antd";
+import { motion } from "framer-motion";
 
 const dates = [
   { date: new Date(2020, 11, 1), hours: ["05:25", "18:00", "12:25", "13:00"] },
@@ -73,17 +75,63 @@ const RequestMedicalAppointmentSelectDayCalendar = () => {
       </div>
       <div className="request-medical-appointment-select-day-calendar__hours">
         {hours ? (
-          <ul>
-            {hours.map((h, i) => (
-              <li key={i}>{h}</li>
-            ))}
-          </ul>
+          <>
+            <motion.div
+              initial={{ y: "100%" }}
+              animate={{ y: 0 }}
+              transition={{ type: "spring", stiffness: 600 }}
+            >
+              <Typography.Title level={2}>
+                Seleccione una hora:
+              </Typography.Title>
+            </motion.div>
+            <motion.div>
+              {hours.map((h, i) => (
+                <motion.div
+                  variants={variantsChild}
+                  custom={i}
+                  initial="hidden"
+                  animate="visible"
+                  style={{ display: "inline-block" }}
+                  key={h}
+                >
+                  <Tag color="geekblue">{h}</Tag>
+                </motion.div>
+                //   <li key={i}>{h}</li>
+              ))}
+            </motion.div>
+          </>
         ) : (
           <p>No a seleccionado una fecha</p>
         )}
       </div>
     </div>
   );
+};
+
+// const variantsContainer = {
+//   hidden: {
+//     opacity: 0,
+//   },
+//   visible: {
+//     opacity: 1,
+//     transition: {
+//       when: "beforeChildren",
+//       staggerChildren: 0.1,
+//     },
+//   },
+// };
+
+const variantsChild = {
+  hidden: {
+    scale: 0,
+    opacity: 0,
+  },
+  visible: (custom) => ({
+    scale: 1,
+    opacity: 1,
+    transition: { delay: custom * 0.2 },
+  }),
 };
 
 export default RequestMedicalAppointmentSelectDayCalendar;

@@ -31,7 +31,7 @@
   }
 
   .site-layout .site-layout-background {
-    background: #fff;
+    background: $body-color;
   }
 
   &__header {
@@ -43,7 +43,9 @@
   }
 
   &__main {
-    margin-top: calc(64px + 1rem) !important;
-    margin-bottom: 1rem !important;
+    margin-top: calc(64px) !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0 !important;
   }
 }

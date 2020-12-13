@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import RequestMedicalAppointmentStepWrapper from "../RequestMedicalAppointmentStepWrapper";
 
 import "./requestMedicalAppointmentSelectDay.scss";
@@ -7,7 +7,7 @@ import RequestMedicalAppointmentSelectDayCalendar from "./components/RequestMedi
 
 const RequestMedicalAppointmentSelectDay = () => {
   return (
-    <RequestMedicalAppointmentStepWrapper title="Seleccione un médico">
+    <RequestMedicalAppointmentStepWrapper title="Seleccione un día">
       <div className="request-medical-appointment-select-day">
         <RequestMedicalAppointmentSelectDayAction />
       </div>
