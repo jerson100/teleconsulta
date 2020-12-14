@@ -1,0 +1,5 @@
+@import "../../../scss/utilities/mixins/list";
+
+.je-select-tag {
+  @include defaultList;
+}

@@ -40,6 +40,28 @@ const RequestMedicalAppointmentProvider = ({ children }) => {
     });
   }, []);
 
+  const setTypeOfService = useCallback((c) => {
+    dispatch({
+      type: REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_TYPEOFSERVICE,
+      payload: c,
+    });
+  }, []);
+
+  const setHour = useCallback((c) => {
+    console.log("sethour");
+    dispatch({
+      type: REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_HOUR,
+      payload: c,
+    });
+  }, []);
+  const setDate = useCallback((c) => {
+    console.log("setdate");
+    dispatch({
+      type: REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_DATE,
+      payload: c,
+    });
+  }, []);
+
   const resetMedicalOptionLocal = useCallback(() => {
     dispatch({
       type:
@@ -65,6 +87,24 @@ const RequestMedicalAppointmentProvider = ({ children }) => {
     });
   }, []);
 
+  const resettypeOfService = useCallback(() => {
+    dispatch({
+      type: REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_TYPEOFSERVICE,
+    });
+  }, []);
+
+  const resetHour = useCallback(() => {
+    dispatch({
+      type: REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_HOUR,
+    });
+  }, []);
+
+  const resetDate = useCallback(() => {
+    dispatch({
+      type: REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_DATE,
+    });
+  }, []);
+
   return (
     <RequestMedicalAppointmentContext.Provider
       value={{
@@ -72,15 +112,22 @@ const RequestMedicalAppointmentProvider = ({ children }) => {
         setMedic,
         setSpecialties,
         setCategory,
+        setTypeOfService,
+        setDate,
+        setHour,
         resetMedicalOptionLocal,
         resetCategory,
         resetMedic,
         resetSpecialties,
+        resettypeOfService,
+        resetHour,
+        resetDate,
         requestVirtualMedicalOption: state.requestVirtualMedicalOption,
         category: state.category,
         specialties: state.specialties,
         medic: state.medic,
         summary: state.summary,
+        typeOfService: state.typeOfService,
       }}
     >
       {children}

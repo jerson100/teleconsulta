@@ -8,6 +8,8 @@ import RequestMedicalAppointmentSpecialties from "../RequestMedicalAppointmentSp
 import RequestMedicalAppointmentMedic from "../RequestMedicalAppointmentMedic/RequestMedicalAppointmentMedic";
 import RequestMedicalAppointmentTypeOfService from "../RequestMedicalAppointmentTypeOfService/RequestMedicalAppointmentTypeOfService";
 import RequestMedicalAppointmentSelectDay from "../RequestMedicalAppointmentSelectDay/RequestMedicalAppointmentSelectDay";
+import RequestMedicalAppointmentStepWrapper from "../RequestMedicalAppointmentStepWrapper";
+import RequestMedicalAppointmentSelectPaymentMethod from "../RequestMedicalAppointmentSelectPaymentMethod/RequestMedicalAppointmentSelectPaymentMethod";
 
 // const steps = [
 //   {
@@ -70,22 +72,47 @@ const RequestMedicalAppointmentSteps = () => {
         <JeSteps.JeStepsGroup.JeStepsItem>
           Calendario
         </JeSteps.JeStepsGroup.JeStepsItem>
+        <JeSteps.JeStepsGroup.JeStepsItem>
+          Método de pago
+        </JeSteps.JeStepsGroup.JeStepsItem>
       </JeSteps.JeStepsGroup>
       <JeSteps.JeStepsContent>
-        <RequestVirtualMedical />
-        <RequestMedicalAppointmentSelectCategory />
+        <RequestMedicalAppointmentStepWrapper title="Solicitud">
+          <RequestVirtualMedical />
+        </RequestMedicalAppointmentStepWrapper>
+        <RequestMedicalAppointmentStepWrapper title="Seleccione una Categoría">
+          <RequestMedicalAppointmentSelectCategory />
+        </RequestMedicalAppointmentStepWrapper>
         {category && category.id === 1 ? (
-          <RequestMedicalAppointmentSpecialties />
+          <RequestMedicalAppointmentStepWrapper title="Seleccione una Especialidad">
+            <RequestMedicalAppointmentSpecialties />
+          </RequestMedicalAppointmentStepWrapper>
         ) : (
-          <RequestMedicalAppointmentMedic />
+          <RequestMedicalAppointmentStepWrapper title="Seleccione un médico">
+            <RequestMedicalAppointmentMedic />
+          </RequestMedicalAppointmentStepWrapper>
         )}
         {category && category.id === 1 ? (
-          <RequestMedicalAppointmentMedic />
+          <RequestMedicalAppointmentStepWrapper title="Seleccione un médico">
+            <RequestMedicalAppointmentMedic />
+          </RequestMedicalAppointmentStepWrapper>
         ) : (
-          <RequestMedicalAppointmentSpecialties />
+          <RequestMedicalAppointmentStepWrapper title="Seleccione una Especialidad">
+            <RequestMedicalAppointmentSpecialties />
+          </RequestMedicalAppointmentStepWrapper>
         )}
-        <RequestMedicalAppointmentTypeOfService />
-        <RequestMedicalAppointmentSelectDay />
+
+        <RequestMedicalAppointmentStepWrapper title="Seleccione un Tipo de servicio">
+          <RequestMedicalAppointmentTypeOfService />
+        </RequestMedicalAppointmentStepWrapper>
+
+        <RequestMedicalAppointmentStepWrapper title="Seleccione un día">
+          <RequestMedicalAppointmentSelectDay />
+        </RequestMedicalAppointmentStepWrapper>
+
+        <RequestMedicalAppointmentStepWrapper title="Seleccione un Método de pago">
+          <RequestMedicalAppointmentSelectPaymentMethod />
+        </RequestMedicalAppointmentStepWrapper>
       </JeSteps.JeStepsContent>
     </JeSteps>
   );

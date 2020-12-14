@@ -1,19 +1,75 @@
-import React from "react";
-// import { notification, Typography } from "antd";
-// import JeSection from "../../../../components/common/JeSection/JeSection";
-import RequestMedicalAppointmentSelectCategoryAction from "./components/RequestMedicalAppointmentSelectCategoryAction/RequestMedicalAppointmentSelectCategoryAction";
+import { notification } from "antd";
+import { motion } from "framer-motion";
+import React, { useCallback, useEffect, useMemo, useState } from "react";
+import JeSelectCard from "../../../../components/common/JeSelectCard/JeSelectCard";
+import JeStepsButtonNext from "../../../../components/common/JeSteps/components/JeStepsButtonNext";
+import JeStepsButtonPrevious from "../../../../components/common/JeSteps/components/JeStepsButtonPrevious";
+import useRequestMedicalAppointmentContext from "../../hooks/useRequestMedicalAppointmentContext";
+import { buttonsStepVariants } from "../../variants/stepVariants";
+
 import "./requestMedicalAppointmentSelectCategory.scss";
-// import { motion } from "framer-motion";
-// import { containerStepVariants } from "../../variants/stepVariants";
-import RequestMedicalAppointmentStepWrapper from "../RequestMedicalAppointmentStepWrapper";
+
+const categories = [
+  {
+    id: 1,
+    name: "Especialidades",
+  },
+  {
+    id: 2,
+    name: "Médicos",
+  },
+];
 
 const RequestMedicalAppointmentSelectCategory = () => {
+  const [selectedIndex, setselectedIndex] = useState("indiceDesconocido");
+  const { setCategory, resetCategory } = useRequestMedicalAppointmentContext();
+
+  const handleOnchange = useCallback((key) => {
+    setselectedIndex(key);
+  }, []);
+
+  useEffect(() => {
+    resetCategory();
+  }, [resetCategory]);
+
+  const handleNext = (current, next) => {
+    if (selectedIndex !== "indiceDesconocido") {
+      setCategory(categories.find((c) => c.id === selectedIndex));
+      next();
+    } else {
+      notification.warning({
+        placement: "topRight",
+        bottom: 50,
+        duration: 3,
+        message: "Eliga una categoría",
+      });
+    }
+  };
+
+  const cards = useMemo(() => {
+    return categories.map((c) => (
+      <JeSelectCard.JeSelectCardItem
+        title={c.name}
+        selectKey={c.id}
+        key={c.id}
+      />
+    ));
+  }, []);
   return (
-    <RequestMedicalAppointmentStepWrapper title="Escoge una categoría">
-      <div className="request-medical-appointment-select-category">
-        <RequestMedicalAppointmentSelectCategoryAction />
+    <div className="request-medical-appointment-select-category">
+      <div className="request-medical-appointment-select-category__selectCard">
+        <JeSelectCard onChange={handleOnchange}>{cards}</JeSelectCard>
       </div>
-    </RequestMedicalAppointmentStepWrapper>
+      <motion.div
+        variants={buttonsStepVariants}
+        className="request-medical-appointment-select-category__buttons"
+      >
+        <JeStepsButtonPrevious>Anterior</JeStepsButtonPrevious>
+        <JeStepsButtonNext handleClick={handleNext}>
+          Siguiente
+        </JeStepsButtonNext>
+      </motion.div>
+    </div>
 
     // <JeSection isMargin={false}>
     //   <motion.div

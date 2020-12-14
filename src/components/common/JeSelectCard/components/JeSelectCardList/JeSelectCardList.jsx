@@ -4,9 +4,9 @@ import "./jeSelectCardList.scss";
 
 const JeSelectCardList = ({ children }) => {
   return (
-    <AnimateSharedLayout>
-      <ul className="je-select-card__list">{children}</ul>
-    </AnimateSharedLayout>
+    // <AnimateSharedLayout>
+    <ul className="je-select-card__list">{children}</ul>
+    // </AnimateSharedLayout>
   );
 };
 

@@ -67,36 +67,34 @@ const RequestVirtualMedical = () => {
   };
 
   return (
-    <RequestMedicalAppointmentStepWrapper title="Elige una opción">
-      <div className="request-medical-appointment-specialties">
-        <div className="request-virtual-medical__radio">
-          <Radio.Group
-            onChange={onChange}
-            value={requestVirtualMedicalOptionLocal}
-          >
-            {radios.map((r) => (
-              <motion.div
-                whileHover={{ scale: 1.3, x: 10, originX: 0 }}
-                key={r.id}
-              >
-                <Radio style={radioStyle} value={r.id}>
-                  {r.name}
-                </Radio>
-              </motion.div>
-            ))}
-          </Radio.Group>
-        </div>
-        <br />
-        <motion.div
-          variants={buttonsStepVariants}
-          className="request-virtual-medical__button"
+    <div className="request-medical-appointment-specialties">
+      <div className="request-virtual-medical__radio">
+        <Radio.Group
+          onChange={onChange}
+          value={requestVirtualMedicalOptionLocal}
         >
-          <JeStepsButtonNext handleClick={handleNext}>
-            Siguiente
-          </JeStepsButtonNext>
-        </motion.div>
+          {radios.map((r) => (
+            <motion.div
+              whileHover={{ scale: 1.3, x: 10, originX: 0 }}
+              key={r.id}
+            >
+              <Radio style={radioStyle} value={r.id}>
+                {r.name}
+              </Radio>
+            </motion.div>
+          ))}
+        </Radio.Group>
       </div>
-    </RequestMedicalAppointmentStepWrapper>
+      <br />
+      <motion.div
+        variants={buttonsStepVariants}
+        className="request-virtual-medical__button"
+      >
+        <JeStepsButtonNext handleClick={handleNext}>
+          Siguiente
+        </JeStepsButtonNext>
+      </motion.div>
+    </div>
     // <JeSection isMargin={false}>
     //   <motion.div
     //     variants={containerStepVariants}

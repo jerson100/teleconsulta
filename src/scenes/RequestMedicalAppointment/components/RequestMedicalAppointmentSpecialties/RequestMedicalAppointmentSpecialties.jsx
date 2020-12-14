@@ -36,31 +36,6 @@ const radioStyle = {
 };
 
 const RequestMedicalAppointmentSpecialties = () => {
-  return (
-    <RequestMedicalAppointmentStepWrapper title="Seleccione una especialidad">
-      <div className="request-medical-appointment-specialties">
-        <RequestMedicalAppointmentSpecialtiesAction />
-      </div>
-    </RequestMedicalAppointmentStepWrapper>
-    // <JeSection isMargin={false}>
-    //   <motion.div
-    //     variants={containerStepVariants}
-    //     initial="hidden"
-    //     animate="visible"
-    //     className="request-medical-appointment-specialties"
-    //   >
-    //     <Typography.Title level={2}>
-    //       Seleccione una especialidad:{" "}
-    //     </Typography.Title>
-    //     <div className="request-medical-appointment-specialties__actions">
-    //       <RequestMedicalAppointmentSpecialtiesAction />
-    //     </div>
-    //   </motion.div>
-    // </JeSection>
-  );
-};
-
-const RequestMedicalAppointmentSpecialtiesAction = () => {
   const [specialtiesLocal, setspecialtiesLocal] = useState(0);
   const {
     setSpecialties,
@@ -89,7 +64,7 @@ const RequestMedicalAppointmentSpecialtiesAction = () => {
     setspecialtiesLocal(e.target.value);
   };
   return (
-    <>
+    <div className="request-medical-appointment-specialties">
       <div className="request-medical-appointment-specialties__radio">
         <Radio.Group onChange={onChange} value={specialtiesLocal}>
           {specialties.map((r) => (
@@ -114,7 +89,7 @@ const RequestMedicalAppointmentSpecialtiesAction = () => {
           Siguiente
         </JeStepsButtonNext>
       </motion.div>
-    </>
+    </div>
   );
 };
 

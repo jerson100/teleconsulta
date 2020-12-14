@@ -15,6 +15,18 @@ const doctors = [
     descripcion: "Me gusta ayudar a los enfermos",
     domicilio: "Lima -  d",
     especialidad: "Médico General",
+    schedule: [
+      {
+        id: 1,
+        date: new Date(2020, 11, 1),
+        hours: ["05:25", "18:00", "12:25", "13:00"],
+      },
+      { id: 2, date: new Date(2020, 11, 2), hours: ["01:20", "15:00"] },
+      { id: 3, date: new Date(2020, 10, 20), hours: ["02:25", "22:00"] },
+      { id: 4, date: new Date(2020, 10, 4), hours: ["01:45", "19:00"] },
+      { id: 5, date: new Date(2020, 10, 1), hours: ["03:45", "21:00"] },
+      { id: 6, date: new Date(2021, 0, 1), hours: ["01:05", "20:00"] },
+    ],
   },
   {
     id: 2,
@@ -26,6 +38,18 @@ const doctors = [
     descripcion: "Me gusta ser médico",
     domicilio: "Iquitos",
     especialidad: "Médico",
+    schedule: [
+      {
+        id: 1,
+        date: new Date(2020, 11, 1),
+        hours: ["05:25", "18:00", "12:25", "13:00"],
+      },
+      { id: 2, date: new Date(2020, 11, 2), hours: ["01:20", "15:00"] },
+      { id: 3, date: new Date(2020, 10, 20), hours: ["02:25", "22:00"] },
+      { id: 4, date: new Date(2020, 10, 4), hours: ["01:45", "19:00"] },
+      { id: 5, date: new Date(2020, 10, 1), hours: ["03:45", "21:00"] },
+      { id: 6, date: new Date(2021, 0, 1), hours: ["01:05", "20:00"] },
+    ],
   },
   {
     id: 3,
@@ -37,6 +61,18 @@ const doctors = [
     descripcion: "Me gusta ser médico y ayudar a los demás",
     domicilio: "La vida 15047",
     especialidad: "Médico",
+    schedule: [
+      {
+        id: 1,
+        date: new Date(2020, 11, 1),
+        hours: ["05:25", "18:00", "12:25", "13:00"],
+      },
+      { id: 2, date: new Date(2020, 11, 2), hours: ["01:20", "15:00"] },
+      { id: 3, date: new Date(2020, 10, 20), hours: ["02:25", "22:00"] },
+      { id: 4, date: new Date(2020, 10, 4), hours: ["01:45", "19:00"] },
+      { id: 5, date: new Date(2020, 10, 1), hours: ["03:45", "21:00"] },
+      { id: 6, date: new Date(2021, 0, 1), hours: ["01:05", "20:00"] },
+    ],
   },
   {
     id: 4,
@@ -48,9 +84,50 @@ const doctors = [
     descripcion: "Me gusta ser médico y ayudar a los demás",
     domicilio: "La vida 15047",
     especialidad: "Médico",
+    schedule: [
+      {
+        id: 1,
+        date: new Date(2020, 11, 1),
+        hours: ["05:25", "18:00", "12:25", "13:00"],
+      },
+      { id: 2, date: new Date(2020, 11, 2), hours: ["01:20", "15:00"] },
+      { id: 3, date: new Date(2020, 10, 20), hours: ["02:25", "22:00"] },
+      { id: 4, date: new Date(2020, 10, 4), hours: ["01:45", "19:00"] },
+      { id: 5, date: new Date(2020, 10, 1), hours: ["03:45", "21:00"] },
+      { id: 6, date: new Date(2021, 0, 1), hours: ["01:05", "20:00"] },
+    ],
   },
 ];
 
 export const getDoctors = () => {
   return doctors;
+};
+
+export const getSchedule = (idDoctor) => {
+  return doctors.find((d) => d.id === idDoctor)?.schedule;
+};
+
+export const getHours = (idSchedule) => {
+  //   console.log(
+  //     doctors.reduce(
+  //       (prev, current) =>
+  //         current.schedule.find((s) => s.id === idSchedule)?.hours,
+  //       null
+  //     )
+  //   );
+  return doctors.reduce(
+    (prev, current) => current.schedule.find((s) => s.id === idSchedule)?.hours,
+    null
+  );
+};
+
+export const getIdSchedule = (schedule, date) => {
+  //   console.log(schedule);
+  //   console.log(date);
+  return schedule.find(
+    ({ date: s }) =>
+      s.getDate() === date.getDate() &&
+      s.getFullYear() === date.getFullYear() &&
+      s.getMonth() === date.getMonth()
+  )?.id;
 };

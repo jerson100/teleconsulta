@@ -1,13 +1,10 @@
 import { notification, Radio } from "antd";
 import { motion } from "framer-motion";
 import React, { useEffect, useState } from "react";
-// import JeSection from "../../../../components/common/JeSection/JeSection";
 import JeStepsButtonNext from "../../../../components/common/JeSteps/components/JeStepsButtonNext";
 import JeStepsButtonPrevious from "../../../../components/common/JeSteps/components/JeStepsButtonPrevious";
 import useRequestMedicalAppointmentContext from "../../hooks/useRequestMedicalAppointmentContext";
 import { buttonsStepVariants } from "../../variants/stepVariants";
-// import { containerStepVariants } from "../../variants/stepVariants";
-import RequestMedicalAppointmentStepWrapper from "../RequestMedicalAppointmentStepWrapper";
 
 const medics = [
   {
@@ -39,27 +36,6 @@ const radioStyle = {
 };
 
 const RequestMedicalAppointmentMedic = () => {
-  return (
-    <RequestMedicalAppointmentStepWrapper title="Seleccione un médico">
-      <div className="request-medical-appointment-medic">
-        <RequestMedicalAppointmentMedicActions />
-      </div>
-    </RequestMedicalAppointmentStepWrapper>
-    // <JeSection isMargin={false}>
-    //   <motion.div
-    //     variants={containerStepVariants}
-    //     initial="hidden"
-    //     animate="visible"
-    //     className="request-medical-appointment-specialties"
-    //   >
-    //     <Typography.Title level={2}>Seleccione un médico: </Typography.Title>
-
-    //   </motion.div>
-    // </JeSection>
-  );
-};
-
-const RequestMedicalAppointmentMedicActions = () => {
   const [specialtiesLocal, setspecialtiesLocal] = useState(0);
   const { setMedic, resetMedic } = useRequestMedicalAppointmentContext();
 
@@ -85,7 +61,7 @@ const RequestMedicalAppointmentMedicActions = () => {
     setspecialtiesLocal(e.target.value);
   };
   return (
-    <>
+    <div className="request-medical-appointment-medic">
       <div className="request-medical-appointment-specialties__radio">
         <Radio.Group onChange={onChange} value={specialtiesLocal}>
           {medics.map((r) => (
@@ -110,7 +86,7 @@ const RequestMedicalAppointmentMedicActions = () => {
           Siguiente
         </JeStepsButtonNext>
       </motion.div>
-    </>
+    </div>
   );
 };
 

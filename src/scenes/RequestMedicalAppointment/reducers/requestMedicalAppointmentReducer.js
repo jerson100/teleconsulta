@@ -4,10 +4,16 @@ export const REQUEST_MEDICAL_APPOINTMENT_TYPES = {
   ADD_MEDIC: "ADD[MEDIC]",
   ADD_CATEGORY: "ADD[CATEGORY]",
   ADD_SUMMARY: "ADD[SUMMARY]",
+  ADD_TYPEOFSERVICE: "ADD[TYPEOFSERVICE]",
+  ADD_DATE: "ADD_DATE[CALENDAR]",
+  ADD_HOUR: "ADD_HOUR[CALENDAR]",
   RESET_REQUEST_VIRTUAL_MEDICAL_OPTION: "RESET[VIRTUAL_MEDICAL_OPTION]",
   RESET_CATEGORY: "RESET[CATEGORY]",
   RESET_MEDIC: "RESET[MEDIC]",
   RESET_SPECIALTIES: "RESET[SPECIALTIES]",
+  RESET_TYPEOFSERVICE: "RESET[TYPEOFSERVICE]",
+  RESET_DATE: "RESET[CALENDAR]",
+  RESET_HOUR: "RESET[CALENDAR]",
 };
 
 export const RequestMedicalAppointmentDefaultValues = {
@@ -40,6 +46,11 @@ export const RequestMedicalAppointmentDefaultValues = {
     //     order: 0,
     //   }
     null,
+  typeOfService: null,
+  calendar: {
+    date: null,
+    hour: null,
+  },
 };
 
 const RequestMedicalAppointmentReducer = (state, action) => {
@@ -71,6 +82,35 @@ const RequestMedicalAppointmentReducer = (state, action) => {
         category: action.payload,
         summary: [...state.summary, { ...action.payload, label: "Categoría" }],
       };
+
+    case REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_TYPEOFSERVICE:
+      return {
+        ...state,
+        typeOfService: action.payload,
+        summary: [
+          ...state.summary,
+          { ...action.payload, label: "Tipo de servicio" },
+        ],
+      };
+    case REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_DATE:
+      return {
+        ...state,
+        calendar: {
+          ...state.calendar.hour,
+          date: action.payload,
+        },
+        summary: [...state.summary, { ...action.payload, label: "Fecha" }],
+      };
+    case REQUEST_MEDICAL_APPOINTMENT_TYPES.ADD_HOUR:
+      return {
+        ...state,
+        calendar: {
+          ...state.calendar.date,
+          hour: action.payload,
+        },
+        summary: [...state.summary, { ...action.payload, label: "Hora" }],
+      };
+
     case REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_REQUEST_VIRTUAL_MEDICAL_OPTION:
       return {
         ...state,
@@ -94,6 +134,30 @@ const RequestMedicalAppointmentReducer = (state, action) => {
         ...state,
         specialties: null,
         summary: state.summary.filter((s) => s.label !== "Especialidad"),
+      };
+    case REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_TYPEOFSERVICE:
+      return {
+        ...state,
+        typeOfService: null,
+        summary: state.summary.filter((s) => s.label !== "Tipo de servicio"),
+      };
+    case REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_DATE:
+      return {
+        ...state,
+        calendar: {
+          ...state.calendar.hour,
+          date: null,
+        },
+        summary: state.summary.filter((s) => s.label !== "Fecha"),
+      };
+    case REQUEST_MEDICAL_APPOINTMENT_TYPES.RESET_HOUR:
+      return {
+        ...state,
+        calendar: {
+          ...state.calendar.date,
+          hour: null,
+        },
+        summary: state.summary.filter((s) => s.label !== "Hora"),
       };
     default:
       return state;

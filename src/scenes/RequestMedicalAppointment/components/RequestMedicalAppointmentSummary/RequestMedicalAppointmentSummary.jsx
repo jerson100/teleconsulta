@@ -1,4 +1,4 @@
-import { Typography, List } from "antd";
+import { Typography } from "antd";
 import React from "react";
 import JeSection from "../../../../components/common/JeSection/JeSection";
 import RequestMedicalAppointmentSummaryList from "./components/RequestMedicalAppointmentSummaryList/RequestMedicalAppointmentSummaryList";
