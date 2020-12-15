@@ -27,4 +27,4 @@ JeStepsButtonNext.defaultProps = {
   handleClick: null,
 };
 
-export default JeStepsButtonNext;
+export default React.memo(JeStepsButtonNext);

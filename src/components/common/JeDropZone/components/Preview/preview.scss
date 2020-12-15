@@ -1,0 +1,15 @@
+@import "../../../../../scss/utilities/mixins/border";
+.je-drop-zone-preview {
+  padding: 0.5rem;
+  display: inline-block;
+  @include borderCard;
+  &__img {
+    height: 80px;
+    width: 80px;
+    object-fit: cover;
+  }
+  .ant-image-img {
+    height: 100% !important;
+    object-fit: cover;
+  }
+}

@@ -5,6 +5,7 @@ import { Button } from "antd";
 
 const JeStepsButtonPrevious = ({ handleClick, children }) => {
   const { current, previous } = useJeSteps();
+  console.log(current);
   return (
     <>
       {current > 0 && (
@@ -29,4 +30,4 @@ JeStepsButtonPrevious.propTypes = {
 JeStepsButtonPrevious.defaultProps = {
   handleClick: null,
 };
-export default JeStepsButtonPrevious;
+export default React.memo(JeStepsButtonPrevious);

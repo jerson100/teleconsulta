@@ -1,0 +1,22 @@
+@import "../variables";
+
+@mixin sizeHeight($tag) {
+  .#{$tag}--size-sx {
+    height: $size-sx;
+  }
+  .#{$tag}--size-sm {
+    height: $size-sm;
+  }
+  .#{$tag}--size-md {
+    height: $size-md;
+  }
+  .#{$tag}--size-lg {
+    height: $size-lg;
+  }
+  .#{$tag}--size-xl {
+    height: $size-xl;
+  }
+  .#{$tag}--size-xxl {
+    height: $size-xxl;
+  }
+}

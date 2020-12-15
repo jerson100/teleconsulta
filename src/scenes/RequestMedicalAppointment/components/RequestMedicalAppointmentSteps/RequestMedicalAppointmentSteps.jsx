@@ -10,6 +10,7 @@ import RequestMedicalAppointmentTypeOfService from "../RequestMedicalAppointment
 import RequestMedicalAppointmentSelectDay from "../RequestMedicalAppointmentSelectDay/RequestMedicalAppointmentSelectDay";
 import RequestMedicalAppointmentStepWrapper from "../RequestMedicalAppointmentStepWrapper";
 import RequestMedicalAppointmentSelectPaymentMethod from "../RequestMedicalAppointmentSelectPaymentMethod/RequestMedicalAppointmentSelectPaymentMethod";
+import RequestMedicalAppointmentThankYou from "../RequestMedicalAppointmentThankYou";
 
 // const steps = [
 //   {
@@ -75,6 +76,9 @@ const RequestMedicalAppointmentSteps = () => {
         <JeSteps.JeStepsGroup.JeStepsItem>
           Método de pago
         </JeSteps.JeStepsGroup.JeStepsItem>
+        <JeSteps.JeStepsGroup.JeStepsItem>
+          Terminado
+        </JeSteps.JeStepsGroup.JeStepsItem>
       </JeSteps.JeStepsGroup>
       <JeSteps.JeStepsContent>
         <RequestMedicalAppointmentStepWrapper title="Solicitud">
@@ -112,6 +116,10 @@ const RequestMedicalAppointmentSteps = () => {
 
         <RequestMedicalAppointmentStepWrapper title="Seleccione un Método de pago">
           <RequestMedicalAppointmentSelectPaymentMethod />
+        </RequestMedicalAppointmentStepWrapper>
+
+        <RequestMedicalAppointmentStepWrapper title="Gracias por confiar en nosotros ♥">
+          <RequestMedicalAppointmentThankYou />
         </RequestMedicalAppointmentStepWrapper>
       </JeSteps.JeStepsContent>
     </JeSteps>

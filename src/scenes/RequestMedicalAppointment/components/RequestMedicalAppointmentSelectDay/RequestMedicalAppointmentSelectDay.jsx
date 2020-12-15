@@ -11,11 +11,17 @@ const RequestMedicalAppointmentSelectDay = () => {
   const [selectDay, setselectDay] = useState(null);
   const [selectHour, setSelectHour] = useState(null);
   const [schedule, setSchedules] = useState([]);
-  const { medic } = useRequestMedicalAppointmentContext();
+  const { medic, resetDate, resetHour } = useRequestMedicalAppointmentContext();
+
   useEffect(() => {
     //api request
     setSchedules(getSchedule(medic.id));
   }, [medic.id]);
+
+  useEffect(() => {
+    resetDate();
+    resetHour();
+  }, [resetDate, resetHour]);
 
   return (
     <div className="request-medical-appointment-select-day">

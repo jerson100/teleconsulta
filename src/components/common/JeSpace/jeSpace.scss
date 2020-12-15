@@ -1,0 +1,6 @@
+@import "../../../scss/utilities/mixins/size";
+
+.je-space {
+}
+
+@include sizeHeight("je-space");

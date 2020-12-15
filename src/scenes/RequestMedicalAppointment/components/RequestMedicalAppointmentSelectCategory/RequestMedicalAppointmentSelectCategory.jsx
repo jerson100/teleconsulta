@@ -52,6 +52,7 @@ const RequestMedicalAppointmentSelectCategory = () => {
         title={c.name}
         selectKey={c.id}
         key={c.id}
+        img="https://jersonramirez.netlify.app/static/media/d2.6a3bdcfa.jpg"
       />
     ));
   }, []);

@@ -1,4 +1,5 @@
 @import "../theme/colors";
+@import "../utilities/variables";
 * {
   box-sizing: border-box;
 }
@@ -12,4 +13,10 @@ body {
 
 img {
   max-width: 100%;
+}
+
+.ant-image-preview-root {
+  > div {
+    z-index: $z-notification !important;
+  }
 }

@@ -22,12 +22,10 @@ const RequestMedicalAppointmentStepWrapper = ({ title, children }) => {
           className="request-medical-appointment-step-wrapper__title"
           level={2}
         >
-          {title}:{" "}
+          {title}
         </Typography.Title>
         <motion.div
           variants={WrapperContentStepVariants}
-          //   initial="hidden"
-          //   animate="visible"
           className="request-medical-appointment-step-wrapper__content"
         >
           {children}

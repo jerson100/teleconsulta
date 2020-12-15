@@ -1,9 +1,10 @@
 import { motion } from "framer-motion";
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import useJeSelectCardContext from "../../hooks/useJeSelectCard";
 import "./jeSelectCardItem.scss";
 
-const JeSelectCardItem = ({ title, selectKey }) => {
+const JeSelectCardItem = ({ title, selectKey, img }) => {
   if (!selectKey) {
     throw new Error("selectKey prop is required");
   }
@@ -19,14 +20,24 @@ const JeSelectCardItem = ({ title, selectKey }) => {
       }`}
       onClick={() => current !== selectKey && select(selectKey)}
     >
-      <img
-        src="https://jersonramirez.netlify.app/static/media/d2.6a3bdcfa.jpg"
-        alt="especialidades"
-        className="je-select-card__img"
-      />
+      {img && (
+        <img src={img} alt="especialidades" className="je-select-card__img" />
+      )}
       <p className="je-select-card__title">{title}</p>
     </motion.li>
   );
+};
+
+JeSelectCardItem.propTypes = {
+  title: PropTypes.string,
+  selectKey: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+    .isRequired,
+  img: PropTypes.string,
+};
+
+JeSelectCardItem.defaultProps = {
+  title: "",
+  img: null,
 };
 
 export default JeSelectCardItem;
