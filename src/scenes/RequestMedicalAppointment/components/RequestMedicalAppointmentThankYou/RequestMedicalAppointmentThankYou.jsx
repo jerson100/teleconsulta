@@ -9,7 +9,7 @@ const RequestMedicalAppointmentThankYou = () => {
   return (
     <div className="request-medical-appointment-thank-you">
       <JeSpace size="sm" />
-      <Row>
+      <Row gutter={[{}, { sm: 32 }]}>
         <Col flex="0 0 250px">
           <Image src={love} alt="médico" />
         </Col>
