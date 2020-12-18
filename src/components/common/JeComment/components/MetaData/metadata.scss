@@ -1,0 +1,36 @@
+@import "../../../../../scss/utilities/mixins/border";
+.je-comment-metadata {
+  padding: 0.7rem 1rem;
+  border-radius: 25px;
+  background-color: #fff8eb;
+  @include borderCard;
+  border-color: #ffdb9e;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    transform: translate(-50%, calc(16px - 50% + 0.5rem)) rotate(45deg);
+    background-color: inherit;
+    border: inherit;
+    border-right: none;
+    border-top: none;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 0.3rem;
+    .je-type-user {
+      margin: 0;
+      margin-right: 0.5rem;
+    }
+  }
+  &__name {
+    margin-right: 0.5rem;
+  }
+}

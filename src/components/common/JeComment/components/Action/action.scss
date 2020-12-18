@@ -1,0 +1,8 @@
+@import "../../../../../scss/utilities/mixins/list";
+.je-comment-actions {
+  position: relative;
+
+  .simple-list {
+    margin: 0 !important;
+  }
+}

@@ -1,0 +1,50 @@
+.je-comment {
+  padding: 1rem 0.5rem;
+  display: flex;
+  font-size: 14px;
+
+  .je-comment {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &--line {
+    > .je-comment-avatar {
+      position: relative;
+      &::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: calc(32px + 0.5rem);
+        height: calc(100% - 0.5rem);
+        width: 1px;
+        background-color: #ffdb9e;
+      }
+    }
+    .je-comment {
+      // padding-left: 32.5px;
+
+      > .je-comment-avatar {
+        position: relative;
+        &::before {
+          content: "";
+          position: absolute;
+          left: calc(-32px - 0.5rem);
+          top: calc(32px - 0.5rem);
+          height: 1px;
+          width: 32px;
+          background-color: #ffdb9e;
+        }
+        &::after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          top: calc(32px + 1rem);
+          height: calc(100% - 1rem);
+          width: 1px;
+          background-color: #ffdb9e;
+        }
+      }
+    }
+  }
+}

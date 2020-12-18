@@ -1,0 +1,23 @@
+@import "../../../scss/utilities/mixins/border";
+@import "../../../scss/utilities/mixins/center";
+
+.je-type-user {
+  display: inline-flex;
+  align-items: center;
+  @include borderCard;
+  border-color: rgba(0, 0, 0, 0.1);
+  padding: 0.2rem 0.4rem;
+  font-size: 13px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  &__icon {
+    margin-right: 0.3rem;
+    font-size: inherit;
+    @include dr-xy-center;
+    & > svg {
+      width: 16px;
+      height: 16px;
+      fill: rgba(0, 0, 0, 0.7);
+    }
+  }
+}

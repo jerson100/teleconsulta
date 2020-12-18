@@ -1,0 +1,9 @@
+.je-box-action {
+  &__item {
+    cursor: pointer;
+    user-select: none;
+  }
+  &__icon {
+    margin-right: 0.5rem;
+  }
+}

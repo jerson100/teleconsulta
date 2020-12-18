@@ -1,0 +1,9 @@
+@import "../../../../../scss/utilities/mixins/border";
+.je-box-content {
+  @include borderCard;
+  overflow: hidden;
+  min-height: 70px;
+  &--expanded {
+    min-height: 130px;
+  }
+}
