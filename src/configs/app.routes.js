@@ -18,6 +18,8 @@ import ContactPage from "../scenes/ContactPage/ContactPage";
 import MedicalStaff from "../scenes/MedicalStaff/MedicalStaff";
 import DoctorsSpecialty from "../scenes/DoctorsSpecialty/DoctorsSpecialty";
 import DoctorSpecialtyScene from "../scenes/DoctorSpecialtyScene/DoctorSpecialtyScene";
+import Appointment from "../scenes/Appointment";
+import DrawerComment from "../scenes/Appointment/scenes/DrawerComment";
 
 export const AUTHROUTERS = [
   {
@@ -115,6 +117,7 @@ export const PRIVATEROUTERS = [
         exact: true,
         isLogues: true,
         title: "Inicio",
+        isViewMenu: true,
         icon: <HomeOutlined />,
       },
       {
@@ -123,6 +126,7 @@ export const PRIVATEROUTERS = [
         exact: true,
         isLogues: true,
         title: "Historial de citas",
+        isViewMenu: true,
         icon: <HistoryOutlined />,
       },
       {
@@ -131,15 +135,28 @@ export const PRIVATEROUTERS = [
         exact: true,
         isLogues: true,
         title: "Solicitar Cita Médica",
+        isViewMenu: true,
         icon: <ScheduleOutlined />,
       },
       {
-        path: "/dashboard/datinghistory/:idDatingHistory",
-        component: RequestMedicalAppointment,
-        exact: true,
+        path: "/dashboard/datinghistory/:idAppointment",
+        component: Appointment,
+        exact: false,
         isLogues: true,
-        title: "Solicitar Cita Médica",
+        title: "Cita Médica",
+        isViewMenu: false,
         icon: <ScheduleOutlined />,
+        routes: [
+          {
+            path: "/dashboard/datinghistory/:idAppointment/comments",
+            component: DrawerComment,
+            exact: true,
+            isLogues: true,
+            title: "Cita Médica",
+            isViewMenu: false,
+            icon: <ScheduleOutlined />,
+          },
+        ],
       },
     ],
   },

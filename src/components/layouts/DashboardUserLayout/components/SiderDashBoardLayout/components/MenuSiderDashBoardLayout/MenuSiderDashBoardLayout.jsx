@@ -20,11 +20,14 @@ const MenuSiderDashBoardLayout = ({
         onSelect={match1200px ? () => {} : handleDesktop}
         style={{ width: "100%" }}
       >
-        {routes.map((r, i) => (
-          <Menu.Item key={i} icon={r.icon}>
-            <Link to={r.path}>{r.title}</Link>
-          </Menu.Item>
-        ))}
+        {routes.map(
+          (r, i) =>
+            r.isViewMenu && (
+              <Menu.Item key={i} icon={r.icon}>
+                <Link to={r.path}>{r.title}</Link>
+              </Menu.Item>
+            )
+        )}
         <Menu.Item key="logout" icon={<LogoutOutlined />}>
           <Link to="/auth/login">Salir</Link>
         </Menu.Item>

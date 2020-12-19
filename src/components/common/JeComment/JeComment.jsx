@@ -8,6 +8,7 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import "./jeComment.scss";
 import Box from "./components/Box";
+import Loading from "./components/Loading";
 
 const JeComment = ({ children, isLine }) => {
   const className = classnames("je-comment", { "je-comment--line": isLine });
@@ -29,5 +30,6 @@ JeComment.MetaData = MetaData;
 JeComment.Text = Text;
 JeComment.Action = Action;
 JeComment.Box = Box;
+JeComment.Loading = Loading;
 
 export default JeComment;
