@@ -1,6 +1,23 @@
+@import "../../../../../scss/theme/colors";
 .je-comment-box {
   display: flex;
+  padding: 1rem 0.5rem;
   &__box {
     flex: 1 0 0;
+    position: relative;
+    background-color: #fff;
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      width: 12px;
+      height: 12px;
+      transform: translate(-50%, calc(16px - 50% + 0.5rem)) rotate(45deg);
+      background-color: inherit;
+      border: solid 1px $border-color;
+      border-right: none;
+      border-top: none;
+    }
   }
 }

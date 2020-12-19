@@ -133,6 +133,14 @@ export const PRIVATEROUTERS = [
         title: "Solicitar Cita Médica",
         icon: <ScheduleOutlined />,
       },
+      {
+        path: "/dashboard/datinghistory/:idDatingHistory",
+        component: RequestMedicalAppointment,
+        exact: true,
+        isLogues: true,
+        title: "Solicitar Cita Médica",
+        icon: <ScheduleOutlined />,
+      },
     ],
   },
 ];
