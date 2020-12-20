@@ -45,10 +45,14 @@ const Item = ({ text, Icon, handleClick }) => {
 
 Action.propTypes = {
   textButton: Proptypes.string,
+  handlePreview: Proptypes.func,
+  showPreview: Proptypes.bool,
 };
 
 Action.defaultProps = {
   textButton: "Comentar",
+  handlePreview: null,
+  showPreview: false,
 };
 
-export default Action;
+export default React.memo(Action);

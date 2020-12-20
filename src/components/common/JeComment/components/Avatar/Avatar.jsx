@@ -25,4 +25,4 @@ Avatar.defaultProps = {
   alt: "",
 };
 
-export default Avatar;
+export default React.memo(Avatar);

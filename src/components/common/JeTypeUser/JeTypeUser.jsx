@@ -66,4 +66,4 @@ JeTypeUser.defaultProps = {
   typeUser: "us",
 };
 
-export default JeTypeUser;
+export default React.memo(JeTypeUser);

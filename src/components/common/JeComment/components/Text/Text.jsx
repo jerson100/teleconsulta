@@ -5,4 +5,4 @@ const Text = ({ children }) => {
   return <p className="je-comment-text">{children}</p>;
 };
 
-export default Text;
+export default React.memo(Text);

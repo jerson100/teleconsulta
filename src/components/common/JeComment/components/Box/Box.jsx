@@ -4,44 +4,30 @@ import PropTypes from "prop-types";
 import Avatar from "../Avatar";
 import "./box.scss";
 
-const Box = ({ name, img, href, alt, children }) => {
+const Box = ({ name, img, href, children, handleSubmit }) => {
   return (
     <div className="je-comment-box">
-      <Avatar alt="" href="" src="" />
+      <Avatar alt={name} href={href} src={img} />
       <div className="je-comment-box__box">
-        <JeBox
-          handleButton={(e) => {
-            e.preventDefault();
-            console.log("comentando");
-          }}
-        >
-          {children}
-        </JeBox>
+        <JeBox handleSubmit={handleSubmit}>{children}</JeBox>
       </div>
     </div>
   );
 };
 
-// const Avatar = React.memo(({ name, img, href, alt }) => {
-//   return (
-//     <div className="je-comment-box__left">
-//       <JeAvatar
-//         src={
-//           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_d3SP2vKOeGFVESn5rk6xnPiQ0naW2e-ldA&usqp=CAU"
-//         }
-//         alt="alt"
-//         href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_d3SP2vKOeGFVESn5rk6xnPiQ0naW2e-ldA&usqp=CAU"
-//       />
-//     </div>
-//   );
-// });
-
 Box.propTypes = {
   children: PropTypes.string,
+  handleSubmit: PropTypes.func,
+  name: PropTypes.string.isRequired,
+  img: PropTypes.string,
+  href: PropTypes.string,
 };
 
 Box.defaultProps = {
   children: "",
+  handleSubmit: null,
+  img: null,
+  href: "",
 };
 
-export default Box;
+export default React.memo(Box);

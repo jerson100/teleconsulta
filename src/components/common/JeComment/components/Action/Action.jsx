@@ -6,19 +6,28 @@ import "./action.scss";
 import SimpleList from "../../../SimpleList";
 
 const Action = ({
+  id,
   isLike,
   isComment,
   isShare,
   handleLike,
   handleComment,
   handleShare,
+  countLikes,
+  ilike,
 }) => {
   return (
     <div className="je-comment-actions">
       <SimpleList direction="horizontal">
         {isLike && (
           <SimpleList.Item>
-            <LikeOutlined /> <span className="je-comment-actions__text">0</span>
+            <LikeOutlined
+              onClick={() => handleLike(id)}
+              className={`je-comment-actions__like ${
+                ilike ? "je-comment-actions__like--active" : ""
+              }`}
+            />{" "}
+            <span className="je-comment-actions__text">{countLikes}</span>
           </SimpleList.Item>
         )}
         {isComment && (
@@ -39,15 +48,19 @@ Action.propTypes = {
   handleLike: Proptypes.func,
   handleComment: Proptypes.func,
   handleShare: Proptypes.func,
+  countLikes: Proptypes.number,
+  ilike: Proptypes.bool,
 };
 
 Action.defaultProps = {
   isLike: false,
+  ilike: false,
   isComment: false,
   isShare: false,
   handleLike: () => {},
   handleComment: () => {},
   handleShare: () => {},
+  countLikes: 0,
 };
 
-export default Action;
+export default React.memo(Action);

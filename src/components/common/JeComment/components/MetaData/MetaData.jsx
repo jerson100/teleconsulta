@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
-import JeTypeUser from "../../../JeTypeUser";
-import Text from "../Text";
+// import JeTypeUser from "../../../JeTypeUser";
+// import Text from "../Text";
 import "./metadata.scss";
 import JeSpace from "../../../JeSpace";
+import JeTypeUser from "../../../JeTypeUser";
+import Text from "../Text";
 
 const MetaData = ({ name, date, typeUser, text }) => {
   return (
@@ -13,10 +15,10 @@ const MetaData = ({ name, date, typeUser, text }) => {
           <a href="" className="je-comment-metadata__name">
             <b>{name}</b>
           </a>
-          {typeUser}
+          <JeTypeUser isIcon typeUser={typeUser} />
           <time className="je-comment-metadata__time">{date}</time>
         </div>
-        <div className="je-comment-metadata__body">{text}</div>
+        <div className="je-comment-metadata__body">{<Text>{text}</Text>}</div>
       </div>
       <JeSpace />
     </>
@@ -26,8 +28,8 @@ const MetaData = ({ name, date, typeUser, text }) => {
 MetaData.propTypes = {
   name: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
-  typeUser: PropTypes.instanceOf(JeTypeUser).isRequired,
-  text: PropTypes.instanceOf(Text).isRequired,
+  //   typeUser: PropTypes.instanceOf(JeTypeUser).isRequired,
+  //   text: PropTypes.instanceOf(Text).isRequired,
   //   typeUser: PropTypes.oneOf(["adm", "mod", "us"]),
 };
 
@@ -36,4 +38,4 @@ MetaData.defaultProps = {
   children: "",
 };
 
-export default MetaData;
+export default React.memo(MetaData);

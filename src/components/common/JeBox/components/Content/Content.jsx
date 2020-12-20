@@ -6,11 +6,11 @@ import "./content.scss";
 
 const Content = ({
   placeholder,
-  defaultText,
   showPreview,
+  settext,
+  text,
   //   handleSubmit = () => {},
 }) => {
-  const [text, settext] = useState(defaultText);
   const [expanded, setexpanded] = useState(false);
 
   const className = useMemo(() => {
