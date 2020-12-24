@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import classnames from "classnames";
 import "./jeAvatar.scss";
 
-const JeAvatar = ({ src, href, alt, size, className }) => {
+const JeAvatar = ({ src, href, alt, size, className, user }) => {
   const classAvatar = classnames(
     "je-avatar__img",
     `je-avatar__img--size-${size}`,
@@ -23,6 +23,15 @@ const JeAvatar = ({ src, href, alt, size, className }) => {
             className={classAvatar}
           />
         )}
+        {user && (
+          <span
+            className="je-avatar__user"
+            style={{ maxWidth: user.maxWidth && `${user.maxWidth}px` }}
+          >
+            {user.name}
+          </span>
+        )}
+
         {/* <img src={src} alt={alt} className="je-comment-avatar__img" /> */}
       </a>
     </div>
@@ -43,6 +52,10 @@ JeAvatar.propTypes = {
     "xxl",
   ]),
   className: PropTypes.string,
+  user: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    maxWidth: PropTypes.number,
+  }),
 };
 
 JeAvatar.defaultProps = {
@@ -51,6 +64,7 @@ JeAvatar.defaultProps = {
   alt: "",
   size: "sm",
   className: "",
+  user: null,
 };
 
 export default JeAvatar;

@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { Switch } from "react-router-dom";
 import { Layout } from "antd";
-import { MenuUnfoldOutlined, MenuFoldOutlined } from "@ant-design/icons";
 
 import "./dashboardUserLayout.scss";
 import RouteWithSubRoutes from "../../routers/RouteWithSubRoutes";
@@ -10,8 +9,9 @@ import { Route } from "react-router-dom";
 import useMatchMedia from "../../../hooks/useMatchMedia";
 import NotFoundPage from "../../../scenes/NotFoundPage/NotFoundPage";
 import SiderDashBoardLayout from "./components/SiderDashBoardLayout/SiderDashBoardLayout";
+import Header from "./components/Header";
 
-const { Header, Content } = Layout;
+const { Content } = Layout;
 
 const DashboardUserLayout = ({ routes, location }) => {
   const [collapsed, setcollapsed] = useState(true);
@@ -36,7 +36,7 @@ const DashboardUserLayout = ({ routes, location }) => {
           routes={routes}
         />
         <Layout
-          className="site-layout"
+          className="site-layout dashboard-user-layout__content"
           style={{
             transition: "margin-left 200ms",
             minWidth: match1200px ? "initial" : "100%",
@@ -49,18 +49,7 @@ const DashboardUserLayout = ({ routes, location }) => {
               : 200,
           }}
         >
-          <Header
-            className="dashboard-user-layout__header site-layout-background"
-            style={{ padding: 0 }}
-          >
-            {React.createElement(
-              collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-              {
-                className: "trigger",
-                onClick: toggle,
-              }
-            )}
-          </Header>
+          <Header toggle={toggle} collapsed={collapsed} />
           <Content
             className="site-layout-background dashboard-user-layout__main"
             style={{ margin: "24px 16px 0", overflow: "initial", padding: 24 }}

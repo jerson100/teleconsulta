@@ -1,0 +1,17 @@
+@import "../../../../../scss/theme/colors";
+@import "../../../../../scss/utilities/variables";
+.dashboard-user-layout-header {
+  padding: 0 !important;
+  position: sticky;
+  top: 0;
+  background-color: $primary !important;
+  color: $white !important;
+  z-index: $z-fixed;
+  line-height: 1.5 !important;
+  &__content {
+    height: 64px;
+  }
+  &__row {
+    height: 100%;
+  }
+}

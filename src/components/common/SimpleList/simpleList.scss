@@ -8,13 +8,18 @@
     display: inline-block;
   }
   &--dir-horizontal {
+    display: flex;
     .simple-list__item {
+      margin-bottom: 0;
       display: inline-block;
     }
   }
   &--dir-vertical {
     .simple-list__item {
       display: block;
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
   }
 }

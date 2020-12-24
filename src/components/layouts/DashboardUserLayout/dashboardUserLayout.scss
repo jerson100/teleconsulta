@@ -2,7 +2,10 @@
 @import "../../../scss/utilities/variables";
 
 .dashboard-user-layout {
-  overflow: hidden;
+  //   overflow: hidden;
+  &__content {
+    overflow: initial !important;
+  }
   &__avatar {
     text-align: center;
     padding: 1.8rem 1rem;
@@ -30,20 +33,12 @@
     transition: color 0.3s;
   }
 
-  .site-layout .site-layout-background {
-    background: $body-color;
-  }
-
-  &__header {
-    position: fixed;
-    background-color: $primary !important;
-    color: $white !important;
-    width: 100%;
-    z-index: $z-fixed;
-  }
+  //   &__header {
+  //     background: $body-color;
+  //   }
 
   &__main {
-    margin-top: calc(64px) !important;
+    margin-top: 0 !important;
     margin-left: 0 !important;
     margin-right: 0 !important;
     padding: 0 !important;
