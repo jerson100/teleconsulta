@@ -2,19 +2,25 @@ import React from "react";
 import { Avatar } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import PropTypes from "prop-types";
+import classnames from "classnames";
 import "./jeAvatar.scss";
 
-const JeAvatar = ({ src, href, alt, size }) => {
+const JeAvatar = ({ src, href, alt, size, className }) => {
+  const classAvatar = classnames(
+    "je-avatar__img",
+    `je-avatar__img--size-${size}`,
+    className
+  );
   return (
     <div className="je-avatar">
       <a className="je-avatar__content" href={href}>
         {src ? (
-          <Avatar src={src} alt={alt} className="je-avatar__img" />
+          <Avatar src={src} alt={alt} className={classAvatar} />
         ) : (
           <Avatar
             style={{ backgroundColor: "#87d068" }}
             icon={<UserOutlined />}
-            className="je-avatar__img"
+            className={classAvatar}
           />
         )}
         {/* <img src={src} alt={alt} className="je-comment-avatar__img" /> */}
@@ -36,12 +42,15 @@ JeAvatar.propTypes = {
     "xl",
     "xxl",
   ]),
+  className: PropTypes.string,
 };
 
 JeAvatar.defaultProps = {
   src: null,
   href: "",
   alt: "",
+  size: "sm",
+  className: "",
 };
 
 export default JeAvatar;

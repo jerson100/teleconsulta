@@ -1,0 +1,30 @@
+@import "../../../../../../scss/theme/colors";
+.temperature {
+  color: $white;
+  background: #4b6cb7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #182848,
+    #4b6cb7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #182848,
+    #4b6cb7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  border-radius: 5px;
+  padding: 1.5rem 1.5rem;
+  font-size: 16px;
+  &__locale {
+    font-size: 0.8em;
+  }
+  &__title {
+    font-size: 1em;
+    margin-right: 1rem;
+  }
+  &__grade {
+    font-size: 1.8em;
+    font-weight: bold;
+  }
+}

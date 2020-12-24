@@ -1,0 +1,46 @@
+@import "../../../../../../scss/utilities/variables";
+@import "../../../../../../scss/theme/colors";
+.user-common-dashboard-scene-banner {
+  //   background-color: rgb(225, 233, 252);
+  background: #4b6cb7; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #182848,
+    #4b6cb7
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #182848,
+    #4b6cb7
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  padding: 2rem 2rem 3.5rem 2rem;
+  border-radius: 15px;
+  position: relative;
+  &__user {
+    color: $white;
+    font-size: 14px;
+    &-name {
+      text-transform: uppercase;
+      font-size: 18px;
+      margin-left: 0.7rem;
+    }
+  }
+  &__message {
+    color: rgb(159, 192, 240) !important;
+    @media (min-width: $media-xl) {
+      width: 400px;
+    }
+  }
+  &__img {
+    width: 200px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    transform: translateY(50%);
+    @media (min-width: $media-xl) {
+      transform: translateY(-25%);
+      width: 400px;
+    }
+  }
+}

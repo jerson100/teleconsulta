@@ -1,0 +1,6 @@
+@import "../../../../../../scss/utilities/mixins/border";
+.user-common-dashboard-scene-calendar {
+  @include borderCard;
+  background-color: #fff;
+  padding: 1rem;
+}

@@ -1,0 +1,22 @@
+@import "../variables";
+
+@mixin mediaquery($tag) {
+  .#{$tag}--size-sx {
+    max-width: $media-sx;
+  }
+  .#{$tag}--size-sm {
+    max-width: $media-sm;
+  }
+  .#{$tag}--size-md {
+    max-width: $media-md;
+  }
+  .#{$tag}--size-lg {
+    max-width: $media-lg;
+  }
+  .#{$tag}--size-xl {
+    max-width: $media-xl;
+  }
+  .#{$tag}--size-xxl {
+    max-width: $media-xxl;
+  }
+}

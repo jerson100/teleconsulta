@@ -1,6 +1,9 @@
+@import "../../../scss/utilities/mixins/size";
 .je-avatar {
   //   margin-right: 1rem;
   //   margin-bottom: 1rem;
   &__content {
   }
 }
+
+@include sizeWidthHeight(je-avatar__img);

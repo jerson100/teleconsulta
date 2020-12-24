@@ -20,3 +20,30 @@
     height: $size-xxl;
   }
 }
+
+@mixin sizeWidthHeight($tag) {
+  .#{$tag}--size-sx {
+    height: $size-sx !important;
+    width: $size-sx !important;
+  }
+  .#{$tag}--size-sm {
+    height: $size-sm !important;
+    width: $size-sm !important;
+  }
+  .#{$tag}--size-md {
+    height: $size-md !important;
+    width: $size-md !important;
+  }
+  .#{$tag}--size-lg {
+    height: $size-lg !important;
+    width: $size-lg !important;
+  }
+  .#{$tag}--size-xl {
+    height: $size-xl !important;
+    width: $size-xl !important;
+  }
+  .#{$tag}--size-xxl {
+    height: $size-xxl !important;
+    width: $size-xxl !important;
+  }
+}

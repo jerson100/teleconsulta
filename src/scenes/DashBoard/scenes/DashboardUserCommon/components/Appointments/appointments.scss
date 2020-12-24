@@ -1,0 +1,9 @@
+@import "../../../../../../scss/utilities/mixins/border";
+.user-common-dashboard-scene-appointment {
+  //   padding: 2rem 1.5rem;
+  //   @include borderCard;
+  //   background-color: #fff !important;
+  &__button {
+    text-align: right;
+  }
+}

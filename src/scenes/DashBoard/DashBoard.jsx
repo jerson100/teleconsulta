@@ -1,14 +1,15 @@
 import React from "react";
-import { Typography } from "antd";
+// import { Typography } from "antd";
 import { Helmet } from "react-helmet";
-import ListCategory from "./components/ListCategory/ListCategory";
+// import ListCategory from "./components/ListCategory/ListCategory";
 import "./dashboard.scss";
+import DashboardUserCommon from "./scenes/DashboardUserCommon/DashboardUserCommon";
 
-const { Title } = Typography;
+// const { Title } = Typography;
 
 const Home = () => {
-  //   console.log("home");
-  //   console.log(props);
+  //Dependiendo del tipo de usuario que accede al sistema mostrar una o otra vista..
+
   return (
     <>
       <Helmet>
@@ -19,10 +20,12 @@ const Home = () => {
         ></meta>
       </Helmet>
       <div className="dashboard-scene">
-        <Title className="dashboard-scene__title">Últimas Novedades</Title>
+        <DashboardUserCommon />
+
+        {/* <Title className="dashboard-scene__title">Últimas Novedades</Title>
         <div className="dashboard-scene__list-categories">
           <ListCategory />
-        </div>
+        </div> */}
       </div>
     </>
   );
