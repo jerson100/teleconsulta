@@ -18,6 +18,8 @@ const SiderDashBoardLayout = ({
   useEffect(() => {
     const body = document.querySelector("body");
     body.style.overflow = !collapsed && !match1200px ? "hidden" : "";
+    document.documentElement.style.overflow =
+      !collapsed && !match1200px ? "hidden" : "";
     return () => {
       body.style = "";
     };
