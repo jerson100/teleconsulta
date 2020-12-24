@@ -1,9 +1,10 @@
 import React, { useEffect } from "react";
 import { Layout } from "antd";
-import AvatarUser from "../AvatarUser";
 import FullDesktopBg from "../../../../common/FullDesktopBg/FullDesktopBg";
 import useIndexMenuItemLocation from "../../../../../hooks/useIndexMenuItemLocation";
 import MenuSiderDashBoardLayout from "./components/MenuSiderDashBoardLayout/MenuSiderDashBoardLayout";
+import Logo from "../Logo";
+import JeSpace from "../../../../common/JeSpace/JeSpace";
 const { Sider } = Layout;
 
 const SiderDashBoardLayout = ({
@@ -49,12 +50,8 @@ const SiderDashBoardLayout = ({
         collapsed={match1200px && collapsed}
         collapsedWidth={98}
       >
-        <div className="dashboard-user-layout__avatar">
-          <AvatarUser
-            name="Jerson Ramírez Ortiz"
-            size={match1200px && collapsed ? 30 : 100}
-          />
-        </div>
+        <Logo />
+        <JeSpace size="sm" />
         <MenuSiderDashBoardLayout
           selectedIndexMenuItem={selectedIndexMenuItem}
           match1200px={match1200px}
