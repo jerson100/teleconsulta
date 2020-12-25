@@ -5,17 +5,17 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
-import { PUBLICROUTERS } from "../../configs/app.routes";
-import NotFoundPage from "../../scenes/NotFoundPage/NotFoundPage";
+// import { PUBLICROUTERS } from "../../configs/app.routes";
+// import NotFoundPage from "../../scenes/NotFoundPage/NotFoundPage";
 import BackTop from "../common/BackTop";
-import FullScreen from "../common/FullScreen/FullScreen";
+// import FullScreen from "../common/FullScreen/FullScreen";
 // import { PUBLICROUTERS } from "../../configs/app.routes";
 import AuthRouter from "./AuthRouter";
 import PrivateRouter from "./PrivateRouter";
 import PublicRouter from "./PublicRouter";
 // import { PUBLICROUTERS } from "../../configs/app.routes";
 // import PublicRouter from "./PublicRouter";
-import RouteWithSubRoutes from "./RouteWithSubRoutes";
+// import RouteWithSubRoutes from "./RouteWithSubRoutes";
 // import RouteWithSubRoutes from "./RouteWithSubRoutes";
 // import RouteWithSubRoutes from "./RouteWithSubRoutes";
 
