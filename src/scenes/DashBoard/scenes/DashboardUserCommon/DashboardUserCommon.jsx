@@ -16,7 +16,7 @@ const DashboardUserCommon = () => {
         <JeSpace size="sm" />
         <Typography.Title level={1}>Dashboard</Typography.Title>
         <JeSpace size="sm" />
-        <Row gutter={[{ xl: 64 }, { xl: 64 }]}>
+        <Row gutter={[{ xl: 32 }, { xl: 64 }]}>
           <Col xs={{ span: 24 }} xl={{ span: 16 }} xxl={{ span: 17 }}>
             <Banner />
             <JeSpace size="sm" />
