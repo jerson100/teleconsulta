@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import { PUBLICROUTERS } from "../../configs/app.routes";
 import NotFoundPage from "../../scenes/NotFoundPage/NotFoundPage";
+import BackTop from "../common/BackTop";
 import FullScreen from "../common/FullScreen/FullScreen";
 // import { PUBLICROUTERS } from "../../configs/app.routes";
 import AuthRouter from "./AuthRouter";
@@ -33,6 +34,7 @@ const AppRouter = () => {
           <PublicRouter />
         </Route>
       </Switch>
+      <BackTop />
     </Router>
   );
 };

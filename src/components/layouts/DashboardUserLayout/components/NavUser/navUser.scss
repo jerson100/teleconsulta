@@ -1,33 +1,42 @@
+@import "../../../../../scss/utilities/variables";
 .nav-user {
   &__list {
     margin-bottom: 0;
     align-items: center;
-    .simple-list__item {
-      margin-bottom: 0;
-      cursor: pointer;
-      svg {
-        color: rgba(255, 255, 255, 0.794);
-        &:hover {
-          color: #fff;
-        }
-      }
-      sup {
-        box-shadow: none;
-        .ant-scroll-number-only-unit {
-          color: #fff;
-        }
+  }
+
+  &__item {
+    cursor: pointer;
+    margin-bottom: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    @media (min-width: $media-xxl) {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    svg {
+      color: rgba(255, 255, 255, 0.794);
+    }
+    sup {
+      box-shadow: none;
+      .ant-scroll-number-only-unit {
+        color: #fff;
       }
     }
-    // .simple-list__item:nth-child(3) {
-    //   margin-right: 1rem;
-    // }
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.116);
+
+      .je-avatar__user,
+      svg {
+        color: #fff;
+      }
+    }
   }
+
   .je-avatar__user {
     color: rgba(255, 255, 255, 0.794);
-    &:hover {
-      color: #fff;
-    }
   }
+
   &__icon {
     width: 32px;
     height: 32px;
@@ -38,6 +47,7 @@
   &__avatar {
     display: flex;
     align-items: center;
+    font-size: 13px;
   }
   &__icon-bottom {
     margin-left: 0.5rem;

@@ -13,7 +13,6 @@ const Header = ({ toggle, collapsed }) => {
       <Container maxWidth="xxl">
         <div className="dashboard-user-layout-header__content">
           <Row
-            align="middle"
             justify="space-between"
             className="dashboard-user-layout-header__row"
             gutter={[10, 0]}

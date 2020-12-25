@@ -1,0 +1,14 @@
+@import "../../../scss/theme/colors";
+.je-backtop {
+  &__content {
+    min-height: 40px;
+    min-width: 40px;
+    border-radius: 5px;
+    line-height: 40px;
+    border-radius: 4px;
+    background-color: $primary;
+    color: #fff;
+    text-align: center;
+    font-size: 14px;
+  }
+}

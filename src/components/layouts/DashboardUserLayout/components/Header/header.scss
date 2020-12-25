@@ -8,9 +8,13 @@
   color: $white !important;
   z-index: $z-fixed;
   line-height: 1.5 !important;
-  &__content {
-    height: 64px;
+  &__button {
+    // height: 64px;
+    padding-top: 24px;
+    padding-bottom: 24px;
   }
+  //   &__content {
+  //   }
   &__row {
     height: 100%;
   }
