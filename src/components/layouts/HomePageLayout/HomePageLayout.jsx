@@ -17,7 +17,7 @@ const HomePageLayout = ({ routes, location }) => {
       <Layout className="home-page-layout__section">
         <HomePageLayoutHeader routes={routes} location={location} />
         <Content
-          style={{ marginTop: "64px" }}
+          //   style={{ marginTop: "64px" }}
           className="home-page-layout__content"
         >
           <Switch>

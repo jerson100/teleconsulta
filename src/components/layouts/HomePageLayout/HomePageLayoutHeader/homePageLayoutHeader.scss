@@ -2,14 +2,20 @@
 @import "../../../../scss/theme/colors";
 
 .home-page-layout-header {
-  padding: 0 !important;
+  padding: 0;
   position: fixed;
   top: 0;
   width: 100%;
   z-index: $z-menu;
-  &__logo {
-    color: $white;
+  background: $white;
+  line-height: 64px;
+
+  @media (min-width: $media-lg) {
+    // position: absolute;
+    background: transparent;
+    transition: transform 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
   }
+
   &__nav {
     position: relative;
     height: 100%;
@@ -28,21 +34,31 @@
       display: none;
     }
   }
+
+  //  Menu
+
   &__menu {
     position: fixed;
     left: calc(100%);
     height: calc(100vh - 64px);
     width: 200px;
     transition: transform 300ms !important;
+    background-color: $white;
+    border-right: none !important;
     @media (min-width: $media-lg) {
       display: flex;
       flex-direction: row !important;
       width: auto;
       position: static;
       height: auto;
+      background-color: transparent !important;
+    }
+    &--active {
+      transform: translateX(-100%) rotateX(360deg);
     }
   }
-  &__menu--active {
-    transform: translateX(-100%) rotateX(360deg);
+
+  .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+    background-color: transparent;
   }
 }
