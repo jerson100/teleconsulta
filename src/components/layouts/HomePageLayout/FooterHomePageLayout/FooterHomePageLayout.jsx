@@ -19,10 +19,8 @@ const FooterHomePageLayout = () => {
           <div className="home-page-layout-footer__group">
             <Row gutter={[16, 16]}>
               <Col flex="1  0 300px">
-                <p style={{ color: "#fff" }}>Partner with us</p>
-                <p style={{ color: "#fff" }}>
-                  Lorem ipsum dolor sit amet consectetur adipisicin
-                </p>
+                <p>Partner with us</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicin</p>
               </Col>
               <Col flex="0 0 200px">
                 <Button block type="primary">
@@ -31,7 +29,7 @@ const FooterHomePageLayout = () => {
               </Col>
             </Row>
           </div>
-          <Divider style={{ borderTopColor: "#ffffff3d" }} />
+          <Divider />
           <div className="home-page-layout-footer__group">
             <Row gutter={[16, 16]}>
               <Col xs={{ span: 12 }} md={{ span: 12 }} lg={{ span: 5 }}>
@@ -108,7 +106,7 @@ const FooterHomePageLayout = () => {
               </Col>
             </Row>
           </div>
-          <Divider style={{ borderTopColor: "#ffffff3d" }} />
+          <Divider />
           <div className="home-page-layout-footer__group">
             <Row
               gutter={[
@@ -140,11 +138,11 @@ const FooterHomePageLayout = () => {
                     <Link to="/licencias">Mapa del sitio</Link>
                   </SimpleList.Item>
                 </SimpleList>
-                <p style={{ color: "#fff" }}>
+                <p>
                   Todos los precios están en Soles peruanos y excluyen el
                   impuesto a las ventas.
                 </p>
-                <p style={{ color: "#fff" }}>
+                <p>
                   © 2020 teleconsulta . Las marcas registradas y las marcas son
                   propiedad de sus respectivos dueños.
                 </p>
@@ -155,8 +153,8 @@ const FooterHomePageLayout = () => {
                   <TwitterOutlined style={{ fontSize: "28px" }} />
                   <InstagramOutlined style={{ fontSize: "28px" }} />
                 </div>
-                <Divider style={{ borderTopColor: "#ffffff3d" }} />
-                <p style={{ color: "#fff", margin: "0" }}>
+                <Divider />
+                <p style={{ margin: "0" }}>
                   This page is created by{" "}
                   <HeartTwoTone twoToneColor="#eb2f96" />{" "}
                   <a
