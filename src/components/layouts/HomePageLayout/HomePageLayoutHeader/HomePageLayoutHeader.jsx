@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Button, Col, Menu, Row } from "antd";
 import Container from "../../../common/Container/Container";
@@ -12,17 +12,18 @@ import useIndexMenuItemLocation from "../../../../hooks/useIndexMenuItemLocation
 
 const variants = {
   hidden: {
-    x: "100%",
-    background: "transparent",
+    background: "rgba(255,255,255,0)",
+    boxShadow: "0 1px 1px 1px rgba(169, 169,169, 0)",
   },
   visible: {
-    x: "0%",
     background: "#fff",
-    // scale: 1,
+    boxShadow: "0 1px 1px 1pxrgba(169, 169, 169, 0.11)",
+    // transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
   initial: {
-    x: "0%",
-    background: "transparent",
+    background: "rgba(255,255,255,0)",
+    boxShadow: "0 1px 1px 1px rgba(169, 169,169, 0)",
+    // transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
 };
 
@@ -39,99 +40,113 @@ const HomePageLayoutHeader = ({ routes, location }) => {
     const scroll = (e) => {
       if (window.scrollY <= 64) {
         setheaderVariants("initial");
-      } else if (window.scrollY > 200) {
+      } else if (window.scrollY > 400) {
         setheaderVariants("visible");
         // });
       } else {
         setheaderVariants("hidden");
       }
     };
+    scroll();
     window.addEventListener("scroll", scroll);
     return () => {
       window.removeEventListener("scroll", scroll);
     };
   }, []);
 
-  const handleShowMenu = () => {
-    setshowMenu(!showMenu);
-  };
-  const handleDesktopBg = () => {
+  const handleShowMenu = useCallback(() => {
+    setshowMenu((s) => !s);
+  }, []);
+  //   const handleDesktopBg = useCallback(() => {
+  //     setshowMenu(false);
+  //   }, []);
+  const handleSelectMenuItem = useCallback(() => {
     setshowMenu(false);
-  };
-  const handleSelectMenuItem = () => {
-    setshowMenu(false);
-  };
+  }, []);
   return (
-    // <Header
-    //   // style={headerVariants}
-    //   >
     <motion.header
-      // initial={{ x: "100%" }}
-      // animate={{ x: 0 }}
       className={`home-page-layout-header`}
       animate={headerVariants}
       variants={variants}
     >
       <Container>
         <Row>
-          <Col flex="100px">
-            <motion.div
-              initial={{ y: "-100%" }}
-              animate={{ y: 0 }}
-              transition={{ delay: 1.5, type: "spring", stiffness: 500 }}
-              className="home-page-layout-header__logo"
-            >
-              Logo
-            </motion.div>
-          </Col>
-          <Col flex="auto">
-            <div className="home-page-layout-header__nav">
-              <div className="home-page-layout-header__toogle">
-                <Button type="primary" onClick={handleShowMenu}>
-                  <MenuFoldOutlined />
-                </Button>
-              </div>
-              <Menu
-                theme="light"
-                mode="vertical"
-                // defaultSelectedKeys={["0"]}
-                selectedKeys={selectedIndexMenuItem}
-                className={`home-page-layout-header__menu ${
-                  showMenu ? "home-page-layout-header__menu--active" : ""
-                }`}
-                onSelect={handleSelectMenuItem}
-              >
-                {routes.map(
-                  (r, i) =>
-                    r.filter && (
-                      <Menu.Item key={i}>
-                        <Link to={r.path}>{r.title}</Link>
-                      </Menu.Item>
-                    )
-                )}
-                <Menu.Item key="5">
-                  <Button type="danger">
-                    <Link to="/auth/login">Ingresar</Link>
-                  </Button>
-                </Menu.Item>
-                {/* <Menu.Item key="6">
-                  <Button type="danger">
-                    <Link to="/auth/register">Registrarme</Link>
-                  </Button>
-                </Menu.Item> */}
-              </Menu>
-            </div>
-          </Col>
+          <Logo />
+          <Nav
+            handleShowMenu={handleShowMenu}
+            selectedIndexMenuItem={selectedIndexMenuItem}
+            showMenu={showMenu}
+            handleSelectMenuItem={handleSelectMenuItem}
+            routes={routes}
+          />
         </Row>
         <FullDesktopBg
           show={showMenu}
-          handleClick={handleDesktopBg}
+          handleClick={handleSelectMenuItem}
           addOverFlowBody
         />
       </Container>
     </motion.header>
-    // </Header>
   );
 };
 
+const Logo = React.memo(() => {
+  return (
+    <Col flex="100px">
+      <motion.div
+        initial={{ y: "-100%" }}
+        animate={{ y: 0 }}
+        transition={{ delay: 1.5, type: "spring", stiffness: 500 }}
+        className="home-page-layout-header__logo"
+      >
+        Logo
+      </motion.div>
+    </Col>
+  );
+});
+
+const Nav = React.memo(
+  ({
+    handleShowMenu,
+    selectedIndexMenuItem,
+    showMenu,
+    handleSelectMenuItem,
+    routes,
+  }) => {
+    return (
+      <Col flex="auto">
+        <div className="home-page-layout-header__nav">
+          <div className="home-page-layout-header__toogle">
+            <Button type="primary" onClick={handleShowMenu}>
+              <MenuFoldOutlined />
+            </Button>
+          </div>
+          <Menu
+            theme="light"
+            mode="vertical"
+            selectedKeys={selectedIndexMenuItem}
+            className={`home-page-layout-header__menu ${
+              showMenu ? "home-page-layout-header__menu--active" : ""
+            }`}
+            onSelect={handleSelectMenuItem}
+          >
+            {routes.map(
+              (r, i) =>
+                r.filter && (
+                  <Menu.Item key={i}>
+                    <Link to={r.path}>{r.title}</Link>
+                  </Menu.Item>
+                )
+            )}
+            <Menu.Item key="5">
+              <Button type="danger">
+                <Link to="/auth/login">Ingresar</Link>
+              </Button>
+            </Menu.Item>
+          </Menu>
+        </div>
+      </Col>
+    );
+  }
+);
 export default HomePageLayoutHeader;
