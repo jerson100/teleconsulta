@@ -11,18 +11,16 @@ import useIndexMenuItemLocation from "../../../../hooks/useIndexMenuItemLocation
 // const { Header } = Layout;
 
 const variants = {
-  hidden: {
-    background: "rgba(255,255,255,0)",
-    boxShadow: "0 1px 1px 1px rgba(169, 169,169, 0)",
-  },
   visible: {
     background: "#fff",
     boxShadow: "0 1px 1px 1pxrgba(169, 169, 169, 0.11)",
+    height: "60px",
     // transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
   initial: {
     background: "rgba(255,255,255,0)",
     boxShadow: "0 1px 1px 1px rgba(169, 169,169, 0)",
+    height: "90px",
     // transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
 };
@@ -38,13 +36,12 @@ const HomePageLayoutHeader = ({ routes, location }) => {
 
   useEffect(() => {
     const scroll = (e) => {
-      if (window.scrollY <= 64) {
-        setheaderVariants("initial");
-      } else if (window.scrollY > 400) {
+      if (window.scrollY > 200) {
         setheaderVariants("visible");
         // });
       } else {
-        setheaderVariants("hidden");
+        setheaderVariants("initial");
+        // setheaderVariants("hidden");
       }
     };
     scroll();
@@ -57,12 +54,11 @@ const HomePageLayoutHeader = ({ routes, location }) => {
   const handleShowMenu = useCallback(() => {
     setshowMenu((s) => !s);
   }, []);
-  //   const handleDesktopBg = useCallback(() => {
-  //     setshowMenu(false);
-  //   }, []);
+
   const handleSelectMenuItem = useCallback(() => {
     setshowMenu(false);
   }, []);
+
   return (
     <motion.header
       className={`home-page-layout-header`}

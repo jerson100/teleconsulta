@@ -8,7 +8,8 @@
   width: 100%;
   z-index: $z-menu;
   background: $white;
-  line-height: 64px;
+  display: flex;
+  align-items: center;
   @media (min-width: $media-lg) {
     background: transparent;
     transition: transform 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -54,6 +55,10 @@
     &--active {
       transform: translateX(-100%) rotateX(360deg);
     }
+  }
+
+  &__logo {
+    line-height: 60px;
   }
 
   .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
