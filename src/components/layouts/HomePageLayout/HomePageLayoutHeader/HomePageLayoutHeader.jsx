@@ -20,7 +20,7 @@ const variants = {
   initial: {
     background: "rgba(255,255,255,0)",
     boxShadow: "0 1px 1px 1px rgba(169, 169,169, 0)",
-    height: "90px",
+    height: "100px",
     // transition: { staggerChildren: 0.1, delayChildren: 0.1 },
   },
 };
@@ -36,7 +36,7 @@ const HomePageLayoutHeader = ({ routes, location }) => {
 
   useEffect(() => {
     const scroll = (e) => {
-      if (window.scrollY > 200) {
+      if (window.scrollY > 100) {
         setheaderVariants("visible");
         // });
       } else {
