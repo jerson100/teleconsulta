@@ -25,8 +25,10 @@
     padding: 1rem 0;
   }
   &__img-container {
+    z-index: 2;
+    position: relative;
     @media (min-width: $media-lg) {
-      margin-top: -15rem;
+      margin-top: -20rem;
       position: relative;
     }
   }

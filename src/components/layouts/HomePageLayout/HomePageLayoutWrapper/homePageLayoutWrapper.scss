@@ -4,28 +4,66 @@
 .home-page-layout-wrapper {
   display: flex;
   flex-direction: column;
-  //   background-color: #fff;
   &__title {
     // background-color: lighten($color: $primary, $amount: 60);
-
-    background-image: url("https://images.unsplash.com/photo-1556139943-4bdca53adf1e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1980&q=1200");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    // padding-bottom: 5rem;
     @include dc-xy-center;
-    height: 400px;
+    height: 300px;
     // border: solid 1px tomato;
     margin-bottom: 2rem;
-    // @media (min-width: $media-xl) {
-    //   height: 400px;
-    // }
+    @media (min-width: $media-xl) {
+      height: 400px;
+    }
+    position: relative;
+    &-bg {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      //   background-size: cover;
+      background-image: linear-gradient(
+        to bottom,
+        transparent,
+        #eeeded 0%,
+        #eeeded 47%,
+        transparent
+      );
+      //   background: linear-gradient(
+      //     to bottom,
+      //     rgb(209, 213, 255) 0%,
+      //     #efd5ff 30%,
+      //     transparent
+      //   );
+      // background-image: url("https://images.unsplash.com/photo-1604604178488-03a6e925991e?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80");
+      //   background-position: bottom;
+      //   background-color: #b4caf6;
+      z-index: 2;
+      //   filter: blur(10px);
+      //   transform: scale(1.1);
+    }
+    &-page {
+      // font-size: 40px;
+      color: $primary !important;
+      // font-weight: bold;
+      text-align: center;
+      z-index: 3;
+      position: relative;
+    }
+    &-svg {
+      position: absolute;
+      top: calc(100% - 200px);
+      left: 0;
+      fill: #eeeded;
+      height: 200px;
+      width: 100%;
+      z-index: 1;
+      background-size: cover;
+    }
   }
-  &__title-page {
-    // font-size: 40px;
-    color: $primary !important;
-    // font-weight: bold;
-    text-align: center;
-  }
+
   &__content {
     flex-grow: 1;
   }
