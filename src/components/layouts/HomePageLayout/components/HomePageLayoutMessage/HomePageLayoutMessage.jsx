@@ -10,22 +10,28 @@ const { Title } = Typography;
 const titleVariants = {
   hidden: {
     opacity: 0,
-    x: "-100px",
+    x: "-300px",
   },
   visible: {
     x: 0,
     opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
   },
 };
 
 const subtitleVariants = {
   hidden: {
     opacity: 0,
-    x: "100px",
+    x: "300px",
   },
   visible: {
     x: 0,
     opacity: 1,
+    transition: {
+      duration: 0.3,
+    },
   },
 };
 
