@@ -29,6 +29,7 @@
     "react-scripts": "4.0.0",
     "react-sticky": "^6.0.3",
     "react-stickynode": "^3.0.4",
+    "typing-effect-reactjs": "^1.4.1",
     "uuid": "^8.3.2",
     "web-vitals": "^0.2.4"
   },

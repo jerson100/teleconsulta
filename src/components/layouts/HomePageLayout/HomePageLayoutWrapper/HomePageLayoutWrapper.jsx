@@ -1,6 +1,7 @@
 import React from "react";
 import Container from "../../../common/Container";
 import { Typography } from "antd";
+import { Typing } from "typing-effect-reactjs";
 import "./homePageLayoutWrapper.scss";
 
 const { Title } = Typography;
@@ -13,7 +14,7 @@ const HomePageLayoutWrapper = ({ title, children }) => {
         <div className="home-page-layout-wrapper__title">
           <Container>
             <Title className="home-page-layout-wrapper__title-page">
-              {title}
+              <Typing text={title} element="h1" typeSpeed={80} />
             </Title>
           </Container>
           <div className="home-page-layout-wrapper__title-bg"></div>
