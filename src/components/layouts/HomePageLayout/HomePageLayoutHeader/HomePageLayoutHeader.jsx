@@ -61,7 +61,9 @@ const HomePageLayoutHeader = ({ routes, location }) => {
 
   return (
     <motion.header
-      className={`home-page-layout-header`}
+      className={`home-page-layout-header ${
+        headerVariants === "visible" ? "home-page-layout-header--active" : ""
+      }`}
       animate={headerVariants}
       variants={variants}
     >

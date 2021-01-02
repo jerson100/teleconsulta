@@ -10,6 +10,9 @@
   background: $white;
   display: flex;
   align-items: center;
+  &--active {
+    border-bottom: solid 1px $border-color;
+  }
   @media (min-width: $media-lg) {
     background: transparent;
     transition: transform 300ms cubic-bezier(0.165, 0.84, 0.44, 1);
