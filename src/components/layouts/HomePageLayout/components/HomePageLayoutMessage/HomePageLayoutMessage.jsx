@@ -33,12 +33,12 @@ const HomePageLayoutMessage = () => {
   const messageRef = useRef(null);
   const [animationTitle, setAnimationTitle] = useState("hidden");
   const titleIntersection = useIntersection(messageRef, {
-    threshold: 0.1,
-    rootMargin: "-200px",
+    threshold: 0.5,
+    rootMargin: "0px",
     root: null,
   });
   useEffect(() => {
-    console.log(titleIntersection);
+    // console.log(titleIntersection);
     if (titleIntersection?.isIntersecting) {
       setAnimationTitle("visible");
     } else {
