@@ -45,8 +45,8 @@
     height: calc(100vh - 64px);
     width: 200px;
     transition: transform 300ms !important;
-    background-color: $white;
     border-right: none !important;
+
     @media (min-width: $media-lg) {
       display: flex;
       flex-direction: row !important;
@@ -55,8 +55,9 @@
       height: auto;
       background-color: transparent !important;
     }
+
     &--active {
-      transform: translateX(-100%) rotateX(360deg);
+      transform: translateX(-100%) rotateX(0);
     }
   }
 
